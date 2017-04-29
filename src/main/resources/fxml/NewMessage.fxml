@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.*?>
+<?import de.jensd.fx.glyphs.materialicons.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.*?>
+<?import de.jensd.fx.glyphs.octicons.*?>
+<?import de.jensd.fx.glyphs.weathericons.*?>
+<?import jfxtras.scene.control.*?>
+<?import jfxtras.scene.control.agenda.*?>
+<?import org.controlsfx.glyphfont.*?>
+<?import impl.org.controlsfx.autocompletion.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+<?import Doctor.*?>
+
+<fx:root id="anchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="433.0" prefWidth="570.0" stylesheets="@../styles/popup.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">        
+    <children>
+      <GridPane layoutX="129.0" layoutY="158.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="450.0" minWidth="450.0" prefWidth="450.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="280.0" minHeight="280.0" prefHeight="280.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button id="transparentButton2" fx:id="saveSuccess" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#saveSuccessExit" stylesheets="@../styles/box.css" GridPane.columnSpan="3" GridPane.rowSpan="3" />
+            <Label id="box" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/popup.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="70.0" prefWidth="70.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="115.0" minHeight="115.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label maxWidth="80.0" text="Receiver" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxWidth="80.0" text="Subject" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxWidth="80.0" text="Message" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextArea id="inputText5" fx:id="messagetxt" prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" right="20.0" top="5.0" />
+                     </GridPane.margin>
+                  </TextArea>
+                  <TextField id="inputText5" fx:id="subjecttxt" maxHeight="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField id="inputLabel01" fx:id="receivertxt" maxHeight="30.0" onKeyReleased="#getName" onMousePressed="#getName" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="190.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Button id="dark-blue" fx:id="clearButton" maxHeight="30.0" maxWidth="40.0" mnemonicParsing="false" onAction="#clear" stylesheets="@../styles/buttons.css" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="230.0" />
+                     </GridPane.margin>
+                     <graphic>  
+                                    
+                        <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="ERASER" textFill="#eee" />
+
+                    </graphic>
+                  </Button>
+                  <Button id="dark-blue" fx:id="sendButton" maxHeight="30.0" maxWidth="60.0" mnemonicParsing="false" onAction="#send" stylesheets="@../styles/buttons.css" text="Send" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="280.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Label fx:id="close" alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="30.0" maxWidth="1.7976931348623157E308" onMouseClicked="#closeEditor" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="320.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <graphic>
+                                             
+                         <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="TIMES_CIRCLE" textFill="#333" />
+
+                    </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <TextField id="inputLabel11" fx:id="userid" editable="false" maxHeight="30.0" maxWidth="80.0" promptText="User ID" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="170.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField id="inputText2" fx:id="type" editable="false" maxHeight="30.0" maxWidth="90.0" promptText="User Type" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="250.0" right="20.0" />
+                     </GridPane.margin>
+                  </TextField>        
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</fx:root>

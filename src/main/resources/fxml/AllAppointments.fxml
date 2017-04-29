@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.*?>
+<?import de.jensd.fx.glyphs.materialicons.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.*?>
+<?import de.jensd.fx.glyphs.octicons.*?>
+<?import de.jensd.fx.glyphs.weathericons.*?>
+<?import jfxtras.scene.control.*?>
+<?import jfxtras.scene.control.agenda.*?>
+<?import org.controlsfx.glyphfont.*?>
+<?import impl.org.controlsfx.autocompletion.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+<?import Doctor.*?>
+
+<fx:root id="anchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="433.0" prefWidth="570.0" stylesheets="@../styles/popup.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">        
+    <children>
+      <GridPane layoutX="129.0" layoutY="158.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="550.0" minWidth="550.0" prefWidth="550.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="340.0" minHeight="340.0" prefHeight="340.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button id="transparentButton2" fx:id="saveSuccess" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#saveSuccessExit" stylesheets="@../styles/box.css" GridPane.columnSpan="3" GridPane.rowSpan="3" />
+            <Label id="box" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/popup.css" text="Search Appointmnts" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="70.0" prefWidth="70.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="15.0" minHeight="15.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button id="dark-blue" fx:id="clearButton" maxHeight="30.0" maxWidth="40.0" mnemonicParsing="false" onAction="#clear" stylesheets="@../styles/buttons.css" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets left="490.0" />
+                     </GridPane.margin>
+                     <graphic>  
+                                    
+                        <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="ERASER" textFill="#eee" />
+
+                    </graphic>
+                  </Button>
+                  <Label fx:id="close" alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="30.0" maxWidth="1.7976931348623157E308" onMouseClicked="#closeEditor">
+                     <GridPane.margin>
+                        <Insets left="320.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <graphic>
+                                             
+                         <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="TIMES_CIRCLE" textFill="#333" />
+
+                    </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                     <graphic>
+                                             
+                         <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="CALENDAR" textFill="#333" />
+
+                    </graphic>
+                  </Label>
+                  <ComboBox id="inputLabel11" fx:id="searchAppointmentCombo" maxHeight="30.0" maxWidth="180.0" onAction="#bindSuggestions" prefHeight="30.0" prefWidth="180.0" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="50.0" />
+                     </GridPane.margin>
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Doctor" />
+                            <String fx:value="Patient ID" />
+                            <String fx:value="Appointment ID" />
+                        </FXCollections>
+                      </items>
+                  </ComboBox>
+                  <TextField id="inputText1" fx:id="searchValue" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="230.0" right="70.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Button id="dark-blue" fx:id="searchButton" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" mnemonicParsing="false" onAction="#search" stylesheets="@../styles/buttons.css" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="495.0" />
+                     </GridPane.margin>
+                     <graphic>
+                                             
+                         <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="SEARCH" textFill="#eee" />
+
+                    </graphic>
+                  </Button>
+                  <GridPane GridPane.rowIndex="3">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ListView fx:id="list2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" />
+                        <ListView fx:id="list1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                           <GridPane.margin>
+                              <Insets left="20.0" />
+                           </GridPane.margin>
+                        </ListView>
+                        <ListView fx:id="list3" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </ListView>
+                     </children>
+                  </GridPane>        
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</fx:root>

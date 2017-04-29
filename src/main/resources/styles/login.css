@@ -1,0 +1,29 @@
+#background{
+    
+    -fx-background-color: #333333;
+}
+
+#loginBox{
+    
+    -fx-background-color: #eeeeee;
+    -fx-border-radius: 5;
+    -fx-background-insets: 2, 1, 2, 2;
+    -fx-border-color: #eee;
+    -fx-border-width: 3 3 3 3; 
+}
+
+#borderTop{
+    -fx-background-color: #333333;
+    -fx-border-radius: 5;
+    -fx-background-insets: 2, 1, 2, 2;
+    -fx-border-color: #eee;
+    -fx-border-width: 3 0 0 3; 
+}
+
+#borderBottom{
+    -fx-background-color: #333333;
+    -fx-border-radius: 5;
+    -fx-background-insets: 2, 1, 2, 2;
+    -fx-border-color: #eee;
+    -fx-border-width: 0 3 3 0; 
+}

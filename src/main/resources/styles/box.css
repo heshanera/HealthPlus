@@ -1,0 +1,373 @@
+#box{
+	-fx-background-color: #eee;
+        -fx-border-radius: 2;
+        -fx-background-insets: 0, 1, 2;
+        /*-fx-background-radius: 3 3 3 3, 3 3 3 3, 3 3 3 3;*/
+        -fx-text-fill: #333;
+        -fx-padding: 5 5 5 5;
+        -fx-border-color: #999;
+        /*-fx-background-color: linear-gradient(#0798bc 25%, #ffffff 50%, #0798bc 25%);*/
+}
+
+#box2{
+	-fx-background-color: #eee;
+        -fx-border-radius: 2;
+        -fx-background-insets: 0, 1, 2;
+        /*-fx-background-radius: 3 3 3 3, 3 3 3 3, 3 3 3 3;*/
+        -fx-text-fill: #333;
+        -fx-padding: 5 40 5 5;
+        -fx-border-color: #999;
+        /*-fx-background-color: linear-gradient(#0798bc 25%, #ffffff 50%, #0798bc 25%);*/
+}
+
+#profileBox{
+	-fx-background-color: #eee;
+        -fx-border-radius: 0 0 0 2;
+        -fx-background-insets: 0, 1, 2;
+        /*-fx-background-radius: 3 3 3 3, 3 3 3 3, 3 3 3 3;*/
+        -fx-text-fill: #333;
+        -fx-padding: 5 5 5 5;
+        /*-fx-background-color: linear-gradient(#0798bc 25%, #ffffff 50%, #0798bc 25%);*/
+        -fx-border-width: 1 0 1 1; 
+        -fx-border-color: #999 #999 #999 #999 ;
+}
+
+#textBorder{
+    -fx-text-box-border: #aaa ;
+    -fx-focus-color: #0798bc;
+    -fx-font-weight:normal;
+    
+}
+
+#logout{
+    -fx-background-color: linear-gradient(#ff5400, #be1d00);
+    -fx-background-radius: 5;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+}
+
+
+
+#iconButton{
+    -fx-background-color: linear-gradient(#ffffff, dddddd);
+    -fx-background-radius: 5;
+    -fx-background-insets: 0;
+}
+
+#inputLabel0{
+    -fx-background-color: #eee;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3 0 0 3;
+    -fx-border-width: 1 0 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+    -fx-padding:0 0 0 0;
+    
+}
+
+#inputLabel01{
+    -fx-background-color: #F5F5F5;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3 0 0 3;
+    -fx-border-width: 1 0 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+    -fx-padding:0 0 0 0;
+    
+}
+
+#inputLabel1{
+    -fx-background-color: #eee;
+    -fx-background-radius: 3;
+    -fx-border-radius: 0 0 0 0;
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+    -fx-padding:0 0 0 5;
+    
+}
+
+#inputLabel11{
+    -fx-background-color: #F5F5F5;
+    -fx-background-radius: 3;
+    -fx-border-radius: 0 0 0 0;
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+    -fx-padding:0 0 0 5;
+    
+}
+
+#inputLabel2{
+    -fx-background-color: #F5F5F5;
+    -fx-background-radius: 3;
+    -fx-border-radius: 0 0 0 0;
+    -fx-border-width: 1 0 1 0; 
+    -fx-border-color: #999 #999 #999 #999 ;
+    -fx-padding:0 0 0 5;
+    
+}
+
+#inputLabel3{
+    -fx-background-color: #F5F5F5;
+    -fx-background-radius: 3;
+    -fx-border-radius: 0 0 0 0;
+    -fx-border-width: 1 1 1 0; 
+    -fx-border-color: #999 #999 #999 #999 ;
+    -fx-padding:0 0 0 3;
+    
+}
+
+#inputText1{
+    -fx-background-color: #F5F5F5;
+    -fx-border-radius: 0 3 3 0;
+    -fx-border-width: 1 1 1 0; 
+    -fx-border-color: #999 #999 #999 #999 ;
+}
+
+#inputText1:focused{
+    -fx-border-width: 1 1 1 0; 
+    -fx-border-color: #0798bc ;
+}
+
+#inputText2{
+    -fx-background-color: #F5F5F5;
+    -fx-border-radius: 0 3 3 0;
+    -fx-border-width: 1 1 1 0; 
+    -fx-border-color: #999 #999 #999 #999 ;
+}
+
+#inputText3{
+    -fx-background-color: #F5F5F5;
+    -fx-border-radius: 0 3 3 0;
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+}
+
+#inputText5{
+    -fx-background-color: #F5F5F5;
+    -fx-border-radius: 3 3 3 3;
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+}
+
+#inputText2:focused{
+    -fx-border-width: 1 1 1 0; 
+    -fx-border-color: #0798bc ;
+}
+
+#transparentButton{
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 0 0; 
+    -fx-text-fill: #aaa;
+    -fx-padding: 10 10 30 20;
+    -fx-border-color: #888;
+}
+
+#transparentButton2{
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 0 0; 
+    -fx-text-fill: #aaa;
+    -fx-border-color: #888;
+}
+
+#transparentButton:hover{ 
+    -fx-text-fill: #000;
+}
+
+#dashboardButton{
+    -fx-background-color: #eee;
+        -fx-border-radius: 2;
+        -fx-background-insets: 0, 1, 2;
+        /*-fx-background-radius: 3 3 3 3, 3 3 3 3, 3 3 3 3;*/
+        -fx-text-fill: #333;
+        -fx-padding: 5 20 5 5;
+        -fx-border-color: #999;
+        /*-fx-background-color: linear-gradient(#0798bc 25%, #ffffff 50%, #0798bc 25%);*/
+
+    
+    /*
+    -fx-background-color: 
+        #000000,
+        linear-gradient(#777, #222),
+        linear-gradient(#444, #222),
+        linear-gradient(#333, #222);
+    -fx-text-fill: #ccc;
+    -fx-padding: 5 40 5 5;
+    -fx-border-radius: 2;
+    -fx-background-insets: 0, 1, 2;
+    */
+}
+
+#labelBox{
+    -fx-background-color: #F5F5F5;
+    -fx-border-radius: 3 3 3 3;
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+    -fx-padding:5 5 5 5;
+}
+
+#previewBox{
+    -fx-background-color: #F5F5F5;
+    -fx-border-radius: 3 3 3 3;
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+}
+
+#transparentButton2{
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 0 0; 
+    -fx-border-color: transparent;
+}
+
+#saveSuccess{
+    -fx-text-fill: #fff;
+}
+
+#inputText4{
+    -fx-background-color: transparent;
+    -fx-background-insets: 0, 0, 0;
+    -fx-border-color: transparent;
+}
+
+#comboBox{
+    -fx-background-color: #F5F5F5;
+    -fx-border-radius: 0 3 3 0;
+    -fx-border-width: 1 1 1 0; 
+    -fx-border-color: #999 #999 #999 #999 ;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-padding: 0;
+    
+}
+
+#comboBox2{
+    -fx-background-color: #F5F5F5;
+    -fx-border-radius: 3 3 3 3;
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-padding: 0;
+    
+}
+
+#defaultTable{
+    -fx-focus-color: #0093ff;
+    -fx-faint-focus-color:#0093ff;
+}
+
+#iconBox1{
+    -fx-border-width: 0 0 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+}
+
+#iconBox2{
+    -fx-border-width: 1 1 0 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+}
+
+#iconBox3{
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+}
+
+#iconBox4{
+    -fx-border-width: 1 0 0 1; 
+    -fx-border-color: #999 #999 #999 #999 ;
+}
+
+#iconCircle2{
+    -fx-background-radius:50%;
+    -fx-background-color:#80c800;
+}
+
+#iconBox1:hover > #searchIco{
+    -fx-background-color:#333;
+    -fx-text-fill: white !important;
+    -fx-cursor: hand;
+}
+
+#iconBox1:hover{
+    -fx-background-color:#333;
+    -fx-text-fill: white !important;
+    -fx-cursor: hand;
+}
+
+#iconBox2:hover > #messageIco{
+    -fx-background-color:#333;
+    -fx-text-fill: white !important;
+    -fx-cursor: hand;
+}
+
+#iconBox2:hover{
+    -fx-background-color:#333;
+    -fx-text-fill: white !important;
+    -fx-cursor: hand;
+}
+
+#iconBox3:hover > #userIco{
+    -fx-background-color:#333;
+    -fx-text-fill: white !important;
+    -fx-cursor: hand;
+}
+
+#iconBox3:hover > #messageIco{
+    -fx-background-color:#333;
+    -fx-text-fill: white !important;
+    -fx-cursor: hand;
+}
+
+#iconBox3:hover{
+    -fx-background-color:#333;
+    -fx-text-fill: white !important;
+    -fx-cursor: hand;
+}
+
+#noticeBox {
+    -fx-color:#555;
+    -fx-border-radius:10px;
+    -fx-margin:10px;
+    -fx-background-color:rgba(227,247,252,0.5);
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color:#8ed9f6;
+}
+
+#errorBox{
+    -fx-color:#555;
+    -fx-border-radius:10px;
+    -fx-margin:10px;
+    -fx-background-color:rgba(255,236,236,0.5);
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color:#f5aca6;
+}
+
+#profileGridInfo{
+    -fx-background-color:#F5F5F5;
+}
+
+
+#imageBorder{
+    -fx-border-width: 1 1 1 1; 
+    -fx-border-color: #333 #333 #333 #333 ;
+    -fx-background-insets: 0,1,2,0;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+
+/*
+
+#iconBox1:hover > #searchIco{
+    -fx-background-color:#0093ff;
+    -fx-text-fill: white !important;
+}
+
+#iconBox1:hover{
+    -fx-background-color:#0093ff;
+    -fx-text-fill: white !important;
+}
+
+#iconBox2:hover > #messageIco{
+    -fx-background-color:#ffa812;
+    -fx-text-fill: white !important;
+}
+
+#iconBox2:hover{
+    -fx-background-color:#ffa812;
+    -fx-text-fill: white !important;
+}
+*/

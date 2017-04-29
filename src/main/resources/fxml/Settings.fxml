@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.*?>
+<?import de.jensd.fx.glyphs.materialicons.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.*?>
+<?import de.jensd.fx.glyphs.octicons.*?>
+<?import de.jensd.fx.glyphs.weathericons.*?>
+<?import jfxtras.scene.control.*?>
+<?import jfxtras.scene.control.agenda.*?>
+<?import org.controlsfx.glyphfont.*?>
+<?import impl.org.controlsfx.autocompletion.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+<?import Pharmacist.*?>
+
+<fx:root id="anchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="900.0" stylesheets="@../styles/popup.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">   <children>
+      <Label layoutX="145.0" layoutY="251.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <GridPane layoutX="129.0" layoutY="158.0" stylesheets="@../styles/accordian.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="500.0" minWidth="500.0" prefWidth="500.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="20.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="400.0" minHeight="-Infinity" prefHeight="400.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="20.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label id="box" fx:id="tableHeader" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/popup.css" text="Settings" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="-Infinity" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button id="transparentButton" fx:id="closeAccounts" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#closeViewAccounts" stylesheets="@../styles/box.css" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="40.0" />
+                     </GridPane.margin>
+                     <graphic>
+                                             
+                         <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="TIMES_CIRCLE" textFill="#303641" />
+
+                    </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <GridPane GridPane.columnSpan="2" GridPane.rowIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="160.0" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button id="dark-blue" maxHeight="40.0" maxWidth="150.0" mnemonicParsing="false" onAction="#restart" stylesheets="@../styles/buttons.css" text="Apply And Restart" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                    <tabs>
+                      <Tab text="Database">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <Label id="inputLabel11" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" stylesheets="@../styles/box.css" text="Connection" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="40.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="2">
+                                             <graphic>
+                                                <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="COG" textFill="#333" />
+                                             </graphic>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField id="inputText2" fx:id="connectionlbl" editable="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="130.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <Label id="inputLabel11" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" stylesheets="@../styles/box.css" text="Username" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets left="40.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="4">
+                                             <graphic>
+                                                <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="USER" textFill="#333" />
+                                             </graphic>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField id="inputText2" fx:id="dbUsernamelbl" editable="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="4">
+                                             <GridPane.margin>
+                                                <Insets left="130.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <Label id="inputLabel11" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" stylesheets="@../styles/box.css" text="Password" GridPane.rowIndex="5">
+                                             <GridPane.margin>
+                                                <Insets left="40.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="5">
+                                             <graphic>
+                                                <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="LOCK" textFill="#333" />
+                                             </graphic>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <PasswordField id="inputText2" fx:id="dbPasswordlbl" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="5">
+                                             <GridPane.margin>
+                                                <Insets left="130.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </PasswordField>
+                                          <TextField id="inputText2" fx:id="databaselbl" editable="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="130.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                                             <graphic>
+                                                <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="DATABASE" textFill="#333" />
+                                             </graphic>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label id="inputLabel11" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" stylesheets="@../styles/box.css" text="Database" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="40.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <TextField id="inputText2" fx:id="dbDriver" editable="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="130.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </TextField>
+                                          <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="3">
+                                             <graphic>
+                                                <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="USER" textFill="#333" />
+                                             </graphic>
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label id="inputLabel11" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" stylesheets="@../styles/box.css" text="Driver Class" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="40.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Button id="dark-blue" fx:id="backup" contentDisplay="CENTER" maxHeight="30.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#makeBackup" stylesheets="@../styles/buttons.css" text="Backup" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="5.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <Button id="dark-blue" maxHeight="30.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#checkConnection" stylesheets="@../styles/buttons.css" text="Check" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="5.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <Button id="dark-blue" fx:id="editDatabaseInfoButton" maxHeight="30.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#editDatabaseInfo" stylesheets="@../styles/buttons.css" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="5.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints maxHeight="40.0" minHeight="20.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                          <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children></AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </TabPane>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</fx:root>

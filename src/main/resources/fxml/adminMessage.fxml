@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+
+<fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="249.0" prefWidth="287.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label id="inputLabel01" alignment="CENTER" layoutX="37.0" layoutY="30.0" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="40.0">
+        <graphic>
+                                            
+             <FontAwesomeIconView glyphName="USER" glyphStyle="" size="13px" textAlignment="CENTER" />
+
+         </graphic>
+      </Label>    
+      <TextField id="inputText3" fx:id="receiver" layoutX="50.0" layoutY="28.0" maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" stylesheets="@../styles/box.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="40.0" />
+      <TextArea id="inputText5" fx:id="message" layoutX="14.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/box.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="80.0" />
+      <Label alignment="CENTER" layoutX="60.0" layoutY="14.0" maxHeight="40.0" minHeight="40.0" text="Message" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>

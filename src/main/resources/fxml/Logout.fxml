@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.*?>
+<?import de.jensd.fx.glyphs.materialicons.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.*?>
+<?import de.jensd.fx.glyphs.octicons.*?>
+<?import de.jensd.fx.glyphs.weathericons.*?>
+<?import jfxtras.scene.control.*?>
+<?import jfxtras.scene.control.agenda.*?>
+<?import org.controlsfx.glyphfont.*?>
+<?import impl.org.controlsfx.autocompletion.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+<?import Doctor.*?>
+
+<fx:root id="anchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="433.0" prefWidth="570.0" stylesheets="@../styles/popup.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">        
+    <children>
+      <GridPane layoutX="129.0" layoutY="158.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="145.0" minHeight="145.0" prefHeight="145.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button id="transparentButton2" fx:id="saveSuccess" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#saveSuccessExit" stylesheets="@../styles/box.css" GridPane.columnSpan="3" GridPane.rowSpan="3" />
+            <Label id="box" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/popup.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="103.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="70.0" prefWidth="70.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="25.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="48.0" prefWidth="153.0" text="LogOut ?" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Button id="dark-blue" fx:id="logoutButton" maxHeight="30.0" maxWidth="60.0" mnemonicParsing="false" onAction="#logout" stylesheets="@../styles/buttons.css" text="Yes" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button id="dark-blue" fx:id="cancelButton" maxHeight="30.0" maxWidth="60.0" mnemonicParsing="false" onAction="#cancel" stylesheets="@../styles/buttons.css" text="No" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Label fx:id="logoutIcon" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.rowIndex="1" GridPane.rowSpan="2">
+                    <graphic>
+                    
+                        <Glyph fontFamily="FontAwesome" icon="SIGN_OUT" fontSize="60"  textFill="#333" />
+                    
+                    </graphic> 
+                  </Label>
+                  <Label id="borderTop" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/login.css" GridPane.columnSpan="3">
+                     <GridPane.margin>
+                        <Insets left="1.0" right="1.0" top="1.0" />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" />
+                     </padding>
+                  </Label>
+                  <Label id="borderBottom" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/login.css" GridPane.columnSpan="3" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="1.0" right="1.0" top="1.0" />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" />
+                     </padding>
+                  </Label>        
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</fx:root>

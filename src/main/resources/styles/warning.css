@@ -1,0 +1,27 @@
+#border{
+    -fx-border-color: #FF5F6C;
+    -fx-border-width: 2 2 0 2; 
+    -fx-border-radius: 2 2 2 2; 
+    -fx-background-insets: 0, 1, 2;
+    
+}
+
+#border2{
+    -fx-border-color: #FF5F6C;
+    -fx-border-width: 2 2 0 2; 
+    -fx-border-radius: 2 2 2 2; 
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-color: #fff;
+}
+
+#iconBox{
+    -fx-background-color: #FF5F6C;
+}
+/*
+.popover > .border  {
+    -fx-fill: green;
+    -fx-stroke: red;
+    -fx-cursor: hand;
+    -fx-stroke-width: 5;
+}
+*/

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.*?>
+<?import de.jensd.fx.glyphs.materialicons.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.*?>
+<?import de.jensd.fx.glyphs.octicons.*?>
+<?import de.jensd.fx.glyphs.weathericons.*?>
+<?import jfxtras.scene.control.*?>
+<?import jfxtras.scene.control.agenda.*?>
+<?import org.controlsfx.glyphfont.*?>
+<?import impl.org.controlsfx.autocompletion.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+<?import Doctor.*?>
+
+<fx:root id="anchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="433.0" prefWidth="570.0" stylesheets="@../styles/popup.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">        
+    <children>
+      <GridPane layoutX="129.0" layoutY="158.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="700.0" minWidth="700.0" prefWidth="700.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="600.0" minHeight="600.0" prefHeight="600.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button id="transparentButton2" fx:id="saveSuccess" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#saveSuccessExit" stylesheets="@../styles/box.css" GridPane.columnSpan="3" GridPane.rowSpan="3" />
+            <Label id="box" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/popup.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="70.0" prefWidth="70.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+                  <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="115.0" prefHeight="115.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="close" alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="30.0" maxWidth="1.7976931348623157E308" onMouseClicked="#closeEditor" GridPane.columnIndex="2" GridPane.columnSpan="2">
+                     <GridPane.margin>
+                        <Insets right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <graphic>
+                                             
+                         <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="TIMES_CIRCLE" textFill="#333" />
+
+                    </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <TabPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/tabbedPane2.css" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <tabs>
+                      <Tab text="Patient">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TabPane layoutX="88.0" layoutY="54.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                      <tabs>
+                                        <Tab text="Patients">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <AreaChart fx:id="patientAttendence" layoutX="14.0" layoutY="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                                                        <xAxis>
+                                                          <CategoryAxis side="BOTTOM" />
+                                                        </xAxis>
+                                                        <yAxis>
+                                                          <NumberAxis fx:id="pyaxis" side="LEFT" />
+                                                        </yAxis>
+                                                      </AreaChart>
+                                                      <ComboBox id="inputText5" fx:id="patientAttendenceCombo" layoutX="456.0" layoutY="14.0" maxHeight="30.0" maxWidth="300.0" onAction="#patientAttendencefromCombo" prefHeight="30.0" prefWidth="300.0" promptText="All" stylesheets="@../styles/box.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0" />
+                                                      <Label layoutX="36.0" layoutY="21.0" text="Patients" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                        <Tab text="Lab Reports">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label text="Lab Reports" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox id="inputLabel11" fx:id="reportsCombo" maxHeight="30.0" maxWidth="80.0" onAction="#fillReportsCombo" prefHeight="30.0" prefWidth="80.0" promptText="12" stylesheets="@../styles/box.css" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="15.0">
+                                                        <items>
+                                                          <FXCollections fx:factory="observableArrayList">
+                                                               <String fx:value="1" />
+                                                               <String fx:value="2" />
+                                                               <String fx:value="3" />
+                                                               <String fx:value="4" />
+                                                               <String fx:value="5" />
+                                                               <String fx:value="6" />
+                                                               <String fx:value="7" />
+                                                               <String fx:value="8" />
+                                                               <String fx:value="9" />
+                                                               <String fx:value="10" />
+                                                               <String fx:value="11" />
+                                                               <String fx:value="12" />
+                                                          </FXCollections>  
+                                                        </items>
+                                                      </ComboBox>        
+                                                      <PieChart id="ch1" fx:id="labReportPieChart" layoutX="-32.0" stylesheets="@../styles/chart.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0" />
+                                                      <Label id="inputLabel01" layoutX="483.0" layoutY="21.0" maxHeight="30.0" maxWidth="40.0" prefHeight="30.0" prefWidth="40.0" stylesheets="@../styles/box.css" text=" Last" AnchorPane.rightAnchor="160.0" AnchorPane.topAnchor="15.0" />
+                                                      <Label id="inputText1" layoutX="560.0" layoutY="23.0" maxHeight="30.0" maxWidth="60.0" prefHeight="30.0" prefWidth="60.0" stylesheets="@../styles/box.css" text=" Months" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                          <Tab text="Appointments">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <ComboBox id="inputText5" fx:id="appointmentsCombo" maxHeight="30.0" maxWidth="200.0" onAction="#fillAppointments" prefHeight="30.0" prefWidth="200.0" promptText="Appointments" stylesheets="@../styles/box.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
+                                                        <items>
+                                                          <FXCollections fx:factory="observableArrayList">
+                                                               <String fx:value="Doctor Appointments" />
+                                                               <String fx:value="Lab Appointments" />
+                                                               <String fx:value="Appointments" />
+                                                          </FXCollections>  
+                                                        </items>
+                                                      </ComboBox>    
+                                                      <Label text="Appointments" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <AreaChart fx:id="appointmentChart" layoutY="57.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                                                        <xAxis>
+                                                          <CategoryAxis side="BOTTOM" />
+                                                        </xAxis>
+                                                        <yAxis>
+                                                          <NumberAxis fx:id="ayaxis" side="LEFT" />
+                                                        </yAxis>
+                                                      </AreaChart>
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </Tab>
+                                          <Tab text="Cancellations">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label text="Cancellations" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox id="inputText5" fx:id="cancelledAppointmentsCombo" maxHeight="30.0" maxWidth="190.0" onAction="#fillCancelledAppointments" prefHeight="30.0" prefWidth="190.0" promptText="Appointments" stylesheets="@../styles/box.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
+                                                        <items>
+                                                          <FXCollections fx:factory="observableArrayList">
+                                                               <String fx:value="Doctor Appointments" />
+                                                               <String fx:value="Lab Appointments" />
+                                                               <String fx:value="Appointments" />
+                                                          </FXCollections>  
+                                                        </items>
+                                                      </ComboBox>
+                                                      <AreaChart fx:id="cancelledAppointmentChart" layoutX="-73.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                                                        <xAxis>
+                                                          <CategoryAxis side="BOTTOM" />
+                                                        </xAxis>
+                                                        <yAxis>
+                                                          <NumberAxis fx:id="cyaxis" side="LEFT" />
+                                                        </yAxis>
+                                                      </AreaChart>
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab text="Pharmacy">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TabPane layoutX="116.0" layoutY="41.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                      <tabs>
+                                        <Tab text="Stock">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label text="Pharmacy Stock" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox id="inputText5" fx:id="genericNameSelectCombo" maxHeight="30.0" maxWidth="200.0" onAction="#genericNameSelect" prefWidth="150.0" promptText="All" stylesheets="@../styles/box.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0" />
+                                                      <BarChart fx:id="stockChart" layoutX="-36.0" layoutY="-10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                                                        <xAxis>
+                                                          <CategoryAxis side="BOTTOM" />
+                                                        </xAxis>
+                                                        <yAxis>
+                                                          <NumberAxis side="LEFT" />
+                                                        </yAxis>
+                                                      </BarChart>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                        <Tab text="Suppliers">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>        
+                                                      <Label text="Suppliers" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <PieChart id="ch1" fx:id="supplierchart" layoutX="8.0" layoutY="15.0" stylesheets="@../styles/chart.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0" />
+                                                      <BarChart fx:id="supplierBarchart" layoutX="25.0" layoutY="15.0" visible="false" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                                                        <xAxis>
+                                                          <NumberAxis side="LEFT" />
+                                                        </xAxis>
+                                                        <yAxis>
+                                                          <CategoryAxis side="BOTTOM" />
+                                                        </yAxis>
+                                                      </BarChart>
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab text="Income">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TabPane layoutX="82.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                                      <tabs>
+                                        <Tab text="Total">
+                                          <content>
+                                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label text="Total Income" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox id="inputLabel2" fx:id="toIncomeCombo" maxHeight="30.0" maxWidth="200.0" prefHeight="30.0" prefWidth="150.0" stylesheets="@../styles/box.css" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="15.0" />
+                                                      <LineChart fx:id="totalIncomeGraph" layoutX="-69.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0">
+                                                        <xAxis>
+                                                          <CategoryAxis side="BOTTOM" />
+                                                        </xAxis>
+                                                        <yAxis>
+                                                          <NumberAxis side="LEFT" />
+                                                        </yAxis>
+                                                      </LineChart>
+                                                      <ComboBox id="inputLabel11" fx:id="fromIncomeCombo" layoutX="249.0" layoutY="15.0" maxHeight="30.0" maxWidth="200.0" prefHeight="30.0" prefWidth="150.0" stylesheets="@../styles/box.css" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="15.0" />
+                                                      <Label id="inputLabel3" layoutX="414.0" layoutY="23.0" maxHeight="30.0" maxWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" text=" to" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="15.0" />
+                                                      <Label id="inputLabel01" layoutX="231.0" layoutY="15.0" maxHeight="30.0" maxWidth="50.0" prefHeight="30.0" prefWidth="50.0" stylesheets="@../styles/box.css" text=" From" AnchorPane.rightAnchor="380.0" AnchorPane.topAnchor="15.0" />
+                                                      <Label id="inputText3" alignment="CENTER" layoutX="566.0" layoutY="15.0" maxHeight="30.0" maxWidth="30.0" onMousePressed="#getIncome" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css">
+                                                            <graphic>
+                                             
+                                                                <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="EYE" textFill="#333" />
+
+                                                           </graphic>
+                                                      </Label>        
+                                                   </children>
+                                                </AnchorPane>
+                                          </content>
+                                        </Tab>
+                                          <Tab text="Income">
+                                            <content>
+                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                   <children>
+                                                      <Label text="Income" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <ComboBox id="comboBox2" fx:id="graphType" maxHeight="30.0" maxWidth="200.0" onAction="#showIncomeGraph" prefHeight="30.0" prefWidth="200.0" promptText="All" stylesheets="@../styles/box.css" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
+                                                         <items>
+                                                          <FXCollections fx:factory="observableArrayList">
+                                                               <String fx:value="All" />
+                                                               <String fx:value="Pharmacy" />
+                                                               <String fx:value="Laboratory" />
+                                                               <String fx:value="Appointments" />
+                                                          </FXCollections>  
+                                                        </items>
+                                                      </ComboBox>        
+                                                      <PieChart layoutX="-80.0" layoutY="-32.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0" />
+                                                      <LineChart fx:id="incomeGraph" layoutX="20.0" layoutY="53.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
+                                                        <xAxis>
+                                                          <CategoryAxis side="BOTTOM" />
+                                                        </xAxis>
+                                                        <yAxis>
+                                                          <NumberAxis side="LEFT" />
+                                                        </yAxis>
+                                                      </LineChart>
+                                                      <Label id="inputLabel01" layoutX="220.0" layoutY="52.0" maxHeight="30.0" maxWidth="50.0" prefHeight="30.0" prefWidth="50.0" stylesheets="@../styles/box.css" text=" From" AnchorPane.rightAnchor="350.0" />
+                                                      <Label id="inputLabel2" layoutX="420.0" layoutY="52.0" maxHeight="30.0" maxWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" text=" to" AnchorPane.rightAnchor="170.0" />
+                                                      <ComboBox id="inputLabel11" fx:id="fromIncomeCombo1" layoutX="270.0" layoutY="52.0" maxHeight="30.0" maxWidth="200.0" prefHeight="30.0" prefWidth="150.0" stylesheets="@../styles/box.css" AnchorPane.rightAnchor="200.0" />
+                                                      <ComboBox id="inputText3" fx:id="toIncomeCombo1" layoutX="450.0" layoutY="52.0" maxHeight="30.0" maxWidth="200.0" prefHeight="30.0" prefWidth="150.0" stylesheets="@../styles/box.css" AnchorPane.rightAnchor="20.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                            </content>
+                                          </Tab>
+                                      </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>        
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</fx:root>
