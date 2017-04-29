@@ -1,0 +1,150 @@
+.cell-spreadsheet .table-row-cell {
+    -fx-background-color: transparent;
+}
+
+/* NORMAL CELL */
+.spreadsheet-cell:filled:selected,
+.spreadsheet-cell:filled:focused:selected,
+.spreadsheet-cell:filled:focused:selected:hover {
+    -fx-background-color: #8cb1ff;
+    -fx-border-color: #a9a9a9;
+    -fx-border-width : 0.5px;
+    -fx-text-fill: -fx-selection-bar-text;
+
+}
+.spreadsheet-cell:hover,
+.spreadsheet-cell:filled:focused {
+    -fx-background-color: #988490;
+    -fx-text-fill: -fx-text-inner-color;
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+.spreadsheet-cell{
+    -fx-padding: 0 0 0 0.2em;
+    -fx-border-color: black;
+    -fx-border-width : 0.3px;
+    -fx-background-color: -fx-table-cell-border-color,white;
+}
+
+.tooltip {
+    -fx-background-radius: 0px;
+    -fx-background-color:
+        linear-gradient(#cec340, #a59c31),
+        linear-gradient(#fefefc, #e6dd71),
+        linear-gradient(#fef592, #e5d848);
+    -fx-background-insets: 0,1,2;
+    -fx-padding: 0.333333em 0.666667em 0.333333em 0.666667em; /* 4 8 4 8 */
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
+    -fx-text-fill:black;
+}
+
+/* FIXED HEADERS  */
+VerticalHeader > Label.fixed{
+    -fx-background-color: -fx-box-border, lightgray;
+    -fx-font-style : italic;
+}
+
+HorizontalHeaderColumn > TableColumnHeader.column-header.table-column.fixed{
+    -fx-background-color: -fx-box-border, lightgray;
+    -fx-font-style : italic;
+}
+
+/* HORIZONTAL AND VERTICAL HEADER SELECTION */
+VerticalHeader > Label ,
+HorizontalHeaderColumn > TableColumnHeader.column-header.table-column{
+    -fx-background-color: -fx-box-border, #F3F3F3;
+    -fx-background-insets: 0, 0 1 1 0, 1 2 2 1;
+    -fx-font-weight: bold;
+    -fx-size: 2em;
+    -fx-text-fill: -fx-selection-bar-text;
+    -fx-alignment: center;
+    -fx-font-style : normal;
+}  
+
+VerticalHeader > Label.selected{
+    -fx-background-color: #8FB1E8;
+    -fx-text-fill :white;
+}
+
+HorizontalHeaderColumn > TableColumnHeader.column-header.table-column.selected,
+HorizontalHeaderColumn > TableColumnHeader.column-header.table-column.selected > Label
+{
+    -fx-background-color:#8FB1E8;
+     -fx-text-fill :white;
+}  
+
+/* HORIZONTAL HEADER VISIBILITY */
+.column-header-background.invisible { visibility: hidden; -fx-padding: -1em; }
+
+.cell-corner{
+    -fx-background-color: red;
+}
+
+.cell-corner.top-left{
+    -fx-shape : "M 0 0 L 1 0 L 0 1 z";
+}
+
+.cell-corner.top-right{
+    -fx-shape : "M 0 0 L -1 0 L 0 1 z";
+}
+
+.cell-corner.bottom-right{
+    -fx-shape : "M 0 0 L -1 0 L 0 -1 z";
+}
+
+.cell-corner.bottom-left{
+    -fx-shape : "M 0 0 L 1 0 L 0 -1 z";
+}
+
+.indicationLabel{
+    -fx-font-style : italic;
+}
+
+/* PICKERS */
+.picker-label{
+    -fx-graphic: url("picker.png"); 
+    -fx-background-color: white;
+    -fx-padding: 0 0 0 0;
+    -fx-alignment: center;
+}
+
+.picker-label:hover{
+    /*-fx-effect:dropshadow(gaussian, black, 10, 0.1, 0, 0);*/
+    -fx-cursor:hand;
+}
+
+/* We don't want to show the white background both for TextField
+and textArea. We want it to be transparent just like Excel.
+
+Also we need to shift to the left the editor a bit*/
+CellView > .text-input.text-field{
+    -fx-padding : 0 0 0 -0.2em;
+    -fx-background-color: transparent;
+}
+CellView > .text-input.text-area,
+CellView > TextArea .scroll-pane > .viewport{
+    -fx-background-color: transparent;
+}
+
+/* I shift by 3px, it's not clean but it works for normal row (24px) as it 
+centers the textArea.*/
+CellView > TextArea .scroll-pane{
+    -fx-padding : 3px 0 0 -0.15em;
+}
+
+CellView > TextArea .scroll-pane > .viewport .content{
+    -fx-padding : 0 0 0 0;
+    -fx-background-color: transparent;
+}
+/* The scrollBars must always have the same size because we may have
+really big font in the editor (48px) and the scrollBars become obese otherwise.*/
+CellView >TextArea .scroll-bar:vertical ,
+CellView >TextArea .scroll-bar:horizontal {
+    -fx-font-size : 1em;
+}
+
+.selection-rectangle{
+    -fx-fill : transparent;
+    -fx-stroke : black;
+    -fx-stroke-width : 2;
+}

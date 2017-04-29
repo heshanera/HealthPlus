@@ -1,0 +1,165 @@
+/*
+ * Copyright (c) 2012, JFXtras
+ *  All rights reserved.
+ *
+ *  Redistribution and use in source and binary forms, with or without
+ *  modification, are permitted provided that the following conditions are met:
+ *      * Redistributions of source code must retain the above copyright
+ *        notice, this list of conditions and the following disclaimer.
+ *      * Redistributions in binary form must reproduce the above copyright
+ *        notice, this list of conditions and the following disclaimer in the
+ *        documentation and/or other materials provided with the distribution.
+ *      * Neither the name of the <organization> nor the
+ *        names of its contributors may be used to endorse or promote products
+ *        derived from this software without specific prior written permission.
+ *
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ *  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ *  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ *  DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY
+ *  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ *  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ *  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ *  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ *  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+ 
+ 
+.matrix-panel {
+    -fx-skin            : "jfxtras.labs.internal.scene.control.skin.MatrixPanelSkin";
+    -fx-segment-color-on: rgb(255, 39, 0);
+}
+
+.matrix-panel .main{
+    -fx-background-color : null;
+}
+.matrix-panel .mainFrameOut {
+    -fx-background-color: rgb(132,132,132);
+    -fx-background-radius: 9.33;
+}
+
+.matrix-panel .gradient {
+/*    -fx-border-color: rgb(132,132,132);
+    -fx-border-width: 1px;*/
+    -fx-background-color: transparent;
+}
+.matrix-panel .gradient-in{
+    -fx-background-color: rgb(246,246,246),
+                            rgb(0,0,0);
+    -fx-background-radius: 6%,5%;
+    -fx-background-insets: 8%,9%;
+}
+
+.matrix-panel .glossy-metal{
+    -fx-background-color : linear-gradient(from 47.14285714285714% 1.4285714285714285% to
+                                                47.142857142857153%  97.85714285714285%,
+                                           rgb(249,249,249) 0%,
+                                           rgb(200,195,191) 10%,
+                                           rgb(255,255,255) 26%,
+                                           rgb(29,29,29) 73%,
+                                           rgb(209,209,209) 100%),
+                            rgb(246,246,246),
+                            rgb(0,0,0);
+    -fx-background-radius: 8%,6%,5%;
+    -fx-background-insets: 1,8%,9%;
+}
+.matrix-panel .dark-glossy{
+    -fx-background-color : linear-gradient(from 85.51401869158879% 14.953271028037382% to
+                                                15.794611761513314% 84.67267795811287%,
+                                           rgb(83,83,83) 0%,
+                                           rgb(254,254,255) 8%,
+                                           rgb(0,0,0) 52%,
+                                           rgb(5,6,5) 55%,
+                                           rgb(248,250,249) 84%,
+                                           rgb(83,83,83) 99%,
+                                           rgb(83,83,83) 100%),
+                            linear-gradient(from 50% 1.4018691588785047% to
+                                                 50% 52.80373831775701%,
+                                           rgba(255,255,255,1) 0%,
+                                           rgba(255,255,255,1) 26%,
+                                           rgba(255,255,255,1) 26.01%,
+                                           rgba(255,255,255,0) 90%,
+                                           rgba(255,255,255,0) 100%),
+                            linear-gradient(from 80.37383177570093% 18.22429906542056% to
+                                                18.584594354259637% 80.01353648686187%,
+                                           rgb(172,172,173) 0%,
+                                           rgb(254,254,255) 8%,
+                                           rgb(0,0,0) 52%,
+                                           rgb(5,6,5) 55%,
+                                           rgb(248,250,249) 91%,
+                                           rgb(178,178,178) 99%,
+                                           rgb(178,178,178) 100%),
+                            rgb(0,0,0);
+    -fx-background-radius: 8,8,6,5;
+    -fx-background-insets: 1,1,8%,9%;
+}
+.matrix-panel .frontFrame{
+    -fx-background-color : linear-gradient(from 0% 100% to 0% 0%,
+                                           rgba(255,255,255,0) 0%,
+                                           rgba(255,255,255,0) 6%,
+                                           rgba(255,255,255,0) 7%,
+                                           rgba(255,255,255,0.05) 12%,
+                                           rgba(255,255,255,0) 17%,
+                                           rgba(255,255,255,0) 18%,
+                                           rgba(255,255,255,0.02) 23%,
+                                           rgba(255,255,255,0) 30%,
+                                           rgba(255,255,255,0) 80%,
+                                           rgba(255,255,255,0.08) 84%,
+                                           rgba(255,255,255,0.18) 93%,
+                                           rgba(255,255,255,0.20) 94%,
+                                           rgba(255,255,255,0.10) 96%,
+                                           rgba(255,255,255,0) 97%,
+                                           rgba(255,255,255,0) 100%);
+    -fx-scale-shape: true;
+    -fx-shape: "M 58.684274663043475 615.2287688152174 L 1181.3157253369566 615.2287688152174 C 1181.3157253369566 615.2287688152174 1168.3157253369566 471.73913043478257 1168.3157253369566 336.95652173913044 C 1168.3157253369566 202.17391304347825 1181.3157253369566 58.684274663043475 1181.3157253369566 58.684274663043475 L 58.684274663043475 58.684274663043475 C 58.684274663043475 58.684274663043475 71.68427466304348 202.17391304347825 71.68427466304348 336.95652173913044 C 71.68427466304348 471.73913043478257 58.684274663043475 615.2287688152174 58.684274663043475 615.2287688152174 Z";
+    -fx-stroke: red;
+}
+
+/************************************************************
+* Definition of LED fills                                   *
+************************************************************/
+.led-on-level3 {
+    -fx-segment-color-on: rgb(255, 29, 0);
+    -fx-fill            : radial-gradient(focus-angle 0deg,
+                                          focus-distance 0%,
+                                          center 50% 50%,
+                                          radius 50%,
+                                          derive(-fx-segment-color-on, +50%) 0%,
+                                          -fx-segment-color-on 50%,
+                                          derive(-fx-segment-color-on, -10%) 100%);
+    -fx-effect          : innershadow(gaussian, rgba(0, 0, 0, 0.5), 1, 1.0, 0, 0);
+    -fx-stroke          : transparent;
+}
+
+.led-on-level2 {
+    -fx-segment-color-on: rgb(170, 19, 0);
+    -fx-fill            : radial-gradient(focus-angle 0deg,
+                                          focus-distance 0%,
+                                          center 50% 50%,
+                                          radius 50%,
+                                          derive(-fx-segment-color-on, +50%) 0%,
+                                          -fx-segment-color-on 50%,
+                                          derive(-fx-segment-color-on, -10%) 100%);
+    -fx-effect          : innershadow(gaussian, rgba(0, 0, 0, 0.5), 1, 1.0, 0, 0);
+    -fx-stroke          : transparent;
+}
+
+.led-on-level1 {
+    -fx-segment-color-on : rgb(85, 9, 0);
+    -fx-fill             : radial-gradient(focus-angle 0deg,
+                                           focus-distance 0%,
+                                           center 50% 50%,
+                                           radius 50%,
+                                           derive(-fx-segment-color-on, +50%) 0%,
+                                           -fx-segment-color-on 50%,
+                                           derive(-fx-segment-color-on, -10%) 100%);
+    -fx-effect           : innershadow(gaussian, rgba(0, 0, 0, 0.5), 1, 1.0, 0, 0);
+    -fx-stroke           : transparent;
+}
+
+.matrix-panel .led-off {
+    -fx-fill  : rgba(39, 39, 39, 0.25);
+    /*-fx-effect: innershadow(gaussian, rgba(249, 39, 0, 0.3), 1, 1.0, 0, 0);*/
+    -fx-stroke: transparent;
+}

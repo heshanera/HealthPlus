@@ -1,0 +1,71 @@
+/*******************************************************************************
+ *                                                                             *
+ * The control                                                                 *
+ *                                                                             *
+ ******************************************************************************/
+.big-decimal-field {
+    /*-fx-font-size: 24pt;*/
+    -fx-skin: "jfxtras.labs.internal.scene.control.skin.BigDecimalFieldSkin";
+    -fx-background-color: -fx-shadow-highlight-color, -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 3, 2, 2;
+    -fx-padding: 2 2 2 2;
+}
+
+/*
+ * NOTE: this is the a workaround see documentation 
+ * in the Skin.  
+ */
+.big-decimal-field-focused {
+    -fx-background-color: -fx-focus-color, -fx-text-box-border, -fx-control-inner-background;
+    -fx-background-insets: -0.4, 1, 2;
+    -fx-background-radius: 3.4, 2, 2;
+}
+
+
+.big-decimal-field:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * The TextField, that contains the BigDecimal                                 *
+ * We want to get rid of focus-styling, borders, etc...                        *
+ ******************************************************************************/
+.big-decimal-field .number-text-field {
+    -fx-background-insets: 0;
+    -fx-padding: 3 3 3 3;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * The spinner buttons                                                         *
+ *                                                                             *
+ ******************************************************************************/
+.big-decimal-field .arrow-button {
+    -fx-background-color: -fx-text-box-border, -fx-body-color;
+    -fx-background-insets: 0 0 0 -1, 0;
+    -fx-padding: 1;
+}
+
+.big-decimal-field .arrow-button:focused {
+    -fx-color: -fx-focused-base;
+}
+
+.big-decimal-field .arrow-button:hover {
+    -fx-color: -fx-hover-base;
+}
+
+.big-decimal-field .arrow-button:pressed {
+    -fx-color: -fx-pressed-base;
+}
+/*******************************************************************************
+ *                                                                             *
+ * The arrow on the spinner button                                             *
+ *                                                                             *
+ ******************************************************************************/
+
+.big-decimal-field .spinner-arrow {
+    -fx-stroke: gray;
+    -fx-stroke-width: 2;
+}

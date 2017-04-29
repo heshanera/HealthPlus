@@ -1,0 +1,12 @@
+.breadcrumbbar {
+    -fx-skin: "jfxtras.labs.internal.scene.control.skin.BreadcrumbBarSkin";
+}
+
+.breadcrumbbar-ui {
+    -fx-background-color: linear-gradient(white 0%, gray 100%);
+    -fx-spacing: 0;
+}
+
+.breadcrumbbar-home-icon {
+    -fx-background-image: url("home.png");
+}

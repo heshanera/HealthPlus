@@ -1,0 +1,15 @@
+#borderLeft{
+    -fx-background-color: #333333;
+    -fx-border-radius: 0 5 5 0;
+    -fx-background-insets: 2, 2, 2, 2;
+    -fx-border-color: #eee;
+    -fx-border-width: 0 3 3 0; 
+}
+
+#borderRight{
+    -fx-background-color: #333333;
+    -fx-border-radius: 5 0 0 5;
+    -fx-background-insets: 2, 2, 2, 2;
+    -fx-border-color: #eee;
+    -fx-border-width: 3 0 0 3; 
+}

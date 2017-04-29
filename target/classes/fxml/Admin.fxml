@@ -1,0 +1,1565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.*?>
+<?import de.jensd.fx.glyphs.materialicons.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.*?>
+<?import de.jensd.fx.glyphs.octicons.*?>
+<?import de.jensd.fx.glyphs.weathericons.*?>
+<?import jfxtras.scene.control.*?>
+<?import jfxtras.scene.control.agenda.*?>
+<?import org.controlsfx.glyphfont.*?>
+<?import impl.org.controlsfx.autocompletion.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+<?import Admin.*?>
+
+<fx:root id="background" fx:id="anchorPane" prefHeight="650.0" prefWidth="900.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>      
+        <TabPane fx:id="mainTabPane" layoutX="213.0" layoutY="60.0" prefHeight="524.0" prefWidth="800.0" side="LEFT" stylesheets="@../styles/tabbedPane.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+        <tabs>
+          <Tab text="Dashboard">   
+            <graphic>
+                
+                    <FontAwesomeIconView fx:id="tab_ico0" glyphName="TACHOMETER" glyphStyle="" size="50px" textAlignment="LEFT" />
+                  
+            </graphic> 
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="14.0" layoutY="14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="560.0" prefWidth="610.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="50.0" prefWidth="200.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="50.0" prefWidth="200.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="90.0" minWidth="10.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="50.0" prefWidth="200.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="50.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="6.0" minHeight="6.0" prefHeight="6.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="80.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="150.0" minHeight="50.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="150.0" minHeight="50.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="150.0" minHeight="50.0" prefHeight="150.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="25.0" prefHeight="25.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label id="dashboardButton" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <graphic>
+                                   
+                                    <Glyph fontFamily="FontAwesome" fontSize="80.0" icon="DATABASE" textFill="#bbb" />
+                                    
+                                </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label id="dashboardButton" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <graphic>
+                                            
+                                     <Glyph fontFamily="FontAwesome" fontSize="80" icon="FLASK" textFill="#bbb" />
+
+                                 </graphic>
+                              </Label>
+                              <Label id="dashboardButton" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <graphic>
+                                            
+                                     <Glyph fontFamily="FontAwesome" fontSize="80" icon="MONEY" textFill="#bbb" />
+
+                                 </graphic>
+                              </Label>
+                              <Label id="dashboardButton" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <graphic>
+                                            
+                                     <Glyph fontFamily="FontAwesome" fontSize="80" icon="USERS" textFill="#bbb" />
+
+                                 </graphic>
+                              </Label>
+                              <Label id="dashboardButton" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <graphic>
+                                            
+                                     <Glyph fontFamily="FontAwesome" fontSize="80" icon="DESKTOP" textFill="#bbb" />
+
+                                 </graphic>
+                              </Label>
+                              <Label id="dashboardButton" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <graphic>
+                                            
+                                     <Glyph fontFamily="FontAwesome" fontSize="80" icon="USERS" textFill="#bbb" />
+
+                                 </graphic>
+                              </Label>
+                              <Label id="dashboardButton" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <graphic>
+                                            
+                                     <Glyph fontFamily="FontAwesome" fontSize="80" icon="USER_MD" textFill="#bbb" />
+
+                                 </graphic>
+                              </Label>
+                              <Label id="dashboardButton" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <graphic>
+                                            
+                                     <Glyph fontFamily="FontAwesome" fontSize="80" icon="LINE_CHART" textFill="#bbb" />
+
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label id="dashboardButton" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <graphic>
+                                            
+                                     <Glyph fontFamily="FontAwesome" fontSize="80" icon="MEDKIT" textFill="#bbb" />
+
+                                 </graphic>
+                              </Label>
+                              <Label id="box2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text=" Dashboard" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <graphic>
+                                    
+                                    <Glyph fontFamily="FontAwesome" fontSize="30.0" icon="ARROW_CIRCLE_O_RIGHT" textFill="gray" />
+                                      
+                                </graphic>
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Button id="transparentButton" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showSettings" stylesheets="@../styles/box.css" text="Database" GridPane.columnIndex="5" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                                 <padding>
+                                    <Insets bottom="20.0" left="10.0" />
+                                 </padding>
+                              </Button>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="5.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewDoctorAccounts" text="Doctor" textFill="#303641" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label fx:id="doctorCount" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewDoctorAccounts" text="4">
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font size="71.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label> 
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints />
+                                </columnConstraints>
+                                <rowConstraints>
+                                    <RowConstraints minHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewLabAccounts" text="Lab Asssitant" textFill="#f56954" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label fx:id="labCount" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewLabAccounts" text="4" textFill="#f56954">
+                                       <font>
+                                          <Font size="71.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewPharmacistAccounts" text="Pharmacist" textFill="#00c0ef" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label fx:id="pharmacistCount" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewPharmacistAccounts" text="4" textFill="#00c0ef">
+                                       <font>
+                                          <Font size="71.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewCashierAccounts" text="Cashier" textFill="#0073b7" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label fx:id="cashierCount" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewCashierAccounts" text="4" textFill="#0073b7">
+                                       <font>
+                                          <Font size="71.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewReceptionistAccounts" text="Receptionist" textFill="#00b29e" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label fx:id="receptionistCount" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewReceptionistAccounts" text="4" textFill="#00b29e">
+                                       <font>
+                                          <Font size="71.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewPatientAccounts" text="Patient" textFill="#ba79cb" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label fx:id="patientCount" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewPatientAccounts" text="4" textFill="#ba79cb">
+                                       <font>
+                                          <Font size="71.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="3" GridPane.rowIndex="6">
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewOnlineAccounts" text="Current Users" textFill="#ffa812" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label fx:id="currentUsersCount" alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#viewOnlineAccounts" text="4" textFill="#ffa812">
+                                       <font>
+                                          <Font size="71.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <children>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#showReports" text="Reports" textFill="#ec3b83" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="System Bold" size="15.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#showReports" text="9" textFill="#ec3b83">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <font>
+                                          <Font size="71.0" />
+                                       </font>
+                                       <GridPane.margin>
+                                          <Insets left="20.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="5.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>                             
+                           </children>
+                        </GridPane>
+                     </children>
+              </AnchorPane>   
+            </content>
+          </Tab>
+          <Tab text="System">
+            <graphic>
+                
+                   <FontAwesomeIconView fx:id="tab_ico1" glyphName="COGS" glyphStyle="" size="50px" textAlignment="LEFT" />
+                   
+            </graphic>  
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="154.0" layoutY="96.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="100.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="330.0" minWidth="100.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="300.0" minHeight="280.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label id="box" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Current Users" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="System" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label id="box" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="New User" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets />
+                                 </GridPane.margin>
+                              </Label>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <TextField id="inputText2" fx:id="userSearch" maxHeight="30.0" maxWidth="1.7976931348623157E308" onKeyReleased="#getName" onMouseReleased="#getName" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="130.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <TextField id="inputLabel11" fx:id="userIDlbl" maxHeight="30.0" maxWidth="80.0" promptText="User ID" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="50.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="40.0" stylesheets="@../styles/box.css" text="User" GridPane.rowIndex="1">
+                                      
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Button id="dark-blue" maxHeight="30.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#searchUser" stylesheets="@../styles/buttons.css" text="Search" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="60.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                    <Button id="dark-blue" maxHeight="30.0" maxWidth="40.0" mnemonicParsing="false" onAction="#clearUserSearch" stylesheets="@../styles/buttons.css" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                          <Glyph fontFamily="FontAwesome" fontSize="15" icon="ERASER" textFill="#eee" />
+                                       </graphic>
+                                    </Button>
+                                    <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                                        <graphic>
+                                          <Glyph fontFamily="FontAwesome" fontSize="100" icon="USER" textFill="#333" />
+                                       </graphic>
+                                       <GridPane.margin>
+                                          <Insets top="20.0" />
+                                       </GridPane.margin>
+                                    </Label>    
+                                 </children>
+                              </GridPane>
+                              <Label id="box" fx:id="pieChartType" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="System Users" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Button id="dark-blue" fx:id="newUser" maxHeight="40.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#createUser" stylesheets="@../styles/buttons.css" text="Create Account" GridPane.rowIndex="6">
+                                       <GridPane.margin>
+                                          <Insets left="60.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                           
+                                            <Glyph fontFamily="FontAwesome" fontSize="15" icon="USER" textFill="#333" />
+                                            
+                                        </graphic>
+                                    </Label>
+                                    <ComboBox id="inputText2" fx:id="userType" maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="150.0" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="120.0" right="10.0" />
+                                       </GridPane.margin>
+                                       <items>
+                                            <FXCollections fx:factory="observableArrayList">
+                                               <String fx:value="Doctor" />
+                                               <String fx:value="Lab Assistant" />
+                                               <String fx:value="Pharmacist" />
+                                               <String fx:value="Cashier" />
+                                               <String fx:value="Receptionist" />
+                                            </FXCollections>
+                                        </items>
+                                    </ComboBox>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" prefHeight="30.0" prefWidth="80.0" stylesheets="@../styles/box.css" text="User Type" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" prefHeight="30.0" prefWidth="80.0" stylesheets="@../styles/box.css" text="NIC" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                            
+                                             <Glyph fontFamily="FontAwesome" fontSize="15" icon="LIST_ALT" textFill="#333" />
+                                             
+                                         </graphic>
+                                    </Label>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" prefHeight="30.0" prefWidth="80.0" stylesheets="@../styles/box.css" text="Mobile" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                            
+                                             <Glyph fontFamily="FontAwesome" fontSize="15" icon="MOBILE" textFill="#333" />
+                                             
+                                         </graphic>
+                                    </Label>
+                                    <TextField id="inputText2" fx:id="userNIC" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="120.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <TextField id="inputText2" fx:id="userMobile" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="120.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <TextField id="inputText2" fx:id="userLastName" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="120.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                            
+                                             <Glyph fontFamily="FontAwesome" fontSize="15" icon="USER_PLUS" textFill="#333" />
+                                             
+                                         </graphic>
+                                    </Label>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="80.0" minHeight="30.0" minWidth="80.0" prefHeight="30.0" prefWidth="80.0" stylesheets="@../styles/box.css" text="Last Name" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                            
+                                             <Glyph fontFamily="FontAwesome" fontSize="15" icon="USER" textFill="#333" />
+                                             
+                                         </graphic>
+                                    </Label>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="80.0" stylesheets="@../styles/box.css" text="First Name" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <TextField id="inputText2" fx:id="userFirstName" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="120.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Button id="dark-blue" maxHeight="40.0" maxWidth="40.0" mnemonicParsing="false" onAction="#clearNewUser" stylesheets="@../styles/buttons.css" GridPane.rowIndex="6">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                          <Glyph fontFamily="FontAwesome" fontSize="16" icon="ERASER" textFill="#eee" />
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                              <Label id="box" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Database" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <GridPane GridPane.columnIndex="5" GridPane.rowIndex="2">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" stylesheets="@../styles/box.css" text="Connection" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                            
+                                             <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="COG" textFill="#333" />
+                                             
+                                         </graphic>
+                                    </Label>
+                                    <TextField id="inputText2" fx:id="connectionlbl" editable="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="130.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" stylesheets="@../styles/box.css" text="Username" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                            
+                                             <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="USER" textFill="#333" />
+                                             
+                                         </graphic>
+                                    </Label>
+                                    <TextField id="inputText2" fx:id="dbUsernamelbl" editable="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="130.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" stylesheets="@../styles/box.css" text="Password" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                            
+                                             <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="LOCK" textFill="#333" />
+                                             
+                                         </graphic>
+                                    </Label>
+                                    <PasswordField id="inputText2" fx:id="dbPasswordlbl" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="5">
+                                       <GridPane.margin>
+                                          <Insets left="130.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </PasswordField>
+                                    <TextField id="inputText2" fx:id="databaselbl" editable="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="130.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                       <graphic>
+                                            
+                                             <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="DATABASE" textFill="#333" />
+                                             
+                                         </graphic>
+                                    </Label>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" stylesheets="@../styles/box.css" text="Database" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <GridPane GridPane.rowIndex="6">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Button id="dark-blue" fx:id="backup" contentDisplay="CENTER" maxHeight="30.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#makeBackup" stylesheets="@../styles/buttons.css" text="Backup" GridPane.columnIndex="1">
+                                             <GridPane.margin>
+                                                <Insets left="5.0" right="10.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                          <Button id="dark-blue" maxHeight="30.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#checkConnection" stylesheets="@../styles/buttons.css" text="Check Connection">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" right="5.0" />
+                                             </GridPane.margin>
+                                          </Button>
+                                       </children>
+                                    </GridPane>
+                                    <TextField id="inputText2" fx:id="dbDriver" editable="false" maxHeight="30.0" minHeight="30.0" prefHeight="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="130.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" prefHeight="30.0" prefWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="3">
+                                       <graphic>
+                                          <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="USER" textFill="#333" />
+                                       </graphic>
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="90.0" minHeight="30.0" minWidth="90.0" prefHeight="30.0" prefWidth="90.0" stylesheets="@../styles/box.css" text="Driver Class" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                              <Label id="noticeBox" fx:id="notification" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" visible="false" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" top="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label id="errorBox" fx:id="error" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" visible="false" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" top="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="closeNotific" alignment="TOP_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#closeNotifications" visible="false" GridPane.columnIndex="5" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="150.0" top="10.0" />
+                                 </GridPane.margin>
+                                 <padding>
+                                    <Insets right="5.0" top="5.0" />
+                                 </padding>
+                                <graphic>
+
+                                        <FontAwesomeIconView glyphName="TIMES" glyphStyle="" size="14px" textAlignment="CENTER" />
+
+                                </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <Label id="box" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Online Users" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <Label id="box" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Basic" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                              <GridPane GridPane.columnIndex="5" GridPane.rowIndex="4">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.0" minWidth="120.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="40.0" prefWidth="40.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label id="inputText3" fx:id="showSuspendButton" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" onMousePressed="#showSuspended" stylesheets="@../styles/box.css" GridPane.columnIndex="1">
+                                             <graphic>
+                                                <Glyph fontFamily="FontAwesome" fontSize="15" icon="EYE" textFill="#333" />
+                                             </graphic>
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                    </GridPane>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                                       <graphic>
+                                          <Glyph fontFamily="FontAwesome" fontSize="15" icon="COGS" textFill="#333" />
+                                       </graphic>
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="System" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <TextField id="inputText2" fx:id="systemStorage" editable="false" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <TextField id="inputText2" fx:id="databaseStoragetxt" editable="false" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Database" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="2">
+                                       <graphic>
+                                          <Glyph fontFamily="FontAwesome" fontSize="15" icon="DATABASE" textFill="#333" />
+                                       </graphic>
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="4">
+                                       <graphic>
+                                          <Glyph fontFamily="FontAwesome" fontSize="15" icon="USER" textFill="#333" />
+                                       </graphic>
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Suspended" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <TextField id="inputLabel2" fx:id="suspendedtxt" editable="false" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <GridPane.margin>
+                                          <Insets right="40.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <TextField id="inputText2" fx:id="activeUserstxt" editable="false" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </TextField>
+                                    <Label id="inputLabel11" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Active Users" GridPane.rowIndex="3">
+                                       <GridPane.margin>
+                                          <Insets left="40.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Label id="inputLabel01" alignment="CENTER" maxHeight="30.0" maxWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="3">
+                                       <graphic>
+                                          <Glyph fontFamily="FontAwesome" fontSize="15" icon="USER" textFill="#333" />
+                                       </graphic>
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                              <PieChart fx:id="userPieChart" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="250.0" minWidth="150.0" stylesheets="@../styles/chart.css" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets top="40.0" />
+                                 </GridPane.margin>
+                              </PieChart>
+                              <GridPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <ComboBox id="inputText5" fx:id="userPropotionCombo" maxHeight="30.0" maxWidth="1.7976931348623157E308" onAction="#showUsersChart" prefWidth="150.0" promptText="System Users" stylesheets="@../styles/box.css" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                       <items>
+                                            <FXCollections fx:factory="observableArrayList">
+                                               <String fx:value="System Users" />
+                                               <String fx:value="Patients" />
+                                            </FXCollections>
+                                        </items>
+                                    </ComboBox>
+                                 </children>
+                              </GridPane>
+                              <GridPane GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <ListView fx:id="onlineList2" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets bottom="10.0" right="10.0" top="30.0" />
+                                       </GridPane.margin>
+                                    </ListView>
+                                    <ListView fx:id="onlineList" prefHeight="0.0" prefWidth="69.0">
+                                       <GridPane.margin>
+                                          <Insets bottom="10.0" left="10.0" top="30.0" />
+                                       </GridPane.margin>
+                                    </ListView>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                     </children>
+              </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Profile">
+            <graphic>
+                
+                    <FontAwesomeIconView fx:id="tab_ico2" glyphName="USER" glyphStyle="" size="50px" textAlignment="LEFT" />
+                    
+            </graphic>  
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="83.0" layoutY="77.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="600.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="8.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="80.0" minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="100000.0" minHeight="200.0" prefHeight="200.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Profile" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <graphic>  
+                                     
+                                    <Glyph fontFamily="FontAwesome" fontSize="30.0" icon="ARROW_CIRCLE_O_RIGHT" textFill="gray" />
+                                    
+                                </graphic>
+                              </Label>
+                              <TabPane maxHeight="1000.0" maxWidth="1000.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/tabbedPane3.css" tabClosingPolicy="UNAVAILABLE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                <tabs>
+                                  <Tab text="Basic Details">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <GridPane layoutX="66.0" layoutY="69.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="450.0" minWidth="10.0" prefWidth="228.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="220.0" minHeight="220.0" prefHeight="220.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <GridPane prefHeight="212.0" prefWidth="279.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.rowSpan="7">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="10.0" prefWidth="149.0" />
+                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="136.0" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                            <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                        </rowConstraints>
+                                                         <children>
+                                                            <Label id="inputLabel1" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Name" GridPane.rowIndex="1">
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                            </Label>
+                                                            <Label id="inputLabel1" maxHeight="30.0" maxWidth="1.7976931348623157E308" prefHeight="16.0" prefWidth="86.0" stylesheets="@../styles/box.css" text="Date Of Birth" GridPane.rowIndex="3">
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                            </Label>
+                                                            <Label id="inputLabel1" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="NIC" GridPane.rowIndex="2">
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                            </Label>
+                                                            <Label id="inputLabel1" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Age" GridPane.rowIndex="4">
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                            </Label>
+                                                            <Label id="inputLabel1" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Gender" GridPane.rowIndex="5">
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                            </Label>
+                                                            <Label id="inputLabel1" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Nationality" GridPane.rowIndex="6">
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                            </Label>
+                                                            <Label id="inputLabel1" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Mobile" GridPane.rowIndex="8">
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                            </Label>
+                                                            <Label id="inputLabel1" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Email" GridPane.rowIndex="9">
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                            </Label>
+                                                            <Label id="inputLabel1" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Address" GridPane.rowIndex="10">
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                            </Label>
+                                                            <Label id="inputLabel1" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text="Religion" GridPane.rowIndex="7">
+                                                               <GridPane.margin>
+                                                                  <Insets left="40.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                            </Label>
+                                                            <TextField id="inputText1" fx:id="adminName" disable="true" maxHeight="30.0" maxWidth="650.0" minHeight="30.0" prefWidth="500.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                            <TextField id="inputText1" fx:id="adminNIC" disable="true" maxHeight="30.0" maxWidth="650.0" minHeight="30.0" prefWidth="500.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                            <TextField id="inputText1" fx:id="adminAge" disable="true" maxHeight="30.0" maxWidth="650.0" minHeight="30.0" prefWidth="500.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                            <TextField id="inputText1" fx:id="adminNationality" disable="true" maxHeight="30.0" maxWidth="650.0" minHeight="30.0" prefWidth="500.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                            <TextField id="inputText1" fx:id="adminReligion" disable="true" maxHeight="30.0" maxWidth="650.0" minHeight="30.0" prefWidth="500.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                            <TextField id="inputText1" fx:id="adminMobile" disable="true" maxHeight="30.0" maxWidth="650.0" minHeight="30.0" prefWidth="500.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                            <TextField id="inputText1" fx:id="adminEmail" disable="true" maxHeight="30.0" maxWidth="650.0" minHeight="30.0" prefWidth="500.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                            <TextField id="inputText1" fx:id="adminAddress" disable="true" maxHeight="30.0" maxWidth="650.0" minHeight="30.0" prefWidth="500.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                            <DatePicker id="inputText1" fx:id="adminDOB" disable="true" maxHeight="30.0" maxWidth="650.0" minHeight="30.0" prefWidth="500.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                            <ComboBox id="inputText1" fx:id="adminGender" disable="true" maxHeight="30.0" maxWidth="650.0" minWidth="30.0" prefWidth="500.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                            <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="1">
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                               <graphic>  
+                                                                    
+                                                                    <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="USER" textFill="#333" />
+                                                                    
+                                                                </graphic>
+                                                            </Label>
+                                                            <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="2">
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                               <graphic>  
+                                                                    
+                                                                    <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="CERTIFICATE" textFill="#333" />
+                                                                    
+                                                                </graphic>
+                                                            </Label>
+                                                            <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="3">
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                               <graphic>  
+                                                                    
+                                                                    <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="CALENDAR" textFill="#333" />
+                                                                    
+                                                                </graphic>
+                                                            </Label>
+                                                            <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="4">
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                               <graphic>  
+                                                                    
+                                                                    <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="STREET_VIEW" textFill="#333" />
+                                                                    
+                                                                </graphic>
+                                                            </Label>
+                                                            <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="5">
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                               <graphic>  
+                                                                    
+                                                                    <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="MALE" textFill="#333" />
+                                                                    
+                                                                </graphic>
+                                                            </Label>
+                                                            <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="6">
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                               <graphic>  
+                                                                    
+                                                                    <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="BELL" textFill="#333" />
+                                                                    
+                                                                </graphic>
+                                                            </Label>
+                                                            <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="7">
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                                <graphic>  
+                                                                    
+                                                                    <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="BULLSEYE" textFill="#333" />
+                                                                    
+                                                                </graphic>
+                                                            </Label>
+                                                            <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="8">
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                               
+                                                               <graphic>  
+                                                                    
+                                                                    <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="MOBILE_PHONE" textFill="#333" />
+                                                                    
+                                                                </graphic>
+                                                            </Label>
+                                                            <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="9">
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                               <graphic>  
+                                                                    
+                                                                    <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="ENVELOPE" textFill="#333" />
+                                                                    
+                                                                </graphic>
+                                                            </Label>
+                                                            <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.rowIndex="10">
+                                                               <opaqueInsets>
+                                                                  <Insets />
+                                                               </opaqueInsets>
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                                <graphic>  
+                                                                    
+                                                                    <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="MAP_MARKER" textFill="#333" />
+                                                                    
+                                                                </graphic>
+                                                            </Label>
+                                                            <Button id="dark-blue" fx:id="editBasicInfoButton" maxHeight="30.0" maxWidth="60.0" minHeight="30.0" minWidth="60.0" mnemonicParsing="false" onAction="#editBasicInfo" stylesheets="@../styles/buttons.css" text="Edit" GridPane.rowIndex="11">
+                                                               <GridPane.margin>
+                                                                  <Insets left="10.0" />
+                                                               </GridPane.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </GridPane>
+                                                   </children>
+                                                </GridPane>
+                                             </children></AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="Account">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <GridPane layoutX="43.0" layoutY="72.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <columnConstraints>
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="170.0" prefWidth="170.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label id="inputLabel1" maxHeight="30.0" maxWidth="130.0" minHeight="30.0" minWidth="130.0" stylesheets="@../styles/box.css" text="User Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="40.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label id="inputLabel1" maxHeight="30.0" maxWidth="130.0" minHeight="30.0" minWidth="130.0" stylesheets="@../styles/box.css" text="User Type" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="40.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label id="inputLabel1" maxHeight="30.0" maxWidth="130.0" minHeight="30.0" minWidth="130.0" stylesheets="@../styles/box.css" text="User ID" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets left="40.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <TextField id="inputText1" fx:id="adminUserName" disable="true" maxHeight="30.0" minHeight="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                      <TextField id="inputText1" fx:id="adminUserType" disable="true" maxHeight="30.0" minHeight="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                      <TextField id="inputText1" fx:id="adminUserID" disable="true" maxHeight="30.0" minHeight="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                      <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                         <graphic>  
+                                                            
+                                                            <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="USER" textFill="#333" />
+                                                            
+                                                        </graphic>
+                                                      </Label>
+                                                      <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                         <graphic>  
+                                                            
+                                                            <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="USERS" textFill="#333" />
+                                                            
+                                                        </graphic>
+                                                      </Label>
+                                                      <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                         <graphic>  
+                                                            
+                                                            <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="BULLSEYE" textFill="#333" />
+                                                            
+                                                        </graphic>
+                                                      </Label>
+                                                      <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                         <graphic>  
+                                                            
+                                                            <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="KEY" textFill="#333" />
+                                                            
+                                                        </graphic>
+                                                      </Label>
+                                                      <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                         <graphic>  
+                                                            
+                                                            <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="UNLOCK_ALT" textFill="#333" />
+                                                            
+                                                        </graphic>
+                                                      </Label>
+                                                      <Label id="inputLabel0" alignment="CENTER" contentDisplay="CENTER" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                         <graphic>  
+                                                            
+                                                            <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="UNLOCK" textFill="#333" />
+                                                            
+                                                        </graphic>
+                                                      </Label>
+                                                      <TextField id="inputText1" fx:id="adminConfirmPassword" disable="true" maxHeight="30.0" minHeight="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                                                      <TextField id="inputText1" fx:id="adminNewPassword" disable="true" maxHeight="30.0" minHeight="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                                                      <TextField id="inputText1" fx:id="adminPassword" disable="true" maxHeight="30.0" minHeight="30.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                                                      <Label id="inputLabel1" maxHeight="30.0" maxWidth="130.0" minHeight="30.0" minWidth="130.0" stylesheets="@../styles/box.css" text="Confirm Password" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                                         <GridPane.margin>
+                                                            <Insets left="40.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label id="inputLabel1" maxHeight="30.0" maxWidth="130.0" minHeight="30.0" minWidth="130.0" stylesheets="@../styles/box.css" text="new Password" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                                         <GridPane.margin>
+                                                            <Insets left="40.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Label id="inputLabel1" maxHeight="30.0" maxWidth="130.0" minHeight="30.0" minWidth="130.0" stylesheets="@../styles/box.css" text="Current Password" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                                         <GridPane.margin>
+                                                            <Insets left="40.0" />
+                                                         </GridPane.margin>
+                                                      </Label>
+                                                      <Button id="dark-blue" fx:id="editUserInfoButton" maxHeight="30.0" maxWidth="60.0" minHeight="30.0" minWidth="60.0" mnemonicParsing="false" onAction="#editUserInfo" stylesheets="@../styles/buttons.css" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                      </Button>
+                                                      <Button id="dark-blue" fx:id="editPasswordInfoButton" maxHeight="30.0" maxWidth="60.0" minHeight="30.0" minWidth="60.0" mnemonicParsing="false" onAction="#editPasswordInfo" stylesheets="@../styles/buttons.css" text="Edit" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                                         <GridPane.margin>
+                                                            <Insets left="10.0" />
+                                                         </GridPane.margin>
+                                                      </Button>
+                                                   </children>
+                                                </GridPane>
+                                             </children></AnchorPane>
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                              <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="39.0" minHeight="39.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="275.0" minHeight="275.0" prefHeight="275.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                  <RowConstraints maxHeight="572.0" minHeight="10.0" prefHeight="167.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label id="profileBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.rowIndex="1" GridPane.rowSpan="4" />
+                                    <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/header.css" />
+                                    <ImageView fx:id="profileImage" fitHeight="180.0" fitWidth="180.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" top="60.0" />
+                                       </GridPane.margin>
+                                       <image>
+                                          <Image url="@../imgs/profile.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button id="dark-blue" fx:id="editProfilePicButton" maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" minWidth="65.0" mnemonicParsing="false" onAction="#editProfilePic" stylesheets="@../styles/buttons.css" text="Edit" GridPane.rowIndex="2">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </GridPane>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <GridPane layoutX="22.0" layoutY="5.0" maxHeight="51.0" maxWidth="1.7976931348623157E308" prefHeight="51.0" prefWidth="778.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="170.0" prefWidth="170.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="257.0" minWidth="10.0" prefWidth="139.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1000.0" minWidth="10.0" prefWidth="287.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="20.0" minWidth="8.0" prefWidth="20.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label alignment="BASELINE_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="78.0" stylesheets="@../styles/header.css" GridPane.columnIndex="3">    
+            
+            </Label>
+            <Label alignment="BASELINE_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" stylesheets="@../styles/header.css" GridPane.columnIndex="4">
+             
+            </Label>    
+            
+            <Label alignment="BASELINE_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="-Infinity" stylesheets="@../styles/header.css" textFill="#e1dede" GridPane.columnIndex="5">
+             
+            </Label>
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/header.css" GridPane.columnIndex="1" />
+            <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMousePressed="#showManual" prefHeight="51.0" prefWidth="233.0" stylesheets="@../styles/header.css" text=" HealthPlus" textFill="#d7d6d6">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+               
+                   <FontAwesomeIconView fill="#ff6666" glyphName="PLUS_CIRCLE" glyphStyle="" size="20px" />
+                 
+               </graphic>
+               <effect>
+                  <Bloom threshold="0.84" />
+               </effect> 
+            </Label>
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="55.0" prefWidth="248.0" stylesheets="@../styles/header.css" GridPane.columnIndex="2" />
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/header.css" GridPane.columnIndex="6" />
+            <Button id="logout" fx:id="logoutButton" maxWidth="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#logout" stylesheets="@../styles/box.css" GridPane.columnIndex="5">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+               <graphic>
+                    
+                   <FontAwesomeIconView fill="#ffffff" glyphName="SIGN_OUT" glyphStyle="" size="15px" />
+                      
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="iconButton" fx:id="AllMessages" maxWidth="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#showAllMessages" stylesheets="@../styles/box.css" GridPane.columnIndex="4">
+               <graphic>
+                    
+                  <FontAwesomeIconView fill="#222" glyphName="ENVELOPE" glyphStyle="" size="15px" />
+                   
+                </graphic>
+                <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button id="iconButton" fx:id="showUserButton" maxWidth="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#showUser" stylesheets="@../styles/box.css" GridPane.columnIndex="3">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+                <graphic>
+                    
+                    <FontAwesomeIconView fill="#222" glyphName="USER" glyphStyle="" size="15px" />
+                      
+                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               
+            </Button>
+            </children>
+      </GridPane>
+    </children>
+</fx:root>

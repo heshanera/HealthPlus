@@ -1,0 +1,3 @@
+.mini-icon-button {
+    -fx-skin: "jfxtras.labs.internal.scene.control.skin.MiniIconButtonSkin";
+}

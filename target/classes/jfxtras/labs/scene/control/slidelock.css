@@ -1,0 +1,126 @@
+/* 
+    Document   : slidelock
+    Created on : Sep 8, 2012, 11:42:32 PM
+    Author     : cdea
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.slide-lock { 
+    -fx-skin: "jfxtras.labs.internal.scene.control.skin.SlideLockSkin";
+}
+
+#slide-background {
+    -fx-fill             : black;
+    -fx-opacity          : 1;
+    -fx-stroke           : black;
+    -fx-stroke-width     : 0;
+    -fx-stroke-linecap   : butt;
+    -fx-stroke-linejoin  : miter;
+    -fx-stroke-miterlimit: 4;
+    -fx-stroke-opacity   : 1;
+    -fx-stroke-dasharray : none;
+    -fx-stroke-dashoffset: 0;
+}
+
+#slide-area {
+    -fx-fill             : black;
+    -fx-fill-opacity     : 1;
+    -fx-fill-rule        : nonzero;
+    /*-fx-stroke           : linear-gradient(to top, #2f2e2eff, #c8c8c800);*/
+    -fx-stroke           : linear-gradient(to top, #3f3e3eff, #c8c8c830);
+    /*-fx-stroke: linear-gradient(to bottom right, 2f2e2eff, c8c8c800);*/
+    -fx-stroke-width     : 1.98099995;
+    -fx-stroke-linecap   : butt;
+    -fx-stroke-linejoin  : miter;
+    -fx-stroke-miterlimit: 4;
+    -fx-stroke-opacity   : 1;
+    -fx-stroke-dasharray : none;
+    -fx-stroke-dashoffset: 0;
+}
+
+#slide-frame {
+/*
+ -fx-fill-opacity:0.27433627;
+-fx-fill: linear-gradient(to bottom right, #f0f0f0ff, #f0f0f000);
+-fx-fill-opacity:1;
+-fx-stroke: black;
+*/
+    -fx-stroke-width     : 0;
+    -fx-stroke-linecap   : butt;
+    -fx-stroke-linejoin  : miter;
+    -fx-stroke-miterlimit: 4;
+    -fx-stroke-opacity   : 1;
+    -fx-stroke-dasharray : none;
+    -fx-stroke-dashoffset: 0;
+}
+
+/*
+-fx-fill:url(#linearGradient3928);
+-fx-fill-opacity:1;
+-fx-fill-rule:nonzero;
+-fx-stroke:#817e7e;
+-fx-stroke-width:0;
+-fx-stroke-linecap:butt;
+-fx-stroke-linejoin:miter;
+-fx-stroke-miterlimit:4;
+-fx-stroke-opacity:1;
+-fx-stroke-dasharray:none;
+-fx-stroke-dashoffset:0;
+*/
+
+#button-gradient-rect {
+    -fx-fill-rule        : nonzero;
+    -fx-opacity          : 1;
+    -fx-stroke           : #817e7e;
+    -fx-stroke-width     : 0;
+    -fx-stroke-linecap   : butt;
+    -fx-stroke-linejoin  : miter;
+    -fx-stroke-miterlimit: 4;
+    -fx-stroke-opacity   : 1;
+    -fx-stroke-dasharray : none;
+    -fx-stroke-dashoffset: 0;
+
+}
+
+#button-arrow-blur-shadow {
+    -fx-fill-rule        : nonzero;
+    -fx-opacity          : 1;
+    -fx-stroke-width     : 0;
+    -fx-stroke-linecap   : butt;
+    -fx-stroke-linejoin  : miter;
+    -fx-stroke-miterlimit: 4;
+    -fx-stroke-opacity   : 1;
+    -fx-stroke-dasharray : none;
+    -fx-stroke-dashoffset: 0;
+}
+
+#button-arrow-stencil-crisp {
+    -fx-fill-rule        : nonzero;
+    -fx-opacity          : 1;
+    -fx-stroke-width     : 0;
+    -fx-stroke-linecap   : butt;
+    -fx-stroke-linejoin  : miter;
+    -fx-stroke-miterlimit: 4;
+    -fx-stroke-opacity   : 1;
+    -fx-stroke-dasharray : none;
+    -fx-stroke-dashoffset: 0;
+}
+
+#button-arrow-glare-rect {
+
+}
+
+#slide-text {
+    -fx-font-size     : 40;
+    -fx-font-style    : normal;
+    -fx-font-variant  : normal;
+    -fx-font-weight   : normal;
+    -fx-font-stretch  : normal;
+    -fx-line-height   : 125%;
+    -fx-letter-spacing: 0px;
+    -fx-word-spacing  : 0px;
+    -fx-fill          : #555555;
+    -fx-fill-opacity  :1;
+    -fx-font-family   : 'Arial';
+}

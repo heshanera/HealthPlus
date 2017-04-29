@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.*?>
+<?import de.jensd.fx.glyphs.materialicons.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.*?>
+<?import de.jensd.fx.glyphs.octicons.*?>
+<?import de.jensd.fx.glyphs.weathericons.*?>
+<?import jfxtras.scene.control.*?>
+<?import jfxtras.scene.control.agenda.*?>
+<?import org.controlsfx.glyphfont.*?>
+<?import impl.org.controlsfx.autocompletion.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+<?import Doctor.*?>
+
+<fx:root id="anchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="433.0" prefWidth="570.0" stylesheets="@../styles/popup.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">        
+    <children>
+      <GridPane layoutX="129.0" layoutY="158.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="400.0" prefWidth="400.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="500.0" minHeight="480.0" prefHeight="500.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button id="transparentButton2" fx:id="saveSuccess" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#saveSuccessExit" stylesheets="@../styles/box.css" GridPane.columnSpan="3" GridPane.rowSpan="3" />
+            <Label id="box" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/popup.css" text="New Stock" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="70.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="close" alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="30.0" maxWidth="1.7976931348623157E308" onMouseClicked="#closeEditor" GridPane.columnIndex="2" GridPane.columnSpan="2">
+                     <GridPane.margin>
+                        <Insets left="215.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <graphic>
+                                             
+                         <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="TIMES_CIRCLE" textFill="#333" />
+
+                    </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <ComboBox id="inputText3" fx:id="brandName" disable="true" editable="true" maxHeight="30.0" maxWidth="1.7976931348623157E308" onAction="#showDrugType" prefWidth="150.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <ComboBox id="inputText3" fx:id="genericName" editable="true" maxHeight="30.0" maxWidth="1.7976931348623157E308" onAction="#showBrandNames" prefWidth="150.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label id="inputLabel01" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text=" Brand Name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label id="inputLabel01" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text=" Generic Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label id="inputLabel01" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text=" Drug Type" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label id="inputLabel01" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text=" Drug Unit" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label id="inputLabel01" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text=" Unit Price" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Label id="inputLabel01" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text=" Stock" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <Label id="inputLabel01" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text=" Manufac Date" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                  <Label id="inputLabel01" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text=" Expiry Date" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                  <Label id="inputLabel01" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" text=" Supplier" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                  <ComboBox id="inputText3" fx:id="drugType" disable="true" maxHeight="30.0" maxWidth="1.7976931348623157E308" onAction="#showDrugUnit" prefWidth="150.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <ComboBox id="inputText3" fx:id="drugUnit" disable="true" maxHeight="30.0" maxWidth="1.7976931348623157E308" onAction="#showDrugPrice" prefWidth="150.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <ComboBox id="inputText3" fx:id="supplier" disable="true" editable="true" maxHeight="30.0" maxWidth="1.7976931348623157E308" prefWidth="150.0" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+                  <DatePicker id="inputText3" fx:id="manuDate" disable="true" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+                  <DatePicker id="inputText3" fx:id="expDate" disable="true" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+                  <TextField id="inputLabel11" fx:id="stock" disable="true" maxHeight="30.0" maxWidth="1.7976931348623157E308" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                     <GridPane.margin>
+                        <Insets right="40.0" />
+                     </GridPane.margin></TextField>
+                  <TextField id="inputLabel11" fx:id="drugPrice" disable="true" maxHeight="30.0" maxWidth="1.7976931348623157E308" onKeyReleased="#stockDetails" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets right="40.0" />
+                     </GridPane.margin></TextField>
+                  <Button id="dark-blue" fx:id="add" maxHeight="30.0" maxWidth="60.0" mnemonicParsing="false" onAction="#addNewStock" stylesheets="@../styles/buttons.css" text="Add" GridPane.columnIndex="2" GridPane.rowIndex="11">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets left="160.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <TextField id="inputText2" fx:id="drugPrice1" disable="true" editable="false" maxHeight="30.0" maxWidth="1.7976931348623157E308" onKeyReleased="#stockDetails" stylesheets="@../styles/box.css" text="Rs" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets left="180.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField id="inputText2" fx:id="drugUnit2" disable="true" editable="false" maxHeight="30.0" maxWidth="1.7976931348623157E308" onKeyReleased="#stockDetails" stylesheets="@../styles/box.css" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                     <GridPane.margin>
+                        <Insets left="180.0" />
+                     </GridPane.margin>
+                  </TextField>        
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</fx:root>

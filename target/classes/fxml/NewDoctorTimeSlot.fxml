@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.*?>
+<?import de.jensd.fx.glyphs.materialicons.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import de.jensd.fx.glyphs.materialdesignicons.*?>
+<?import de.jensd.fx.glyphs.octicons.*?>
+<?import de.jensd.fx.glyphs.weathericons.*?>
+<?import jfxtras.scene.control.*?>
+<?import jfxtras.scene.control.agenda.*?>
+<?import org.controlsfx.glyphfont.*?>
+<?import impl.org.controlsfx.autocompletion.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
+<?import Doctor.*?>
+
+<fx:root id="anchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="433.0" prefWidth="570.0" stylesheets="@../styles/popup.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">        
+    <children>
+      <GridPane layoutX="129.0" layoutY="158.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="50.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="165.0" minHeight="165.0" prefHeight="165.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="100.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button id="transparentButton2" fx:id="saveSuccess" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#saveSuccessExit" stylesheets="@../styles/box.css" GridPane.columnSpan="3" GridPane.rowSpan="3" />
+            <Label id="box" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" stylesheets="@../styles/popup.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="60.0" minWidth="60.0" prefWidth="60.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="120.0" prefWidth="120.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="35.0" minHeight="35.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" maxHeight="30.0" maxWidth="1.7976931348623157E308" text="to" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxWidth="80.0" text="Day" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxWidth="80.0" text="Time" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets left="15.0" />
+                     </GridPane.margin>
+                  </Label>
+                  
+                  <Button id="dark-blue" fx:id="saveButton" maxHeight="30.0" maxWidth="60.0" mnemonicParsing="false" onAction="#save" stylesheets="@../styles/buttons.css" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets left="160.0" />
+                     </GridPane.margin>
+                  </Button>
+                  <Label fx:id="close" alignment="TOP_RIGHT" contentDisplay="RIGHT" maxHeight="30.0" maxWidth="1.7976931348623157E308" onMouseClicked="#closeEditor" GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="180.0" right="5.0" top="5.0" />
+                     </GridPane.margin>
+                     <graphic>
+                                             
+                         <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="TIMES_CIRCLE" textFill="#333" />
+
+                    </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <ComboBox id="inputText5" fx:id="slotDayCombo" maxHeight="30.0" maxWidth="1.7976931348623157E308" prefWidth="150.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets right="20.0" />
+                     </GridPane.margin>
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Monday" />
+                            <String fx:value="Tuesday" />
+                            <String fx:value="Wednesday" />
+                            <String fx:value="Thursday" />
+                            <String fx:value="Friday" />
+                            <String fx:value="Saturday" />
+                            <String fx:value="Sunday" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>
+                  <ComboBox id="inputText5" fx:id="end" maxHeight="30.0" maxWidth="95.0" prefWidth="150.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="08.00" />
+                           <String fx:value="08.30" />
+                           <String fx:value="09.00" />
+                           <String fx:value="09.30" />
+                           <String fx:value="10.00" />
+                           <String fx:value="10.30" />
+                           <String fx:value="11.00" />
+                           <String fx:value="11.30" />
+                           <String fx:value="12.00" />
+                           <String fx:value="12.30" />
+                           <String fx:value="13.00" />
+                           <String fx:value="13.30" />
+                           <String fx:value="14.00" />
+                           <String fx:value="14.30" />
+                           <String fx:value="15.00" />
+                           <String fx:value="15.30" />
+                           <String fx:value="16.00" />
+                           <String fx:value="16.30" />
+                           <String fx:value="17.00" />
+                           <String fx:value="17.30" />
+                           <String fx:value="18.00" />
+                           <String fx:value="18.30" />
+                           <String fx:value="19.00" />
+                           <String fx:value="19.30" />
+                           <String fx:value="20.00" />
+                           <String fx:value="20.30" />
+                           <String fx:value="21.00" />
+                           <String fx:value="21.30" />
+                           <String fx:value="22.00" />
+                           <String fx:value="22.30" />
+                           <String fx:value="23.00" />
+
+                        </FXCollections>
+                     </items>
+                     <GridPane.margin>
+                        <Insets left="130.0" right="20.0" />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <ComboBox id="inputText5" fx:id="start" maxHeight="30.0" maxWidth="95.0" prefWidth="150.0" stylesheets="@../styles/box.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="08.00" />
+                           <String fx:value="08.30" />
+                           <String fx:value="09.00" />
+                           <String fx:value="09.30" />
+                           <String fx:value="10.00" />
+                           <String fx:value="10.30" />
+                           <String fx:value="11.00" />
+                           <String fx:value="11.30" />
+                           <String fx:value="12.00" />
+                           <String fx:value="12.30" />
+                           <String fx:value="13.00" />
+                           <String fx:value="13.30" />
+                           <String fx:value="14.00" />
+                           <String fx:value="14.30" />
+                           <String fx:value="15.00" />
+                           <String fx:value="15.30" />
+                           <String fx:value="16.00" />
+                           <String fx:value="16.30" />
+                           <String fx:value="17.00" />
+                           <String fx:value="17.30" />
+                           <String fx:value="18.00" />
+                           <String fx:value="18.30" />
+                           <String fx:value="19.00" />
+                           <String fx:value="19.30" />
+                           <String fx:value="20.00" />
+                           <String fx:value="20.30" />
+                           <String fx:value="21.00" />
+                           <String fx:value="21.30" />
+                           <String fx:value="22.00" />
+                           <String fx:value="22.30" />
+                           <String fx:value="23.00" />
+                        </FXCollections>
+                     </items>
+                  </ComboBox>        
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </children>
+</fx:root>

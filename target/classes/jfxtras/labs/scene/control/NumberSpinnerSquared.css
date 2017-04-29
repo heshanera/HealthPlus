@@ -1,0 +1,23 @@
+#NumberField {
+    -fx-border-width: 1;
+    -fx-border-color: derive(-fx-base,-30%);
+    -fx-background-insets:1;
+    -fx-border-radius:0 0 0 0;
+}
+#NumberSpinnerArrow {
+    -fx-fill: derive(-fx-base,80%);
+    -fx-stroke: derive(-fx-base,80%);
+}
+#ButtonsBox {
+    -fx-border-color:derive(-fx-base,-30%);
+    -fx-border-width: 1 1 1 0;
+    -fx-border-radius: 0 0 0 0;
+}
+#SpinnerButtonUp {
+    -fx-background-insets: 0;
+    -fx-background-radius:0;
+}
+#SpinnerButtonDown {
+    -fx-background-insets: 0;
+    -fx-background-radius:0;
+}

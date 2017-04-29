@@ -1,0 +1,26 @@
+.breadcrumbitem {
+    -fx-skin: "jfxtras.labs.internal.scene.control.skin.BreadcrumbItemSkin";
+}
+
+.breadcrumbitem-ui {
+    -fx-fill: linear-gradient(gray 0%, #3c3c3c 100%);
+    -fx-background-color: -fx-fill;
+}
+
+.breadcrumbitem-ui:hover,.breadcrumbitem-ui-hover {
+    -fx-fill: linear-gradient(#424242 0%, #2E2E2E 100%);
+    -fx-background-color: -fx-fill;
+}
+
+.breadcrumbitem-icon {
+    
+}
+
+.breadcrumbitem-text {
+    -fx-fill: transparent;
+    -fx-text-fill: white;
+}
+
+.breadcrumbitem-text:hover, .breadcrumbitem-text-hover {
+    -fx-text-fill: gray;
+}

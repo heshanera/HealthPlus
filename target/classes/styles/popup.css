@@ -1,0 +1,59 @@
+#anchor{
+    /*-fx-background-color: #eee;*/
+    -fx-background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+#box{
+	-fx-background-color: #eee;
+        -fx-border-radius: 3;
+        -fx-background-insets: 2, 1, 2, 2;
+        /*-fx-background-radius: 3 3 3 3, 3 3 3 3, 3 3 3 3;*/
+        -fx-text-fill: #333;
+        -fx-padding: 5 5 5 5;
+        -fx-border-color: #eee;
+        -fx-border-width: 3 3 3 3; 
+        /*-fx-background-color: linear-gradient(#0798bc 25%, #ffffff 50%, #0798bc 25%);*/
+}
+
+#box2{
+	-fx-background-color: #eee;
+        -fx-border-radius: 3;
+        -fx-background-insets: 2, 1, 2, 2;
+        /*-fx-background-radius: 3 3 3 3, 3 3 3 3, 3 3 3 3;*/
+        -fx-text-fill: #333;
+        -fx-padding: 5 5 5 5;
+        -fx-border-color: #999;
+        -fx-border-width: 1 1 1 1; 
+        /*-fx-background-color: linear-gradient(#0798bc 25%, #ffffff 50%, #0798bc 25%);*/
+}
+
+
+#box3{
+	-fx-border-radius: 3;
+        -fx-background-insets: 2, 1, 2, 2;
+        -fx-border-width: 3 3 3 3; 
+        /*-fx-background-color: linear-gradient(#0798bc 25%, #ffffff 50%, #0798bc 25%);*/
+}
+
+#box4{
+	-fx-background-color: #fff;
+        -fx-border-radius: 3;
+        -fx-background-insets: 2, 1, 2, 2;
+        /*-fx-background-radius: 3 3 3 3, 3 3 3 3, 3 3 3 3;*/
+        -fx-text-fill: #333;
+        -fx-padding: 5 5 5 5;
+        -fx-border-color: #fff;
+        -fx-border-width: 3 3 3 3; 
+        /*-fx-background-color: linear-gradient(#0798bc 25%, #ffffff 50%, #0798bc 25%);*/
+}
+
+
+#background{
+    
+    -fx-background-color: #fff;
+    
+    /*-fx-background-radius: 3 3 3 3, 3 3 3 3, 3 3 3 3;*/
+    -fx-text-fill: #333;
+    
+}

@@ -1,0 +1,6 @@
+.status-bar {
+	-fx-padding: 4px;
+	-fx-pref-height: 30px;
+	-fx-background-color: lightgray, -fx-body-color;
+	-fx-background-insets: 0, 1
+}

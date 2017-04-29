@@ -1,0 +1,22 @@
+.grid-view {
+	-fx-skin: "jfxtras.labs.internal.scene.control.skin.GridViewSkin";
+	-fx-vertical-cell-spacing: 12;
+	-fx-horizontal-cell-spacing: 12;
+	-fx-cell-height: 64;
+	-fx-cell-width: 64;
+	-fx-horizontal-alignment: CENTER;
+}
+
+.grid-cell {
+	-fx-skin: "jfxtras.labs.internal.scene.control.skin.GridCellSkin";
+}
+
+.color-grid-cell {
+	-fx-skin: "jfxtras.labs.internal.scene.control.skin.GridCellSkin";
+}
+.image-grid-cell {
+	-fx-skin: "jfxtras.labs.internal.scene.control.skin.GridCellSkin";
+}
+.media-grid-cell {
+	-fx-skin: "jfxtras.labs.internal.scene.control.skin.GridCellSkin";
+}
