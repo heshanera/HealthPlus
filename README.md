@@ -7,11 +7,10 @@ A Management System for a Health Care Facility
   - Billing in the pharmacy
   - Pharmacy stock controlling
 
-<table>
-  <tr>
-    <td><img src="https://github.com/heshanera/HealthPlus/blob/master/screenshots/componentInteractions.png" alt="componentInteractions"></td>
-  </tr>
-  <tr>
-    <td><br><br><br><img src="https://github.com/heshanera/HealthPlus/blob/master/screenshots/screenshots.png" alt="ScreenShots" width="100%"></td>
-  </tr>
-</table>
+---
+
+ <img src="https://github.com/heshanera/HealthPlus/blob/master/screenshots/componentInteractions.png" alt="componentInteractions" width="100%">
+ 
+ ---
+ 
+ <img src="https://github.com/heshanera/HealthPlus/blob/master/screenshots/screenshots.png" alt="ScreenShots" width="100%">
