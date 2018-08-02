@@ -1,8 +1,8 @@
--- MySQL dump 10.14  Distrib 5.5.53-MariaDB, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.16  Distrib 10.1.34-MariaDB, for Linux (x86_64)
 --
--- Host: localhost    Database: localhost
+-- Host: localhost    Database: test_HMS2
 -- ------------------------------------------------------
--- Server version	5.5.53-MariaDB-1~trusty
+-- Server version	10.1.34-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -1060,6 +1060,7 @@ CREATE TABLE `sys_user` (
   `login` datetime DEFAULT NULL,
   `logout` datetime DEFAULT NULL,
   `profile_pic` varchar(20) DEFAULT 'p2.png',
+  `suspend` int(11) DEFAULT NULL,
   PRIMARY KEY (`user_id`),
   KEY `person_id` (`person_id`),
   CONSTRAINT `sys_user_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `person` (`person_id`)
@@ -1072,7 +1073,7 @@ CREATE TABLE `sys_user` (
 
 LOCK TABLES `sys_user` WRITE;
 /*!40000 ALTER TABLE `sys_user` DISABLE KEYS */;
-INSERT INTO `sys_user` VALUES ('hms00081','hms0001u','user001','doctor','specialist in cardiology','1234',NULL,NULL,NULL,'user001ProfPic.png'),('hms00083','hms0003u','user003','doctor','specialist in neurology','ccc123',NULL,NULL,NULL,'p2.png'),('hms00084','hms0004u','user004','doctor','specialist in neurology','ddd123',NULL,NULL,NULL,'p2.png'),('hms00085','hms0005u','user005','doctor','specialist in physiology','eee123',NULL,NULL,NULL,'p2.png'),('hms00086','hms0006u','user006','doctor','specialist in physiology','aaa456',NULL,NULL,NULL,'p2.png'),('hms00087','hms0007u','user007','doctor','specialist in orthopedics','bbb456',NULL,NULL,NULL,'p2.png'),('hms00088','hms0008u','user008','doctor','specialist in orthopedics','ccc456',NULL,NULL,NULL,'p2.png'),('hms00089','hms0009u','user009','doctor','specialist in paediatrics','ddd456',NULL,NULL,NULL,'p2.png'),('hms00090','hms0010u','user010','doctor','specialist in endocrineology','eee456',NULL,NULL,NULL,'p2.png'),('hms00091','hms0011u','user011','doctor','opd doctor','fff456',NULL,NULL,NULL,'p2.png'),('hms00092','hms0012u','user012','lab_assistant','3 years of experience','1234',NULL,NULL,NULL,'user012ProfPic.png'),('hms00093','hms0013u','user013','lab_assistant','3 years of experience','laaa2',NULL,NULL,NULL,'p2.png'),('hms00094','hms0014u','user014','lab_assistant','4 years of experience','laaa3',NULL,NULL,NULL,'p2.png'),('hms00095','hms0015u','user015','lab_assistant','2 years of experience','laaa4',NULL,NULL,NULL,'p2.png'),('hms00096','hms0016u','user016','pharmacist','5 years of experience','1234',NULL,NULL,NULL,'user016ProfPic.png'),('hms00097','hms0017u','user017','pharmacist','3 years of experience','pxxx123',NULL,NULL,NULL,'p2.png'),('hms00098','hms0018u','user018','receptionist','diploma in british council','1234',NULL,NULL,NULL,'user018ProfPic.png'),('hms00099','hms0019u','user019','receptionist','diploma in british council','rxx02',NULL,NULL,NULL,'p2.png'),('hms00100','hms0020u','user020','cashier','CIMA qualified','1234',NULL,NULL,NULL,'user020ProfPic.png'),('hms00101','hms0021u','user021','admin','','1234',NULL,'2016-12-07 13:43:27','2016-12-07 13:43:27','user021ProfPic.png');
+INSERT INTO `sys_user` VALUES ('hms00081','hms0001u','user001','doctor','specialist in cardiology','1234',0,'2018-07-25 02:17:41','2018-07-25 02:18:12','user001ProfPic.png',NULL),('hms00083','hms0003u','user003','doctor','specialist in neurology','ccc123',NULL,NULL,NULL,'p2.png',NULL),('hms00084','hms0004u','user004','doctor','specialist in neurology','ddd123',1,'2018-07-25 10:21:49',NULL,'p2.png',NULL),('hms00085','hms0005u','user005','doctor','specialist in physiology','eee123',NULL,NULL,NULL,'p2.png',NULL),('hms00086','hms0006u','user006','doctor','specialist in physiology','aaa456',NULL,NULL,NULL,'p2.png',NULL),('hms00087','hms0007u','user007','doctor','specialist in orthopedics','bbb456',NULL,NULL,NULL,'p2.png',NULL),('hms00088','hms0008u','user008','doctor','specialist in orthopedics','ccc456',NULL,NULL,NULL,'p2.png',NULL),('hms00089','hms0009u','user009','doctor','specialist in paediatrics','ddd456',NULL,NULL,NULL,'p2.png',NULL),('hms00090','hms0010u','user010','doctor','specialist in endocrineology','eee456',NULL,NULL,NULL,'p2.png',NULL),('hms00091','hms0011u','user011','doctor','opd doctor','fff456',NULL,NULL,NULL,'p2.png',NULL),('hms00092','hms0012u','user012','lab_assistant','3 years of experience','1234',NULL,NULL,NULL,'user012ProfPic.png',NULL),('hms00093','hms0013u','user013','lab_assistant','3 years of experience','laaa2',NULL,NULL,NULL,'p2.png',NULL),('hms00094','hms0014u','user014','lab_assistant','4 years of experience','laaa3',NULL,NULL,NULL,'p2.png',NULL),('hms00095','hms0015u','user015','lab_assistant','2 years of experience','laaa4',NULL,NULL,NULL,'p2.png',NULL),('hms00096','hms0016u','user016','pharmacist','5 years of experience','1234',0,'2018-07-25 02:18:31','2018-07-25 02:19:10','user016ProfPic.png',NULL),('hms00097','hms0017u','user017','pharmacist','3 years of experience','pxxx123',NULL,NULL,NULL,'p2.png',NULL),('hms00098','hms0018u','user018','receptionist','diploma in british council','1234',NULL,NULL,NULL,'user018ProfPic.png',NULL),('hms00099','hms0019u','user019','receptionist','diploma in british council','rxx02',NULL,NULL,NULL,'p2.png',NULL),('hms00100','hms0020u','user020','cashier','CIMA qualified','1234',0,'2018-07-25 02:29:01','2018-07-25 02:29:06','user020ProfPic.png',NULL),('hms00101','hms0021u','user021','admin','','1234',1,'2018-07-25 10:33:32','2016-12-07 13:43:27','user021ProfPic.png',NULL);
 /*!40000 ALTER TABLE `sys_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1207,4 +1208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-12 23:33:50
+-- Dump completed on 2018-08-02 12:51:13

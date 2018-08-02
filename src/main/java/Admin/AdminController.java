@@ -1119,10 +1119,12 @@ public class AdminController extends AnchorPane {
         //String database = admin.getSchemaSize(admin.database).get(1).get(0);
         
         
-        String system = admin.getDirectorySize("/home/heshan/NetBeansProjects/hms_test_2/");
+        /*** dummy Values ***/
+        String system = "0M";//admin.getDirectorySize("/home/heshan/NetBeansProjects/hms_test_2/");
         
         systemStorage.setText(system.split("M")[0] + " MB");
         databaseStoragetxt.setText("2.3 MB");
+        /************/
         
         String suspended = admin.getsuspendUser();
         String active = admin.getActiveUser();

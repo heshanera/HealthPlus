@@ -44,8 +44,8 @@ Admin/AdminController$6.class
 Doctor/Availability.class
 Admin/AdminMessageController.class
 Cashier/Cashier.class
-com/hms/hms_test_2/SuccessIndicatorController.class
 com/hms/hms_test_2/CurrentUserSummaryController.class
+com/hms/hms_test_2/SuccessIndicatorController.class
 Admin/AdminController$3.class
 com/hms/hms_test_2/ReadMessageController.class
 com/hms/hms_test_2/AllMessages.class
@@ -74,6 +74,6 @@ Receptionist/ReceptionistController$1.class
 Receptionist/AppointmentSuccessController.class
 com/hms/hms_test_2/MainApp.class
 Pharmacist/Pharmacist.class
-Receptionist/Popover2Controller.class
 Receptionist/AllAppointmentsController.class
+Receptionist/Popover2Controller.class
 Admin/UserAccountController.class

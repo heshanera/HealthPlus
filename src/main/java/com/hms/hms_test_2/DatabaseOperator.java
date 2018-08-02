@@ -547,7 +547,7 @@ public class DatabaseOperator
 		}
 		catch(Exception e)
 		{
-			System.out.println("\n\nTable Doesn't Exist!");
+			System.out.println("\n\nError: "+sql);
 			e.printStackTrace();
 		}
 		return main;
