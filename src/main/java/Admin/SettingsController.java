@@ -5,7 +5,6 @@ import com.hms.hms_test_2.LoginController;
 import com.hms.hms_test_2.SuccessIndicatorController;
 import com.hms.hms_test_2.WarningController;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -32,28 +31,28 @@ import org.controlsfx.control.PopOver;
 
 public class SettingsController extends AnchorPane {
 
-    
+
     private Admin admin;
-    private AdminController adminC;
-    
-    public SettingsController(Admin admin,AdminController adminC) {
+    private AdminController adminController;
+
+    public SettingsController(Admin admin,AdminController adminController) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Settings.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        
+
         this.admin = admin;
-        this.adminC = adminC;
-        
+        this.adminController = adminController;
+
         try {
-            fxmlLoader.load();            
+            fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
-    
+
     String result = "";
     InputStream inputStream;
-    
+
     public void loadConfigFile() throws IOException
     {
         try {
@@ -63,9 +62,9 @@ public class SettingsController extends AnchorPane {
             inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
 
             if (inputStream != null) {
-                    prop.load(inputStream);
+                prop.load(inputStream);
             } else {
-                    throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+                throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
             }
 
             Date time = new Date(System.currentTimeMillis());
@@ -75,7 +74,7 @@ public class SettingsController extends AnchorPane {
             String user = prop.getProperty("user");
             String password = prop.getProperty("password");
             String database = prop.getProperty("database");
-            
+
             databaselbl.setText(database);
             connectionlbl.setText(connection);
             dbDriver.setText(DatabaseOperator.dbClassName);
@@ -84,13 +83,13 @@ public class SettingsController extends AnchorPane {
             //result = "connection = " + connection + ", " + user + ", " + password +", "+ database;
             //System.out.println(result + "\nProgram Ran on " + time + " by user=" + user);
         } catch (Exception e) {
-                System.out.println("Exception: " + e);
+            System.out.println("Exception: " + e);
         } finally {
-		inputStream.close();
-	}
-    
-    }        
-    
+            inputStream.close();
+        }
+
+    }
+
     @FXML
     private void checkConnection()
     {
@@ -99,24 +98,24 @@ public class SettingsController extends AnchorPane {
         if ( data.get(1).get(0).equals(admin.username))
         {
             showSuccessIndicator();
-        }    
-    } 
-    
+        }
+    }
+
     private PopOver popOver4;
-    
+
     @FXML private TextField databaselbl;
     @FXML private TextField connectionlbl;
     @FXML private TextField dbUsernamelbl;
     @FXML private TextField dbDriver;
     @FXML private PasswordField dbPasswordlbl;
-   
+
     private void showPasswordPopup()
-    { 
+    {
 
         if (popOver4 == null) {
             popOver4 = new PopOver();
             popOver4.setArrowLocation(PopOver.ArrowLocation.BOTTOM_CENTER);
-            
+
         }
         WarningController popup = new WarningController();
         popup.addMessage("Password!");
@@ -128,21 +127,21 @@ public class SettingsController extends AnchorPane {
         popOver4.setDetachable(false);
         popOver4.show(dbPasswordlbl);
     }
-    
-    
-    
+
+
+
     @FXML private Button backup;
     DirectoryChooser chooser = new DirectoryChooser();
-    
+
     @FXML private void makeBackup()
     {
         String pass = dbPasswordlbl.getText();
         if (pass.equals(""))
         {
-           showPasswordPopup();
-            
+            showPasswordPopup();
+
         } else {
-            
+
             try{
                 String ip="127.0.0.1";
                 String databaseSchema = admin.database;
@@ -155,115 +154,115 @@ public class SettingsController extends AnchorPane {
                 path = selectedDirectory.getAbsolutePath()+"/";
 
                 boolean result = admin.export( ip, databaseSchema, user, pass, path );
-                if (result == true) 
-                {    
+                if (result == true)
+                {
                     showSuccessIndicator();
                     dbPasswordlbl.setText("");
                 } else {
 
                     showPasswordPopup();
                 }
-            }catch(Exception e){}    
-        }    
-    }        
-    
+            }catch(Exception e){}
+        }
+    }
+
     @FXML private Button editDatabaseInfoButton;
-    
+
     @FXML private void editDatabaseInfo()
     {
-        if(editDatabaseInfoButton.getText().equals("Edit")) {  
-            
+        if(editDatabaseInfoButton.getText().equals("Edit")) {
+
             String pass = dbPasswordlbl.getText();
             if (pass.equals(""))
             {
-               showPasswordPopup();
+                showPasswordPopup();
 
             } else {
-            
-            databaselbl.setEditable(true);
-            connectionlbl.setEditable(true);
-            dbUsernamelbl.setEditable(true);
-            dbDriver.setEditable(true);
-            
-            editDatabaseInfoButton.setText("Save");
-            
+
+                databaselbl.setEditable(true);
+                connectionlbl.setEditable(true);
+                dbUsernamelbl.setEditable(true);
+                dbDriver.setEditable(true);
+
+                editDatabaseInfoButton.setText("Save");
+
             }
-            
+
         } else {
-            
+
             try {
-                
-                
+
+
                 Properties prop = new Properties();
                 String propFileName = "config.properties";
-                
+
                 prop.setProperty("connection", connectionlbl.getText());
                 prop.setProperty("user", dbUsernamelbl.getText());
-                prop.setProperty("database", databaselbl.getText());    
-                
+                prop.setProperty("database", databaselbl.getText());
+
                 try {
                     ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
                     URL url = classLoader.getResource("config.properties");
                     prop.store(new FileOutputStream(new File(url.toURI())), null);
-                 } catch (Exception e) {
-                     // handle exception
-                 }
-                
-                
+                } catch (Exception e) {
+                    // handle exception
+                }
+
+
                 /*
                 String user = prop.getProperty("user");
                 String password = prop.getProperty("password");
                 String database = prop.getProperty("database");
 
                 databaselbl.setText(database);
-                
+
                 dbDriver.setText(DatabaseOperator.dbClassName);
                 dbUsernamelbl.setText(user);
-                
-                
-                */    
+
+
+                */
                 //result = "connection = " + connection + ", " + user + ", " + password +", "+ database;
                 //System.out.println(result + "\nProgram Ran on " + time + " by user=" + user);
 
             } catch (Exception e) {
-                    System.out.println("Exception: " + e);
+                System.out.println("Exception: " + e);
             } finally {
                 try{
                     inputStream.close();
-                }catch(Exception e){}    
+                }catch(Exception e){}
             }
-            
-            
+
+
             databaselbl.setEditable(false);
             connectionlbl.setEditable(false);
             dbUsernamelbl.setEditable(false);
             dbDriver.setEditable(false);
-            
+
             editDatabaseInfoButton.setText("Edit");
-            
-            
-            
+
+
+
         }
-        
-        
-        
-    }        
-    
-    
+
+
+
+    }
+
+
     @FXML private void restart()
-    {   
-        
+    {
+
         String pass = dbPasswordlbl.getText();
         if (pass.equals(""))
         {
-           showPasswordPopup();
+            showPasswordPopup();
 
         } else {
-            Stage stage2; 
-            stage2 = (Stage) adminC.getScene().getWindow();
+            Stage stage2;
+            stage2 = (Stage) adminController.getScene().getWindow();
             stage2.close();
 
-            Stage stage3; 
+            Stage stage3;
             stage3 = (Stage) closeAccounts.getScene().getWindow();
             stage3.close();
 
@@ -278,25 +277,25 @@ public class SettingsController extends AnchorPane {
             stage.setHeight(primaryScreenBounds.getHeight());
             stage.initStyle(StageStyle.UNDECORATED);
             stage.show();
-        }    
+        }
     }
-            
-    
-    
+
+
+
     @FXML
     private Button closeAccounts;
     @FXML
     private void closeViewAccounts(ActionEvent event) {
- 
-        Stage stage; 
+
+        Stage stage;
         Parent root;
         if(event.getSource()== closeAccounts)
         {
             stage = (Stage) closeAccounts.getScene().getWindow();
             stage.close();
         }
-    } 
-    
+    }
+
     @FXML
     public void showSuccessIndicator()
     {
@@ -304,19 +303,19 @@ public class SettingsController extends AnchorPane {
         SuccessIndicatorController success = new SuccessIndicatorController();
         Scene scene = new Scene(success);
         stage.setScene(scene);
-        
+
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
         //set Stage boundaries to visible bounds of the main screen
         stage.setX(primaryScreenBounds.getMinX());
         stage.setY(primaryScreenBounds.getMinY());
         stage.setWidth(primaryScreenBounds.getWidth());
         stage.setHeight(primaryScreenBounds.getHeight());
-        
+
         stage.initStyle(StageStyle.UNDECORATED);
         scene.setFill(null);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
-    }   
+    }
 }    
 
 

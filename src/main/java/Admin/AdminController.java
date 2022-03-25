@@ -1349,8 +1349,7 @@ public class AdminController extends AnchorPane {
     @FXML private Button AllMessages;
     
     @FXML
-    private void showAllMessages()
-    { 
+    private void showAllMessages() throws IOException {
 
         if (popOver == null) 
         {

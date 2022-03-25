@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Maven: javafx:jfxrt:14.0.2">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../jfxrt.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: de.jensd:fontawesomefx:8.9" level="project" />
+    <orderEntry type="library" name="Maven: org.controlsfx:controlsfx:8.40.12" level="project" />
+    <orderEntry type="library" name="Maven: org.jfxtras:jfxtras-common:8.0-r5" level="project" />
+    <orderEntry type="library" name="Maven: org.jfxtras:jfxtras-fxml:8.0-r5" level="project" />
+    <orderEntry type="library" name="Maven: org.jfxtras:jfxtras-controls:8.0-r5" level="project" />
+    <orderEntry type="library" name="Maven: org.jfxtras:jfxtras-window:8.0-r5" level="project" />
+    <orderEntry type="library" name="Maven: org.jfxtras:jfxtras-menu:8.0-r5" level="project" />
+    <orderEntry type="library" name="Maven: org.jfxtras:jfxtras-labs:8.0-r5" level="project" />
+    <orderEntry type="library" name="Maven: org.jfxtras:jfxtras-agenda:8.0-r5" level="project" />
+    <orderEntry type="library" name="Maven: org.mariadb.jdbc:mariadb-java-client:1.1.7" level="project" />
+    <orderEntry type="library" name="Maven: net.java.dev.jna:jna:3.3.0" level="project" />
+    <orderEntry type="library" name="Maven: net.java.dev.jna:jna:platform:3.3.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.maven.shared:maven-shared-utils:0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:2.0.1" level="project" />
+  </component>
+</module>
