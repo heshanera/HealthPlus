@@ -44,9 +44,8 @@ import javafx.stage.FileChooser;
 import javafx.util.Duration;
 import org.controlsfx.control.PopOver;
 import org.controlsfx.control.textfield.TextFields;
-import javafx.scene.layout.AnchorPane;
 
-public class CashierController<patientID> extends AnchorPane {
+public class CashierController<patientID> extends DisplayPopUp {
 
     Validation validationObj = new Validation();
     /**
@@ -63,30 +62,6 @@ public class CashierController<patientID> extends AnchorPane {
      *
      * @param username
      */
-
-
-    private PopOver popOver;
-
-
-    private void showPopup(String message, TextField text)
-    {
-
-        if (popOver == null) {
-            popOver = new PopOver();
-            popOver.setArrowLocation(PopOver.ArrowLocation.BOTTOM_CENTER);
-
-        }
-        WarningController popup = new WarningController();
-        popup.addMessage(message);
-
-        popOver.setContentNode(popup);
-        popOver.setAutoFix(true);
-        popOver.setAutoHide(true);
-        popOver.setHideOnEscape(true);
-        popOver.setDetachable(false);
-        popOver.show(text);
-    }
-
     public CashierController(String username) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Cashier.fxml"));
         fxmlLoader.setRoot(this);
@@ -424,11 +399,11 @@ public class CashierController<patientID> extends AnchorPane {
             }
 
         } else {
-            if(popOver != null){
-                popOver.hide(Duration.millis(500));
+            if(super.popOver != null){
+                super.popOver.hide(Duration.millis(500));
             }
             else{
-                showPopup("hmsxxxxpa",patientID);
+                super.showPopup("hmsxxxxpa",patientID);
             }
         }
     }
