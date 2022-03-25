@@ -105,6 +105,15 @@
         </plugins>
     </build>
     <dependencies>
+
+        <dependency>
+            <groupId>javafx</groupId>
+            <artifactId>jfxrt</artifactId>
+            <version>${java.version}</version>
+            <scope>system</scope>
+            <systemPath>D:/Desktop/Assignment 3 ASDC/jfxrt.jar</systemPath>
+        </dependency>
+
         <dependency>
             <groupId>de.jensd</groupId>
             <artifactId>fontawesomefx</artifactId>
