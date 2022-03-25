@@ -1,10 +1,9 @@
 package com.hms.hms_test_2;
-
 import Admin.AdminController;
 import Cashier.CashierController;
 import Doctor.DoctorController;
+import Pharmacist.*;
 import LabAssistant.LabAssistantController;
-import Pharmacist.PharmacistController;
 import Receptionist.ReceptionistController;
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -20,44 +19,37 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.controlsfx.control.PopOver;
 
-public class LoginController extends AnchorPane {
+public class LoginController extends AnchorPane{
 
     public LoginController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        
+
         try {
-            fxmlLoader.load();            
+            fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
-          
-    
+
     @FXML
     private TextField username;
     @FXML
     private PasswordField password;
-    
+
     @FXML
     private void login() throws IOException
     {
-        
         String user = username.getText();
         String pass = password.getText();
-       
         //System.out.println(user +" " + pass);
-        
         User tmpUser = new User();
-        
-        
         try{
-    
             String userType = tmpUser.checkUser(user, pass);
-            // String userType = "lab_assistant";  
+            // String userType = "lab_assistant";
             System.out.println(userType);
-            
+
             switch (userType)
             {
                 case "doctor":
@@ -65,7 +57,7 @@ public class LoginController extends AnchorPane {
                     ((Node)(username)).getScene().getWindow().hide();
                     break;
 
-                case "lab_assistant": 
+                case "lab_assistant":
                     loadLabAssistant(user);
                     ((Node)(username)).getScene().getWindow().hide();
                     break;
@@ -89,177 +81,135 @@ public class LoginController extends AnchorPane {
                     break;
                 case "false":
                     showPopup("Incorrect Password", password);
-                    break;    
-            }    
+                    break;
+            }
         }catch(Exception e) {
-        
-            // incorect username
+
             showPopup("Incorrect Username", username);
             e.printStackTrace();
-        
-        }    
-    
-    }       
-    
-    
+        }
+    }
+
+    public  Stage CreateStage(Stage stage){
+        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+        stage.setX(primaryScreenBounds.getMinX());
+        stage.setY(primaryScreenBounds.getMinY());
+        stage.setWidth(primaryScreenBounds.getWidth());
+        stage.setHeight(primaryScreenBounds.getHeight());
+        stage.initStyle(StageStyle.UNDECORATED);
+        return stage;
+    }
+
     public void loadDoctor(String username)
     {
         Stage stage = new Stage();
         DoctorController doctor = new DoctorController(username);
-        
         doctor.fillAreaChart();
         doctor.setAppointments();
-        doctor.loadProfileData(); 
+        doctor.loadProfileData();
         doctor.MakeAvailabilityTable();
         doctor.loadDrugList();
         doctor.loadTestList();
         doctor.setPaceholders();
         doctor.addFocusListener();
         doctor.loadNameList();
-        
         stage.setScene(new Scene(doctor));
-        
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
-        stage.setX(primaryScreenBounds.getMinX());
-        stage.setY(primaryScreenBounds.getMinY());
-        stage.setWidth(primaryScreenBounds.getWidth());
-        stage.setHeight(primaryScreenBounds.getHeight());
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
+        Stage st =  CreateStage(stage);
+        st.show();
     }
-    
+
     public void loadPharmacist(String username)
     {
         Stage stage = new Stage();
         PharmacistController pharmacist = new PharmacistController(username);
-        
-        pharmacist.loadProfileData(); 
+
+        pharmacist.loadProfileData();
         pharmacist.makeStockTable();
         pharmacist.fillBarChart();
         pharmacist.fillPieChart();
         pharmacist.setPaceholders();
         pharmacist.loadNameList();
         pharmacist.addFocusListener();
-        
         stage.setScene(new Scene(pharmacist));
-        
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
-        stage.setX(primaryScreenBounds.getMinX());
-        stage.setY(primaryScreenBounds.getMinY());
-        stage.setWidth(primaryScreenBounds.getWidth());
-        stage.setHeight(primaryScreenBounds.getHeight());
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
+        Stage st =  CreateStage(stage);
+        st.show();
     }
-     
+
     public void loadReceptionist(String username)
     {
         Stage stage = new Stage();
         ReceptionistController receptionist = new ReceptionistController(username);
-        
-        receptionist.loadProfileData(); 
+        receptionist.loadProfileData();
         receptionist.makeSummaryTable();
         receptionist.fillLineChart();
         receptionist.fillCurrentDoctors();
-        //receptionist.fillConsultationAreas();
+
         receptionist.setPaceholders();
         stage.setScene(new Scene(receptionist));
-        
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
-        stage.setX(primaryScreenBounds.getMinX());
-        stage.setY(primaryScreenBounds.getMinY());
-        stage.setWidth(primaryScreenBounds.getWidth());
-        stage.setHeight(primaryScreenBounds.getHeight());
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
+        Stage st =  CreateStage(stage);
+        st.show();;
     }
-    
+
     public void loadCashier(String username)
     {
         Stage stage = new Stage();
         CashierController cashier = new CashierController(username);
-        
-        cashier.loadProfileData(); 
+
+        cashier.loadProfileData();
         cashier.makeHistoryTable();
         cashier.fillLineChart();
         cashier.setPaceholders();
         cashier.loadNameList();
         cashier.addFocusListener();
         cashier.loadRefunds();
-        
         stage.setScene(new Scene(cashier));
-        
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
-        stage.setX(primaryScreenBounds.getMinX());
-        stage.setY(primaryScreenBounds.getMinY());
-        stage.setWidth(primaryScreenBounds.getWidth());
-        stage.setHeight(primaryScreenBounds.getHeight());
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
+
+        Stage st =  CreateStage(stage);
+        st.show();
     }
-    
+
     public void loadAdmin(String username)
     {
         Stage stage = new Stage();
         AdminController admin = new AdminController(username);
-        
-        admin.loadProfileData(); 
-        
-        //admin.loadTheme();
-        //admin.filldatabaseStorageChart();
-        //admin.fillLineChart();
+
+        admin.loadProfileData();
+
         admin.filldatabaseStorageChart("u");
         admin.addFocusListener();
         admin.loadDatabaseInfo();
         admin.fillAccountCounts();
         admin.setPaceholders();
-        
         stage.setScene(new Scene(admin));
-        
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
-        stage.setX(primaryScreenBounds.getMinX());
-        stage.setY(primaryScreenBounds.getMinY());
-        stage.setWidth(primaryScreenBounds.getWidth());
-        stage.setHeight(primaryScreenBounds.getHeight());
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
+
+        Stage st =  CreateStage(stage);
+        st.show();
     }
-    
+
     public void loadLabAssistant(String username)
     {
         Stage stage = new Stage();
         LabAssistantController lab = new LabAssistantController(username);
-        lab.loadProfileData(); 
+        lab.loadProfileData();
         lab.fillPieChart();
         lab.setAppointments();
         lab.fillLabAppiontments();
         lab.addFocusListener();
         lab.setPaceholders();
         lab.fillTodayAppointments();
-        
-        stage.setScene(new Scene(lab));
-        
-        Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
-        stage.setX(primaryScreenBounds.getMinX());
-        stage.setY(primaryScreenBounds.getMinY());
-        stage.setWidth(primaryScreenBounds.getWidth());
-        stage.setHeight(primaryScreenBounds.getHeight());
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.show();
-    }        
-    
-    PopOver popOver = new PopOver();
-    
-    private void showPopup(String message, TextField text)
-    { 
 
-        if (popOver == null) 
+        stage.setScene(new Scene(lab));
+
+        Stage st =  CreateStage(stage);
+        st.show();
+    }
+
+    PopOver popOver = new PopOver();
+
+    private void showPopup(String message, TextField text)
+    {
+
+        if (popOver == null)
         {
             popOver = new PopOver();
         }
@@ -274,8 +224,7 @@ public class LoginController extends AnchorPane {
         popOver.setDetachable(false);
         popOver.show(text);
     }
-    
-    
+
 }
 
 
