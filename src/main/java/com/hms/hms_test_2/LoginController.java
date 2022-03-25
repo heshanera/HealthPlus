@@ -2,7 +2,7 @@ package com.hms.hms_test_2;
 import Admin.AdminController;
 import Cashier.CashierController;
 import Doctor.DoctorController;
-import Pharmacist.*;
+import IntermediatePharmacist.InterPharmacistController;
 import LabAssistant.LabAssistantController;
 import Receptionist.ReceptionistController;
 import java.io.IOException;
@@ -121,7 +121,7 @@ public class LoginController extends AnchorPane{
     public void loadPharmacist(String username)
     {
         Stage stage = new Stage();
-        PharmacistController pharmacist = new PharmacistController(username);
+        InterPharmacistController pharmacist = new InterPharmacistController(username);
 
         pharmacist.loadProfileData();
         pharmacist.makeStockTable();
