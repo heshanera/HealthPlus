@@ -19,9 +19,9 @@ public class Doctor extends User
 	public Doctor(String username)                                                                              ==>   Constuctor
 	
 	public HashMap<String,String> getProfileInfo()                                                              ==>   Get profile info
-	public boolean updateProfileInfo(String info)                                                               ==>   update basic info
-	public boolean updateDoctorInfo(String info)                                                                ==>   update doctor info	
-            public boolean updateAccountInfo(String info)                                                           ==>   update account info	
+	public boolean updateProfileInfo(String info)                                                               ==>   Update basic info
+	public boolean updateDoctorInfo(String info)                                                                ==>   Update doctor info	
+            public boolean updateAccountInfo(String info)                                                           ==>   Update account info	
 	public ArrayList<ArrayList<String>> doctorTimeTable()                                                       ==>   Get doctor time table
 	public boolean doctorTimeTableAddSlot(String day,String timeSlot)                                           ==>   Add time slots to time table
 	public boolean removeDoctorTime(String id)                                                                  ==>   Remove time slots to time table	
@@ -31,7 +31,7 @@ public class Doctor extends User
 	public boolean diagnose(String diagnostic, String patientID)                                                ==>   Add patient diagnose details
 	public boolean allergies(String allergies, String patientID)                                                ==>   Add patient allergies
 	public boolean prescribe(String drugs, String tests, String patientID)                                      ==>   Add prescription details	
-        public ArrayList<ArrayList<String>> getMessages()                                                           ==>   Get recieved messages	
+        public ArrayList<ArrayList<String>> getMessages()                                                           ==>   Get received messages	
         
 	* 
 	*/
