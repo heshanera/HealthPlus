@@ -20,27 +20,23 @@ public class Popover2Controller extends AnchorPane {
         fxmlLoader.setController(this);
 
         try {
-            fxmlLoader.load();            
+            fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
-    
-    @FXML
-    private ListView daysList;
 
-    public void fillDaysList(ObservableList<String> items)
-    {
+    @FXML
+    private ListView<String> daysList;
+
+    public void fillDaysList(ObservableList<String> items) {
         daysList.setItems(items);
     }
-    
+
     @FXML
-    public void closePopUp()
-    {
+    public void closePopUp() {
         Stage stage = (Stage) daysList.getScene().getWindow();
         stage.close();
-    }        
-    
-    
+    }
 
 }

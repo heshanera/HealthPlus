@@ -21,6 +21,7 @@ import javafx.scene.input.KeyEvent;
 public class PopoverController extends AnchorPane {
 
     TextField text;
+
     /**
      *
      * @param username
@@ -29,51 +30,46 @@ public class PopoverController extends AnchorPane {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Popover.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        
+
         this.text = text;
 
         try {
-            fxmlLoader.load();            
+            fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
-    
+
     @FXML
-    private ListView brandList;
-    @FXML 
+    private ListView<String> brandList;
+    @FXML
     private Label genericName;
-    
-    public void fillBrandList(ArrayList<String> data, String genName)
-    {
-        ObservableList<String> items =FXCollections.observableArrayList ();
+
+    public void fillBrandList(ArrayList<String> data, String genName) {
+        ObservableList<String> items = FXCollections.observableArrayList();
         int size = data.size();
-        
-        for(int i =0; i < size; i++)
-        {
+
+        for (int i = 0; i < size; i++) {
             items.add(data.get(i));
         }
         brandList.setItems(items);
         genericName.setText(genName);
     }
-    
+
     @FXML
-    private void selectBrand(KeyEvent e)
-    {
-        if(e.getCode() == KeyCode.ENTER)
-        {
-            String brand = (String)brandList.getSelectionModel().getSelectedItem();
+    private void selectBrand(KeyEvent e) {
+        if (e.getCode() == KeyCode.ENTER) {
+            String brand = (String) brandList.getSelectionModel().getSelectedItem();
             text.setText(brand);
 
             Stage stage = (Stage) brandList.getScene().getWindow();
             stage.close();
         }
-        
+
     }
-    
-    public void close()
-    {
-        ((Node)(genericName)).getScene().getWindow().hide();
-    }        
-   
+
+    public void close() {
+        ((Node) (genericName)).getScene().getWindow().hide();
+    }
+
 }
