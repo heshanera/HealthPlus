@@ -1,0 +1,19 @@
+# Maven target directory
+target/
+
+# Maven Wrapper files (include only the wrapper directory if using Maven Wrapper)
+!.mvn/wrapper/
+!.mvn/wrapper/*
+!.mvn/wrapper/maven-wrapper.properties
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper-download-url
+.mvn/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+*.iml
+.idea/
+.vscode/
