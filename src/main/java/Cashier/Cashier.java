@@ -10,44 +10,19 @@ import java.text.SimpleDateFormat;
  * @author heshan
  */
 public class Cashier extends User {
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////// methods
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// /////////////////////////////////////////////////////////////////////////////////////////////
-    /*
-     * 
-     * 
-     * 
-     * public Cashier(String username) ==> Constuctor
-     * 
-     * public HashMap<String,String> getProfileInfo() ==> get profile Info
-     * public boolean bill(String billInfo) ==> generate bill
-     * public ArrayList<ArrayList<String>> getBillInfo(String billID) ==> get bill
-     * details
-     * public boolean refund(String refundInfo) ==> refund
-     * public ArrayList<ArrayList<String>> getPaymentHistory(int rows) ==> get
-     * payment history of patients
-     * 
-     * 
-     * 
-     */
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     /**
-     *
+     * Constructor to initialize Cashier with username.
+     * 
      * @param username
      */
-
     public Cashier(String username) {
         super(username);
     }
 
     /**
-     *
-     * @return
+     * Retrieves profile information of the cashier.
+     * 
+     * @return a HashMap containing profile information (key-value pairs)
      */
     public HashMap<String, String> getProfileInfo() {
 
@@ -79,9 +54,10 @@ public class Cashier extends User {
     }
 
     /**
-     *
-     * @param billInfo
-     * @return
+     * Generates a bill based on the provided bill information.
+     * 
+     * @param billInfo the details of the bill to be generated
+     * @return bill id if the bill was successfully generated, "0" otherwise
      */
     public String bill(String billInfo) {
 
@@ -186,9 +162,10 @@ public class Cashier extends User {
     }
 
     /**
-     *
-     * @param billID
-     * @return
+     * Retrieves details of a bill based on its ID.
+     * 
+     * @param billID the ID of the bill
+     * @return a list containing bill details
      */
     public ArrayList<ArrayList<String>> getBillInfo(String billID) {
         String sql = "SELECT *" +
@@ -207,9 +184,10 @@ public class Cashier extends User {
     }
 
     /**
-     *
-     * @param refundInfo
-     * @return
+     * Processes a refund based on the provided refund information.
+     * 
+     * @param refundInfo the details of the refund to be processed
+     * @return true if the refund was successful, false otherwise
      */
     public boolean refund(String refundInfo) {
         boolean result = true;
@@ -317,9 +295,10 @@ public class Cashier extends User {
     }
 
     /**
-     *
-     * @param rows
-     * @return
+     * Retrieves the payment history of patients.
+     * 
+     * @param rows the number of rows to fetch
+     * @return a list containing the payment history of patients
      */
     public ArrayList<ArrayList<String>> getPaymentHistory(int rows) {
         String sql = "SELECT bill.patient_id, bill.bill_date, bill.doctor_fee, bill.hospital_fee," +

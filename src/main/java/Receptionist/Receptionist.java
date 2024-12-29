@@ -36,6 +36,11 @@ public class Receptionist extends User {
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	/**
+	 * Constructor to initialize the Receptionist object with a specified username.
+	 * 
+	 * @param username the username to initialize the Receptionist object
+	 */
 	public Receptionist(String username) {
 		super(username);
 	}
@@ -121,6 +126,11 @@ public class Receptionist extends User {
 		return result;
 	}
 
+	/**
+	 * Retrieves the doctor's timetable.
+	 * 
+	 * @return a list of arrays containing the doctor's schedule information
+	 */
 	public ArrayList<ArrayList<String>> getDoctorTimeTable() {
 		String sql = "SELECT " +
 				"doctor_availability.day, doctor_availability.time_slot, " +
@@ -140,6 +150,12 @@ public class Receptionist extends User {
 		return data;
 	}
 
+	/**
+	 * Retrieves the information of a specific patient using their patient ID.
+	 * 
+	 * @param patientID the ID of the patient whose information is required
+	 * @return a list of arrays containing the patient's information
+	 */
 	public ArrayList<ArrayList<String>> getPatientInfo(String patientID) {
 		String sql = "SELECT " +
 				"person.*, " +
@@ -158,14 +174,15 @@ public class Receptionist extends User {
 	}
 
 	/**
-	 * Create new patient profile in the database for a patient
+	 * Updates the information of a specific patient.
 	 * 
-	 * @param patientInfo String containing basic info separated by commas and
-	 *                    spaces
+	 * @param patientInfo the information to update for the patient - String
+	 *                    containing basic info separated by commas and spaces ex:
 	 *                    "nic 9532648675,gender f,date_of_birth 19950203,address
 	 *                    145|town1|Street1,mobile 0775123465,first_name
 	 *                    heshan,last_name eranga,email erangamx@gmail.com"
-	 * @return boolean if the operation was successful or not
+	 * @return true if the patient information was successfully updated, false
+	 *         otherwise
 	 */
 	public String setPatientInfo(String patientInfo) {
 		String value = "";
@@ -278,6 +295,11 @@ public class Receptionist extends User {
 		return data;
 	}
 
+	/**
+	 * Retrieves the appointment details for a patient.
+	 * 
+	 * @return a list of arrays containing the appointment details
+	 */
 	public ArrayList<ArrayList<String>> getAppointments() {
 
 		String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
@@ -300,12 +322,13 @@ public class Receptionist extends User {
 	}
 
 	/**
+	 * Makes an appointment for a patient with a specified doctor at a given time.
 	 * 
-	 * @param patientID id of the patient making the appointment
-	 * @param doctorID id of the doctor
-	 * @param day      day of the week
-	 * @param timeSlot time slot of the appointment
-	 * @return boolean if the appointment was successfully made or not
+	 * @param patientID  the ID of the patient making the appointment
+	 * @param doctorID   the ID of the doctor for the appointment
+	 * @param dateTime   the date and time of the appointment
+	 * @param timeSlotID the time slot ID for the appointment
+	 * @return true if the appointment was successfully made, false otherwise
 	 */
 	public String makeAppointment(String patientID, String doctorID, String day, String timeSlot) {
 		boolean nextWeek = false;
@@ -363,7 +386,8 @@ public class Receptionist extends User {
 			String dateTime = appDate + " " + tmpTimeSlot + ":00";
 
 			String columnNames = "appointment_id,patient_id,slmc_reg_no,date,cancelled";
-			String rowData = "'" + tmpID2 + "' , '" + patientID + "' , '" + doctorID + "' , '" + dateTime + "' , false ";
+			String rowData = "'" + tmpID2 + "' , '" + patientID + "' , '" + doctorID + "' , '" + dateTime
+					+ "' , false ";
 
 			String sql7 = "INSERT INTO appointment (" + columnNames + ") VALUES (" + rowData + ");";
 
@@ -460,10 +484,10 @@ public class Receptionist extends User {
 	/**
 	 * 
 	 * @param patientID id of the patient making the appointment
-	 * @param doctorID id of the doctor
-	 * @param testID   test id
-	 * @param day      day of the week
-	 * @param timeSlot time slot of the appointment
+	 * @param doctorID  id of the doctor
+	 * @param testID    test id
+	 * @param day       day of the week
+	 * @param timeSlot  time slot of the appointment
 	 * @return boolean if the appointment was successfully made or not
 	 */
 	public String makeLabAppointment(String patientID, String doctorID, String testID, String day, String timeSlot) {
@@ -615,6 +639,14 @@ public class Receptionist extends User {
 		return value;
 	}
 
+	/**
+	 * Retrieves the available appointment times for a specified doctor.
+	 * 
+	 * @param doctorID the ID of the doctor for whom the available appointment times
+	 *                 are needed
+	 * @return a list of arrays containing the available times for the doctor's
+	 *         appointments
+	 */
 	public ArrayList<ArrayList<String>> doctorAppointmentAvailableTime(String doctorID) {
 		String sql = "SELECT " +
 				"doctor_availability.day, doctor_availability.time_slot, doctor_availability.current_week_appointments "
@@ -981,7 +1013,7 @@ public class Receptionist extends User {
 	/**
 	 * 
 	 * @param registrationNo doctors registration number
-	 * @param day           day selected for the Appointment
+	 * @param day            day selected for the Appointment
 	 * @return ArrayList<String> of Doctors available time
 	 * 
 	 */

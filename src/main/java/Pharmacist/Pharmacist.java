@@ -6,42 +6,12 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 
 public class Pharmacist extends User {
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////// methods
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// /////////////////////////////////////////////////////////////////////////////////////////////
-	/*
-	 * 
-	 * 
-	 * 
-	 * public Pharmacist(String username) ==> Constuctor
-	 * 
-	 * public HashMap<String,String> getProfileInfo() ==> Get profile info
-	 * public ArrayList<ArrayList<String>> getPrescriptionInfo(String patientID) ==>
-	 * Get prescription
-	 * public ArrayList<ArrayList<String>> getMedByName(String medName) ==> Get
-	 * medicine info (Adding med to prescription)
-	 * public ArrayList<ArrayList<String>> getpharmacyHistory(int rows) ==> Get
-	 * pharmacy history of patients
-	 * public ArrayList<ArrayList<String>> getDrugInfo(String drugID) ==> Get
-	 * medicine info
-	 * public boolean addNewDrug(String drugInfo) ==> Add new drug
-	 * public boolean addNewStock(String stockInfo) ==> Add new drug stock
-	 * public ArrayList<ArrayList<String>> getStockInfo(String supplierID) ==> Get
-	 * stock details
-	 * 
-	 * 
-	 */
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	private String pharmacistID;
 
-	/***
-	 *
-	 * @param username
+	/**
+	 * Constructor to initialize the Pharmacist object with a specified username.
+	 * 
+	 * @param username the username to initialize the Pharmacist object
 	 */
 	public Pharmacist(String username) {
 		super(username);
@@ -54,6 +24,11 @@ public class Pharmacist extends User {
 
 	}
 
+	/**
+	 * Retrieves the profile information of the pharmacist.
+	 * 
+	 * @return a HashMap containing the profile information
+	 */
 	public HashMap<String, String> getProfileInfo() {
 		/*
 		 * String[] columnNamesDoc =
@@ -93,6 +68,13 @@ public class Pharmacist extends User {
 		return infoHash;
 	}
 
+	/**
+	 * Retrieves the prescription information for a specified patient.
+	 * 
+	 * @param patientID the ID of the patient for whom the prescription details are
+	 *                  required
+	 * @return a list of arrays containing prescription details for the patient
+	 */
 	public ArrayList<ArrayList<String>> getPrescriptionInfo(String patientID) {
 		String sql = "SELECT drugs_dose FROM prescription WHERE patient_id = '" + patientID + "'" +
 				"AND date = (SELECT MAX(date) FROM prescription);";
@@ -121,6 +103,13 @@ public class Pharmacist extends User {
 		return data;
 	}
 
+	/**
+	 * Retrieves the pharmacy history for patients, limited by the specified number
+	 * of rows.
+	 * 
+	 * @param rows the number of rows to limit the pharmacy history
+	 * @return a list of arrays containing pharmacy history details for patients
+	 */
 	public ArrayList<ArrayList<String>> getpharmacyHistory(int rows) {
 		String sql = "SELECT " +
 				"pharmacy_history.date, pharmacy_history.no_of_drugs, pharmacy_history.excluded, " +
@@ -143,6 +132,12 @@ public class Pharmacist extends User {
 		return data;
 	}
 
+	/**
+	 * Retrieves the information about a drug based on its ID.
+	 * 
+	 * @param drugID the ID of the drug to retrieve information for
+	 * @return a list of arrays containing information about the specified drug
+	 */
 	public ArrayList<ArrayList<String>> getDrugInfo(String drugID) {
 		String sql = "SELECT " +
 				"drug.drug_name, drug.drug_type, drug.drug_unit,drug.unit_price, " +
@@ -192,6 +187,12 @@ public class Pharmacist extends User {
 		return data;
 	}
 
+	/**
+	 * Adds a new drug to the system.
+	 * 
+	 * @param drugInfo the information about the drug to be added
+	 * @return true if the drug was successfully added, false otherwise
+	 */
 	public boolean addNewDrug(String drugInfo) {
 		boolean result = true;
 
@@ -255,6 +256,12 @@ public class Pharmacist extends User {
 		return result;
 	}
 
+	/**
+	 * Adds new stock for a drug to the system.
+	 * 
+	 * @param stockInfo the information about the stock to be added
+	 * @return true if the stock was successfully added, false otherwise
+	 */
 	public boolean addNewStock(String stockInfo) {
 		boolean result = true;
 
@@ -317,6 +324,12 @@ public class Pharmacist extends User {
 		return result;
 	}
 
+	/**
+	 * Retrieves the stock details for a specified supplier.
+	 * 
+	 * @param supplierID the ID of the supplier whose stock details are required
+	 * @return a list of arrays containing stock details for the specified supplier
+	 */
 	public ArrayList<ArrayList<String>> getStockInfo(String supplierID) {
 		String sql = "SELECT " +
 				"pharmacy_stock.stock_id, pharmacy_stock.stock, pharmacy_stock.remaining_quantity, pharmacy_stock.date, pharmacy_stock.manufac_date, pharmacy_stock.exp_date,"

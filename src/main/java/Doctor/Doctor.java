@@ -6,50 +6,17 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 
 public class Doctor extends User {
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////// methods
-	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// /////////////////////////////////////////////////////////////////////////////////////////////
-	/*
-	 * 
-	 * 
-	 * 
-	 * public Doctor(String username) - Constructor
-	 * 
-	 * public HashMap<String,String> getProfileInfo() - Get profile info
-	 * public boolean updateProfileInfo(String info) - update basic info
-	 * public boolean updateDoctorInfo(String info) - update doctor info
-	 * public boolean updateAccountInfo(String info) - update account info
-	 * public ArrayList<ArrayList<String>> doctorTimeTable() - Get doctor time table
-	 * public boolean doctorTimeTableAddSlot(String day,String timeSlot) - Add time
-	 * slots to time table
-	 * public boolean removeDoctorTime(String id) - Remove time slots to time table
-	 * public ArrayList<ArrayList<String>> getAppointments() - Get appointments
-	 * public ArrayList<ArrayList<String>> getTestResults(String searchType, String
-	 * searchWord) - Get patient test results
-	 * public ArrayList<ArrayList<ArrayList<String>>> getPatientInfo(String
-	 * searchType, String searchWord) - Get patient info
-	 * public boolean diagnose(String diagnostic, String patientID) - Add patient
-	 * diagnose details
-	 * public boolean allergies(String allergies, String patientID) - Add patient
-	 * allergies
-	 * public boolean prescribe(String drugs, String tests, String patientID) - Add
-	 * prescription details
-	 * public ArrayList<ArrayList<String>> getMessages() - Get received messages
-	 * 
-	 * 
-	 */
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	public String slmcRegNo;
 
 	public String getUsername() {
 		return super.username;
 	}
 
+	/**
+	 * Constructor to initialize the Doctor object with a specified username.
+	 * 
+	 * @param username the username to initialize the Doctor object
+	 */
 	public Doctor(String username) {
 		super(username);
 
@@ -61,6 +28,11 @@ public class Doctor extends User {
 
 	}
 
+	/**
+	 * Retrieves the profile information of the doctor.
+	 * 
+	 * @return a HashMap containing the profile information
+	 */
 	public HashMap<String, String> getProfileInfo() {
 		/*
 		 * String[] columnNamesDoc =
@@ -101,6 +73,12 @@ public class Doctor extends User {
 		return infoHash;
 	}
 
+	/**
+	 * Updates the basic profile information of the doctor.
+	 * 
+	 * @param info the information to be updated
+	 * @return true if the update was successful, false otherwise
+	 */
 	public boolean updateProfileInfo(String info) {
 		boolean result = true;
 		String column_data = "";
@@ -126,6 +104,13 @@ public class Doctor extends User {
 		return result;
 	}
 
+	/**
+	 * Updates the doctor's specific details (e.g., specialization, experience,
+	 * etc.).
+	 * 
+	 * @param info the information to be updated
+	 * @return true if the update was successful, false otherwise
+	 */
 	public boolean updateDoctorInfo(String info) {
 		boolean result = true;
 		String column_data = "";
@@ -154,6 +139,12 @@ public class Doctor extends User {
 		return result;
 	}
 
+	/**
+	 * Updates the doctor's account information (e.g., username, password, etc.).
+	 * 
+	 * @param info the information to be updated
+	 * @return true if the update was successful, false otherwise
+	 */
 	public boolean updateAccountInfo(String info) {
 		boolean result = true;
 		String column_data = "";
@@ -181,6 +172,11 @@ public class Doctor extends User {
 		return result;
 	}
 
+	/**
+	 * Retrieves the doctor's timetable.
+	 * 
+	 * @return a list of arrays representing the doctor's timetable
+	 */
 	public ArrayList<ArrayList<String>> doctorTimeTable() {
 		////////////////////// Getting data from database //////////////////////
 
@@ -198,11 +194,7 @@ public class Doctor extends User {
 			String[] columnArray = { "day", "time_slot" };
 			data.add(0, new ArrayList<String>(Arrays.asList(columnArray)));
 		}
-
-		/////////////////////////////////////////////////////////////////////////
-
 		return data;
-
 	}
 
 	public boolean removeDoctorTime(String day, String slot) {
@@ -218,13 +210,15 @@ public class Doctor extends User {
 			e.printStackTrace();
 			result = false;
 		}
-
-		/////////////////////////////////////////////////////////////////////////
-
 		return result;
-
 	}
 
+	/**
+	 * Removes a time slot from the doctor's timetable.
+	 * 
+	 * @param id the ID of the time slot to be removed
+	 * @return true if the time slot was successfully removed, false otherwise
+	 */
 	public boolean removeDoctorTime(String id) {
 		////////////////////// removing data from database //////////////////////
 		boolean result = true;
@@ -237,13 +231,17 @@ public class Doctor extends User {
 			e.printStackTrace();
 			result = false;
 		}
-
-		/////////////////////////////////////////////////////////////////////////
-
 		return result;
 
 	}
 
+	/**
+	 * Adds a new time slot to the doctor's timetable.
+	 * 
+	 * @param day      the day of the week
+	 * @param timeSlot the time slot to be added
+	 * @return true if the time slot was successfully added, false otherwise
+	 */
 	public boolean doctorTimeTableAddSlot(String day, String timeSlot) {
 		boolean result = true;
 
@@ -273,11 +271,14 @@ public class Doctor extends User {
 			e.printStackTrace();
 			result = false;
 		}
-
-		/////////////////////////////////////////////////////////////////////
 		return result;
 	}
 
+	/**
+	 * Retrieves the list of appointments for the doctor.
+	 * 
+	 * @return a list of arrays containing appointment details
+	 */
 	public ArrayList<ArrayList<String>> getAppointments() {
 		////////////////////// Getting data from database //////////////////////
 
@@ -295,8 +296,6 @@ public class Doctor extends User {
 			String[] columnArray = { "patient", "date" };
 			data.add(0, new ArrayList<String>(Arrays.asList(columnArray)));
 		}
-
-		/////////////////////////////////////////////////////////////////////////
 		return data;
 	}
 
@@ -351,6 +350,13 @@ public class Doctor extends User {
 		return data;
 	}
 
+	/**
+	 * Retrieves the test results for a patient based on the search criteria.
+	 * 
+	 * @param searchType the type of search (e.g., test type, patient ID)
+	 * @param searchWord the search keyword (e.g., patient ID or test name)
+	 * @return a list of arrays containing the test results
+	 */
 	public ArrayList<ArrayList<String>> getTestResults(String testID) {
 		HashMap<String, String> tables = new HashMap<String, String>();
 		tables.put("lv", "LiverFunctionTest");
@@ -450,6 +456,13 @@ public class Doctor extends User {
 		return data;
 	}
 
+	/**
+	 * Retrieves patient information based on the search criteria.
+	 * 
+	 * @param searchType the type of search (e.g., patient ID, name)
+	 * @param searchWord the search keyword (e.g., patient ID or name)
+	 * @return a nested list of arrays containing patient information
+	 */
 	public ArrayList<ArrayList<ArrayList<String>>> getPatientInfo(String searchType, String searchWord) {
 		////////////////////// Getting data from database //////////////////////
 		ArrayList<ArrayList<String>> personalData = null;
@@ -545,6 +558,14 @@ public class Doctor extends User {
 		return data;
 	}
 
+	/**
+	 * Adds diagnostic details for a patient.
+	 * 
+	 * @param diagnostic the diagnostic information
+	 * @param patientID  the ID of the patient being diagnosed
+	 * @return true if the diagnostic details were successfully added, false
+	 *         otherwise
+	 */
 	public boolean diagnose(String diagnostic, String patientID) {
 		boolean result = true;
 		////////////////////// Adding data to database //////////////////////
@@ -669,12 +690,17 @@ public class Doctor extends User {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-
-		////////////////////////////////////////////////////////////////////////////
 		return fee;
-
 	}
 
+	/**
+	 * Adds allergy information for a patient.
+	 * 
+	 * @param allergies the allergy information
+	 * @param patientID the ID of the patient with allergies
+	 * @return true if the allergy information was successfully added, false
+	 *         otherwise
+	 */
 	public boolean allergies(String allergies, String patientID) {
 		boolean result = true;
 		////////////////////// Adding data to database //////////////////////
@@ -698,6 +724,15 @@ public class Doctor extends User {
 		return result;
 	}
 
+	/**
+	 * Adds prescription details (e.g., drugs and tests) for a patient.
+	 * 
+	 * @param drugs     the prescribed drugs
+	 * @param tests     the prescribed tests
+	 * @param patientID the ID of the patient
+	 * @return true if the prescription details were successfully added, false
+	 *         otherwise
+	 */
 	public boolean prescribe(String drugs, String tests, String patientID) {
 		boolean result = true;
 		////////////////////// Adding data to database //////////////////////
@@ -752,8 +787,6 @@ public class Doctor extends User {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-
-		////////////////////////////////////////////////////////////////////////
 		return data;
 
 	}
@@ -781,8 +814,6 @@ public class Doctor extends User {
 					data2.add(genericName);
 			}
 		}
-
-		////////////////////////////////////////////////////////////////////////
 		return data2;
 
 	}
@@ -809,8 +840,6 @@ public class Doctor extends User {
 				data2.add(data.get(i).get(0));
 			}
 		}
-
-		//////////////////////////////////////////////////////////////////////
 		return data2;
 
 	}
@@ -836,8 +865,6 @@ public class Doctor extends User {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-
-		//////////////////////////////////////////////////////////////////////
 		return data;
 
 	}
@@ -852,8 +879,6 @@ public class Doctor extends User {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-
-		//////////////////////////////////////////////////////////////////////
 		String apps = "";
 		if (data != null) {
 			data.get(1).get(0);
@@ -863,8 +888,6 @@ public class Doctor extends User {
 	}
 
 	public ArrayList<ArrayList<String>> nameSuggestor(String word) {
-
-		////////////////////// Getting data from database //////////////////////
 		String sql = "";
 		String[] wordList = word.split(" ");
 
@@ -895,15 +918,10 @@ public class Doctor extends User {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-
-		///////////////////////////////////////////////////////////////////////
 		return data;
 
 	}
 
-	/**
-	 * 
-	 */
 	public ArrayList<ArrayList<String>> getTestInfo() {
 
 		String sql = "";
@@ -917,10 +935,7 @@ public class Doctor extends User {
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
-
-		//////////////////////////////////////////////////////////////////////
 		return data;
-
 	}
 
 	public ArrayList<ArrayList<String>> getLabPatientInfo(String appID) {

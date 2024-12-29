@@ -54,20 +54,10 @@ import org.controlsfx.control.textfield.TextFields;
 
 public class PharmacistController extends AnchorPane {
 
-    /**
-     *
-     */
     public Pharmacist pharmacist;
 
-    /**
-     *
-     */
     public String username;
 
-    /**
-     *
-     * @param username
-     */
     public PharmacistController(String username) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Pharmacist.fxml"));
         fxmlLoader.setRoot(this);

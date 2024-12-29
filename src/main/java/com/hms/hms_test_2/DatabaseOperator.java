@@ -4,56 +4,6 @@ import java.sql.*;
 import java.util.*;
 
 public class DatabaseOperator {
-
-	/////////////////////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////////////////////
-	/////////////////////////////////////////////////////////////////////////
-	//////////////////////////////// Methods ////////////////////////////////
-	/*
-	 * 
-	 * 
-	 * 
-	 * public DatabaseOperator() - Constructor
-	 * public DatabaseOperator(String dbClassName, String connection) - Constructor
-	 * 
-	 * public void connect(String userName, String password) - connect to database
-	 * public void close() - close the connection
-	 * public void createDatabase(String databaseName) - creating a database
-	 * public ArrayList<String> showDatabases() - show the databases
-	 * public void useDatabase(String databaseName) - select a database
-	 * public void createTable(String tableName,String columnHeaders) - create a
-	 * table
-	 * public ArrayList<String> showTables() - show tables in a database
-	 * public ArrayList<ArrayList<String>> showTableMetaData(String tableName) -
-	 * show the columns in the selected table
-	 * public boolean addTableRow(String table,String tableData) - add new row
-	 * public void deleteTableRow(String tableName, String ColumnName, String
-	 * fieldValue) - delete row (selecting a column with String data)
-	 * public void deleteTableRow(String tableName, String ColumnName, int
-	 * fieldValue) - delete row (Selecting a column with int data)
-	 * public ArrayList<ArrayList<String>> showTableData(String tableName) - show
-	 * table data
-	 * public void showTableData(String tableName, String columNames) - show table
-	 * data (only selected columns)
-	 * public ArrayList<ArrayList<String>> showTableData(String tableName,String
-	 * columNames,String rowsAttributes) - show table data (only selected rows &
-	 * columns)
-	 * public void deleteDatabase(String DatabaseName) - delete database
-	 * public void deleteTable(String tableName) - delete table
-	 * 
-	 * public void customDeletion(String sql) - delete data from table
-	 * public ArrayList<ArrayList<String>> customSelection(String sql) - select data
-	 * from table
-	 * public boolean customInsertion(String sql) - insert data to table
-	 * 
-	 * 
-	 */
-	///////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////
-	///////////////////////////////////////////////////////////////////////////
-
-	//////////////////////////////// MetaData ////////////////////////////////
-
 	private HashMap<String, String> metaDataHash = new HashMap<String, String>() {
 		{
 			put("2003", "ARRAY");
@@ -104,14 +54,31 @@ public class DatabaseOperator {
 
 	private static String currentDatabaseName;
 
+	/**
+	 * Constructor to initialize DatabaseOperator object.
+	 */
 	public DatabaseOperator() {
 	}
 
+	/**
+	 * Constructor to initialize DatabaseOperator with specific database class name
+	 * and connection string.
+	 * 
+	 * @param dbClassName the name of the database class (e.g.,
+	 *                    "org.mariadb.jdbc.Driver")
+	 * @param connection  the connection string to the database
+	 */
 	public DatabaseOperator(String dbClassName, String connection) {
 		DatabaseOperator.dbClassName = dbClassName;
 		DatabaseOperator.CONNECTION = connection;
 	}
 
+	/**
+	 * Connects to the database using the provided username and password.
+	 * 
+	 * @param userName the username for the database connection
+	 * @param password the password for the database connection
+	 */
 	public void connect(String userName, String password) throws ClassNotFoundException, SQLException {
 		Class.forName(dbClassName);
 
@@ -122,10 +89,18 @@ public class DatabaseOperator {
 		DatabaseOperator.c = DriverManager.getConnection(CONNECTION, p);
 	}
 
+	/**
+	 * Closes the current database connection.
+	 */
 	public void close() throws ClassNotFoundException, SQLException {
 		c.close();
 	}
 
+	/**
+	 * Creates a new database with the given name.
+	 * 
+	 * @param databaseName the name of the database to be created
+	 */
 	public void createDatabase(String databaseName) throws ClassNotFoundException, SQLException {
 
 		String sql = "CREATE DATABASE " + databaseName + ";";
@@ -141,6 +116,11 @@ public class DatabaseOperator {
 		stmt.close();
 	}
 
+	/**
+	 * Retrieves a list of all available databases.
+	 * 
+	 * @return an ArrayList of database names
+	 */
 	public ArrayList<String> showDatabases() throws ClassNotFoundException, SQLException {
 		System.out.println("Retrieving data from the Database...\n");
 
@@ -164,6 +144,11 @@ public class DatabaseOperator {
 		return dbNames;
 	}
 
+	/**
+	 * Selects the specified database to use.
+	 * 
+	 * @param databaseName the name of the database to select
+	 */
 	public void useDatabase(String databaseName) throws ClassNotFoundException, SQLException {
 		String sql = "USE " + databaseName + ";";
 		PreparedStatement stmt = c.prepareStatement(sql);
@@ -181,6 +166,13 @@ public class DatabaseOperator {
 		}
 	}
 
+	/**
+	 * Creates a new table in the current database with the given table name and
+	 * column headers.
+	 * 
+	 * @param tableName     the name of the table to be created
+	 * @param columnHeaders the headers of the columns in the table
+	 */
 	public void createTable(String tableName, String columnHeaders) throws ClassNotFoundException, SQLException {
 
 		try {
@@ -195,6 +187,11 @@ public class DatabaseOperator {
 
 	}
 
+	/**
+	 * Retrieves a list of all tables in the current database.
+	 * 
+	 * @return an ArrayList of table names
+	 */
 	public ArrayList<String> showTables() throws ClassNotFoundException, SQLException {
 
 		String sql = "SHOW TABLES;";
@@ -217,6 +214,13 @@ public class DatabaseOperator {
 		return tables;
 	}
 
+	/**
+	 * Retrieves the metadata of the specified table, including column names and
+	 * data types.
+	 * 
+	 * @param tableName the name of the table whose metadata is to be retrieved
+	 * @return a list of metadata for the table (column names, data types, etc.)
+	 */
 	public ArrayList<ArrayList<String>> showTableMetaData(String tableName)
 			throws ClassNotFoundException, SQLException {
 		String sql = "SELECT * FROM " + tableName + ";";
@@ -275,6 +279,13 @@ public class DatabaseOperator {
 		return metaData;
 	}
 
+	/**
+	 * Adds a new row to the specified table.
+	 * 
+	 * @param table     the name of the table to which the row will be added
+	 * @param tableData the data to be inserted into the row
+	 * @return true if the row was added successfully, false otherwise
+	 */
 	public boolean addTableRow(String table, String tableData) throws ClassNotFoundException, SQLException {
 		boolean result = true;
 		String sql = "SELECT * FROM " + table + ";";
@@ -313,6 +324,14 @@ public class DatabaseOperator {
 		return result;
 	}
 
+	/**
+	 * Deletes a row from the specified table, selecting the row based on a column
+	 * with String data.
+	 * 
+	 * @param tableName  the name of the table from which the row will be deleted
+	 * @param ColumnName the name of the column to identify the row
+	 * @param fieldValue the value of the column to match for deletion
+	 */
 	public void deleteTableRow(String tableName, String ColumnName, String fieldValue)
 			throws ClassNotFoundException, SQLException {
 		String sql = "DELETE FROM " + tableName + " WHERE " + ColumnName + "=?";
@@ -329,6 +348,14 @@ public class DatabaseOperator {
 		stmt.close();
 	}
 
+	/**
+	 * Deletes a row from the specified table, selecting the row based on a column
+	 * with int data.
+	 * 
+	 * @param tableName  the name of the table from which the row will be deleted
+	 * @param ColumnName the name of the column to identify the row
+	 * @param fieldValue the value of the column to match for deletion
+	 */
 	public void deleteTableRow(String tableName, String ColumnName, int fieldValue)
 			throws ClassNotFoundException, SQLException {
 		String sql = "DELETE FROM " + tableName + " WHERE " + ColumnName + "=?";
@@ -345,6 +372,12 @@ public class DatabaseOperator {
 		stmt.close();
 	}
 
+	/**
+	 * Retrieves the data of the specified table.
+	 * 
+	 * @param tableName the name of the table whose data is to be retrieved
+	 * @return a list of lists representing the table data
+	 */
 	public ArrayList<ArrayList<String>> showTableData(String tableName) throws ClassNotFoundException, SQLException {
 		ArrayList<ArrayList<String>> main = null;
 		try {
@@ -387,6 +420,13 @@ public class DatabaseOperator {
 		return main;
 	}
 
+	/**
+	 * Retrieves the data of the specified table, only for the selected columns.
+	 * 
+	 * @param tableName  the name of the table whose data is to be retrieved
+	 * @param columNames a comma-separated list of column names to be included in
+	 *                   the result
+	 */
 	public void showTableData(String tableName, String columNames) throws ClassNotFoundException, SQLException {
 
 		String[] splittedColumns = columNames.split(",");
@@ -412,6 +452,16 @@ public class DatabaseOperator {
 
 	}
 
+	/**
+	 * Retrieves the data of the specified table, only for the selected rows and
+	 * columns.
+	 * 
+	 * @param tableName      the name of the table whose data is to be retrieved
+	 * @param columNames     a comma-separated list of column names to be included
+	 *                       in the result
+	 * @param rowsAttributes the conditions to filter the rows
+	 * @return a list of lists representing the filtered table data
+	 */
 	public ArrayList<ArrayList<String>> showTableData(String tableName, String columNames, String rowsAttributes)
 			throws ClassNotFoundException, SQLException {
 		String[] splittedColumns = columNames.split(",");
@@ -438,6 +488,13 @@ public class DatabaseOperator {
 		return table;
 	}
 
+	/**
+	 * Performs a custom selection operation on a table using the provided SQL
+	 * query.
+	 * 
+	 * @param sql the SQL query for selection
+	 * @return a list of lists containing the selected data
+	 */
 	public ArrayList<ArrayList<String>> customSelection(String sql) throws ClassNotFoundException, SQLException {
 		ArrayList<ArrayList<String>> main = null;
 		try {
@@ -474,6 +531,13 @@ public class DatabaseOperator {
 		return main;
 	}
 
+	/**
+	 * Performs a custom insertion operation on a table using the provided SQL
+	 * query.
+	 * 
+	 * @param sql the SQL query for insertion
+	 * @return true if the insertion was successful, false otherwise
+	 */
 	public boolean customInsertion(String sql) throws ClassNotFoundException, SQLException {
 		boolean result = true;
 		try {
@@ -489,6 +553,11 @@ public class DatabaseOperator {
 		return result;
 	}
 
+	/**
+	 * Performs a custom deletion operation on a table using the provided SQL query.
+	 * 
+	 * @param sql the SQL query for deletion
+	 */
 	public void customDeletion(String sql) throws ClassNotFoundException, SQLException {
 		PreparedStatement stmt = c.prepareStatement(sql);
 
@@ -500,6 +569,12 @@ public class DatabaseOperator {
 		}
 		stmt.close();
 	}
+
+	/**
+	 * Deletes the specified table from the database.
+	 * 
+	 * @param tableName the name of the table to be deleted
+	 */
 
 	public void deleteTable(String tableName) throws ClassNotFoundException, SQLException {
 

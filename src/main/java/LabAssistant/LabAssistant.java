@@ -59,7 +59,6 @@ public class LabAssistant extends User {
                                 infoHash.put(columns.get(i), dataRow.get(i));
                         }
                 }
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 return infoHash;
         }
 
@@ -164,8 +163,6 @@ public class LabAssistant extends User {
                                 data2.add(data.get(i).get(0));
                         }
                 }
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
                 return data2;
         }
 
@@ -188,8 +185,6 @@ public class LabAssistant extends User {
                 if (data != null) {
                         result = data.get(1).get(0);
                 }
-                /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
                 return result;
         }
 
