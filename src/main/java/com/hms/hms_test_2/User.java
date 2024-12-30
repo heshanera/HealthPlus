@@ -1,8 +1,5 @@
 package com.hms.hms_test_2;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -14,43 +11,10 @@ public class User {
         public String userID;
         public String userType;
 
-        public String database = "";
-        public String dbUsername = "";
-        public String dbPassword = "";
-
-        public User() throws IOException {
-                InputStream inputStream = null;
-
+        public User() {
                 try {
-                        Properties prop = new Properties();
-                        String propFileName = "config.properties";
-
-                        inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
-
-                        if (inputStream != null) {
-                                prop.load(inputStream);
-                        } else {
-                                throw new FileNotFoundException(
-                                                "property file '" + propFileName + "' not found in the classpath");
-                        }
-
-                        this.dbUsername = prop.getProperty("user");
-                        this.dbPassword = prop.getProperty("password");
-                        this.database = prop.getProperty("database");
-
-                } catch (Exception e) {
-                        e.printStackTrace();
-                } finally {
-                        if (inputStream != null) {
-                                inputStream.close();
-                        }
-                }
-
-                this.dbOperator = new DatabaseOperator();
-                try {
-                        dbOperator.connect(dbUsername, dbPassword);
-                        dbOperator.useDatabase(database);
-
+                        this.dbOperator = new DatabaseOperator();
+                        dbOperator.connectAndUseDatabase();
                 } catch (SQLException | ClassNotFoundException e) {
                         e.printStackTrace();
                 }
@@ -62,43 +26,9 @@ public class User {
          * @param username the username to initialize the User object
          */
         public User(String username) {
-                InputStream inputStream = null;
-
                 try {
-                        Properties prop = new Properties();
-                        String propFileName = "config.properties";
-
-                        inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
-
-                        if (inputStream != null) {
-                                prop.load(inputStream);
-                        } else {
-                                throw new FileNotFoundException(
-                                                "property file '" + propFileName + "' not found in the classpath");
-                        }
-
-                        this.dbUsername = prop.getProperty("user");
-                        this.dbPassword = prop.getProperty("password");
-                        this.database = prop.getProperty("database");
-
-                } catch (Exception e) {
-                        e.printStackTrace();
-                } finally {
-
-                        try {
-                                if (inputStream != null) {
-                                        inputStream.close();
-                                }
-                        } catch (IOException e) {
-                                e.printStackTrace();
-                        }
-
-                }
-
-                this.dbOperator = new DatabaseOperator();
-                try {
-                        dbOperator.connect(dbUsername, dbPassword);
-                        dbOperator.useDatabase(database);
+                        this.dbOperator = new DatabaseOperator();
+                        dbOperator.connectAndUseDatabase();
                         this.username = username;
                         ArrayList<ArrayList<String>> result = dbOperator.showTableData("sys_user", "user_id,user_type",
                                         ("user_name = '" + username + "'"));
@@ -110,12 +40,12 @@ public class User {
         }
 
         public String checkUser(String username, String password) {
-                DatabaseOperator tmpOperator = new DatabaseOperator();
                 String access = "false";
                 try {
+                        DatabaseOperator tmpOperator = new DatabaseOperator();
+                        dbOperator.connectAndUseDatabase();
                         ArrayList<ArrayList<String>> result = tmpOperator.showTableData("sys_user",
                                         "password,user_type", ("user_name = '" + username + "'"));
-                        System.out.println(result);
                         String userPassword = result.get(0).get(0);
                         String userType = result.get(0).get(1);
 

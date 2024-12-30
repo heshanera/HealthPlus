@@ -47,8 +47,11 @@ public class DatabaseOperator {
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public static String dbClassName = "org.mariadb.jdbc.Driver";
-	public static String CONNECTION = "jdbc:mysql://127.0.0.1/";
+	public static String dbClassName = "";
+	public static String CONNECTION = "";
+	public static String username = "";
+	public static String password = "";
+	public static String database = "";
 
 	public static Connection c;
 
@@ -58,19 +61,25 @@ public class DatabaseOperator {
 	 * Constructor to initialize DatabaseOperator object.
 	 */
 	public DatabaseOperator() {
+		SystemConfiguration config = SystemConfiguration.getInstance();
+		DatabaseOperator.dbClassName = config.getConfig("dbClassName");
+		DatabaseOperator.CONNECTION = config.getConfig("connection");
+		DatabaseOperator.username = config.getConfig("user");
+		DatabaseOperator.password = config.getConfig("password");
+		DatabaseOperator.database = config.getConfig("database");
 	}
 
 	/**
 	 * Constructor to initialize DatabaseOperator with specific database class name
 	 * and connection string.
 	 * 
-	 * @param dbClassName the name of the database class (e.g.,
-	 *                    "org.mariadb.jdbc.Driver")
-	 * @param connection  the connection string to the database
+	 * @param databaseClassName the name of the database class (e.g.,
+	 *                          "org.mariadb.jdbc.Driver")
+	 * @param connection        the connection string to the database
 	 */
-	public DatabaseOperator(String dbClassName, String connection) {
-		DatabaseOperator.dbClassName = dbClassName;
-		DatabaseOperator.CONNECTION = connection;
+	public DatabaseOperator(String databaseClassName, String connection) {
+		dbClassName = databaseClassName;
+		CONNECTION = connection;
 	}
 
 	/**
@@ -81,12 +90,17 @@ public class DatabaseOperator {
 	 */
 	public void connect(String userName, String password) throws ClassNotFoundException, SQLException {
 		Class.forName(dbClassName);
-
 		Properties p = new Properties();
 		p.put("user", userName);
 		p.put("password", password);
-		// Try to connect
-		DatabaseOperator.c = DriverManager.getConnection(CONNECTION, p);
+		c = DriverManager.getConnection(CONNECTION, p);
+	}
+
+	/**
+	 * Connects to the database using the config username and password
+	 */
+	public void connect() throws ClassNotFoundException, SQLException {
+		connect(username, password);
 	}
 
 	/**
@@ -164,6 +178,14 @@ public class DatabaseOperator {
 
 			stmt.close();
 		}
+	}
+
+	/**
+	 * Connects and use database with config data
+	 */
+	public void connectAndUseDatabase() throws ClassNotFoundException, SQLException {
+		connect();
+		useDatabase(database);
 	}
 
 	/**

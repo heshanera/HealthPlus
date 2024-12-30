@@ -2,9 +2,9 @@ package Admin;
 
 import com.hms.hms_test_2.AllMessagesController;
 import com.hms.hms_test_2.CurrentUserSummaryController;
-import com.hms.hms_test_2.DatabaseOperator;
 import com.hms.hms_test_2.LogoutController;
 import com.hms.hms_test_2.SuccessIndicatorController;
+import com.hms.hms_test_2.SystemConfiguration;
 import com.hms.hms_test_2.Validate;
 import com.hms.hms_test_2.WarningController;
 import java.io.File;
@@ -872,10 +872,11 @@ public class AdminController extends AnchorPane {
     private PasswordField dbPasswordlbl;
 
     public void loadDatabaseInfo() {
-        databaselbl.setText(admin.database);
-        connectionlbl.setText(DatabaseOperator.CONNECTION);
-        dbDriver.setText(DatabaseOperator.dbClassName);
-        dbUsernamelbl.setText(admin.dbUsername);
+        SystemConfiguration config = SystemConfiguration.getInstance();
+        databaselbl.setText(config.getConfig("database"));
+        connectionlbl.setText(config.getConfig("connection"));
+        dbDriver.setText(config.getConfig("dbClassName"));
+        dbUsernamelbl.setText(config.getConfig("user"));
     }
 
     @FXML
@@ -921,10 +922,11 @@ public class AdminController extends AnchorPane {
         } else {
 
             try {
+                SystemConfiguration config = SystemConfiguration.getInstance();
                 String ip = "127.0.0.1";
-                String databaseSchema = admin.database;
-                String user = admin.dbUsername;
-                String path = "/home/heshan/";
+                String databaseSchema = config.getConfig("database");
+                String user = config.getConfig("user");
+                String path = "";
 
                 Stage stage = new Stage();
                 chooser.setTitle("Select Export Directory");
@@ -1057,11 +1059,6 @@ public class AdminController extends AnchorPane {
     private TextField suspendedtxt;
 
     public void fillStorageInfo() {
-        System.out.println(admin.database);
-        // System.out.println(admin.getSchemaSize(admin.database));
-
-        // String database = admin.getSchemaSize(admin.database).get(1).get(0);
-
         /*** dummy Values ***/
         String system = "0M";// admin.getDirectorySize("/home/heshan/NetBeansProjects/hms_test_2/");
 
@@ -1297,7 +1294,6 @@ public class AdminController extends AnchorPane {
         popOver.show(AllMessages);
 
     }
-
 
     /// Loading the profile info ////////////////////////////////////////
 

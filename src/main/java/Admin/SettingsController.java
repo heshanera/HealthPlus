@@ -1,17 +1,12 @@
 package Admin;
 
-import com.hms.hms_test_2.DatabaseOperator;
 import com.hms.hms_test_2.LoginController;
 import com.hms.hms_test_2.SuccessIndicatorController;
+import com.hms.hms_test_2.SystemConfiguration;
 import com.hms.hms_test_2.WarningController;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Properties;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,35 +43,16 @@ public class SettingsController extends AnchorPane {
     }
 
     String result = "";
-    InputStream inputStream;
 
     public void loadConfigFile() throws IOException {
         try {
-            Properties prop = new Properties();
-            String propFileName = "config.properties";
-
-            inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
-
-            if (inputStream != null) {
-                prop.load(inputStream);
-            } else {
-                throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
-            }
-
-            // get the property value and print it out
-            String connection = prop.getProperty("connection");
-            String user = prop.getProperty("user");
-            String database = prop.getProperty("database");
-
-            databaselbl.setText(database);
-            connectionlbl.setText(connection);
-            dbDriver.setText(DatabaseOperator.dbClassName);
-            dbUsernamelbl.setText(user);
-
+            SystemConfiguration config = SystemConfiguration.getInstance();
+            databaselbl.setText(config.getConfig("database"));
+            connectionlbl.setText(config.getConfig("connection"));
+            dbDriver.setText(config.getConfig("dbClassName"));
+            dbUsernamelbl.setText(config.getConfig("user"));
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            inputStream.close();
         }
 
     }
@@ -133,10 +109,11 @@ public class SettingsController extends AnchorPane {
         } else {
 
             try {
+                SystemConfiguration config = SystemConfiguration.getInstance();
                 String ip = "127.0.0.1";
-                String databaseSchema = admin.database;
-                String user = admin.dbUsername;
-                String path = "/home/heshan/";
+                String databaseSchema = config.getConfig("database");
+                String user = config.getConfig("user");
+                String path = "";
 
                 Stage stage = new Stage();
                 chooser.setTitle("Select Export Directory");
@@ -148,10 +125,10 @@ public class SettingsController extends AnchorPane {
                     showSuccessIndicator();
                     dbPasswordlbl.setText("");
                 } else {
-
                     showPasswordPopup();
                 }
             } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -162,80 +139,40 @@ public class SettingsController extends AnchorPane {
     @FXML
     private void editDatabaseInfo() {
         if (editDatabaseInfoButton.getText().equals("Edit")) {
-
             String pass = dbPasswordlbl.getText();
             if (pass.equals("")) {
                 showPasswordPopup();
-
             } else {
-
                 databaselbl.setEditable(true);
                 connectionlbl.setEditable(true);
                 dbUsernamelbl.setEditable(true);
                 dbDriver.setEditable(true);
-
                 editDatabaseInfoButton.setText("Save");
-
             }
-
         } else {
-
             try {
-
-                Properties prop = new Properties();
-
-                prop.setProperty("connection", connectionlbl.getText());
-                prop.setProperty("user", dbUsernamelbl.getText());
-                prop.setProperty("database", databaselbl.getText());
-
-                try {
-                    ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-                    URL url = classLoader.getResource("config.properties");
-                    prop.store(new FileOutputStream(new File(url.toURI())), null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                /*
-                 * String user = prop.getProperty("user");
-                 * String password = prop.getProperty("password");
-                 * String database = prop.getProperty("database");
-                 * 
-                 * databaselbl.setText(database);
-                 * 
-                 * dbDriver.setText(DatabaseOperator.dbClassName);
-                 * dbUsernamelbl.setText(user);
-                 * 
-                 * 
-                 */
-
+                SystemConfiguration config = SystemConfiguration.getInstance();
+                config.updateConfig("connection", connectionlbl.getText());
+                config.updateConfig("user", dbUsernamelbl.getText());
+                config.updateConfig("database", databaselbl.getText());
+                config.saveConfig();
             } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    inputStream.close();
-                } catch (Exception e) {
-                }
             }
-
             databaselbl.setEditable(false);
             connectionlbl.setEditable(false);
             dbUsernamelbl.setEditable(false);
             dbDriver.setEditable(false);
-
             editDatabaseInfoButton.setText("Edit");
-
         }
 
     }
 
     @FXML
     private void restart() {
-
         String pass = dbPasswordlbl.getText();
         if (pass.equals("")) {
             showPasswordPopup();
-
         } else {
             Stage stage2;
             stage2 = (Stage) adminC.getScene().getWindow();
