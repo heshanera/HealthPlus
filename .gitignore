@@ -17,3 +17,5 @@ Thumbs.db
 *.iml
 .idea/
 .vscode/
+nbactions.xml
+nb-configuration.xml
