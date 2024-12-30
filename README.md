@@ -6,7 +6,7 @@
 [![Maven](https://img.shields.io/badge/Maven-3.9.9-C71A36)](https://maven.apache.org/)&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-Apache%202.0-4CAF50)](https://github.com/heshanera/HealthPlus/blob/master/LICENSE)&nbsp;
 
-HealthPlus is a management system designed to streamline operations within healthcare facilities. It offers functionalities such as patient registration, appointment scheduling, medical record management, pharmacy billing, and inventory control. Developed using Java and JavaFX, HealthPlus provides an intuitive interface to enhance administrative efficiency and improve patient care.
+HealthPlus is a management system designed to streamline operations within healthcare facilities. It offers functionalities such as patient registration, appointment scheduling, medical record management, pharmacy billing, and inventory control. Developed using Java, JavaFX and uses MariaDB for database management
 
 ## The system includes
   - Registration of patients
@@ -27,9 +27,9 @@ HealthPlus is a management system designed to streamline operations within healt
 - [JavaFX](https://openjfx.io)
 
 ### Set Up the Database
-- Create a new database `test_HMS2`
-- Import the dummy data from [`hms_db.sql`](https://github.com/heshanera/HealthPlus/blob/master/database/hms_db.sql)
-- Updated the [`config.properties`](https://github.com/heshanera/HealthPlus/blob/master/config.properties) with your database credentials
+- Set up a new database named `test_HMS2`
+- Import the dummy data from [`hms_db.sql`](https://github.com/heshanera/HealthPlus/blob/master/database/hms_db.sql) to new DB
+- Update the system configuration in [`config.properties`](https://github.com/heshanera/HealthPlus/blob/master/config.properties) with your database credentials
 
 
 ### Build the App
@@ -37,19 +37,19 @@ HealthPlus is a management system designed to streamline operations within healt
 ```shell
 mvn dependency:resolve
 ```
-- Build the app 
+- Build 
 ```shell
 mvn clean install
 ```
-- Run the app
+- Run
 ```shell
 mvn javafx:run
 ```
 
 ### Authentication
-Since this was developed as a simple application, all the credentials are saved in a DB table in plain text format without any hashing or encryptions.
+Since this was developed as a simple application, all the credentials are saved in a database table in plain text format without any hashing or encryptions.
 
-#### View all existing users list
+#### View all existing users with credentials
 ```SQL
 USE test_HMS2;
 SELECT * FROM sys_user;
