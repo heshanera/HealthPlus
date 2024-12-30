@@ -1,5 +1,11 @@
 # HealthPlus
 
+[![Java](https://img.shields.io/badge/Java-OpenJDK%2017-007396)](https://openjdk.org/) &nbsp;
+[![JavaFX](https://img.shields.io/badge/JavaFX-v17.0.10-52d3aa)](https://openjfx.io)&nbsp;
+[![MariaDB](https://img.shields.io/badge/MariaDB-v11.6.2-4e629a)](https://mariadb.org/download)&nbsp;
+[![Maven](https://img.shields.io/badge/Maven-3.9.9-C71A36)](https://maven.apache.org/)&nbsp;
+[![License: MIT](https://img.shields.io/badge/License-Apache%202.0-4CAF50)](https://github.com/heshanera/HealthPlus/blob/master/LICENSE)&nbsp;
+
 HealthPlus is a management system designed to streamline operations within healthcare facilities. It offers functionalities such as patient registration, appointment scheduling, medical record management, pharmacy billing, and inventory control. Developed using Java and JavaFX, HealthPlus provides an intuitive interface to enhance administrative efficiency and improve patient care.
 
 ## The system includes
@@ -22,7 +28,7 @@ HealthPlus is a management system designed to streamline operations within healt
 
 ### Set Up the Database
 - Create a new database `test_HMS2`
-- Import the dummy data from `hms_db.sql`
+- Import the dummy data from [`hms_db.sql`](https://github.com/heshanera/HealthPlus/blob/master/database/hms_db.sql)
 
 
 ### Build the App
