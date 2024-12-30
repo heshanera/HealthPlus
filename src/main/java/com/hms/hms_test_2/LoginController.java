@@ -26,101 +26,95 @@ public class LoginController extends AnchorPane {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        
+
         try {
-            fxmlLoader.load();            
+            fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
-          
-    
+
     @FXML
     private TextField username;
     @FXML
     private PasswordField password;
-    
+
     @FXML
-    private void login() throws IOException
-    {
-        
+    private void login() throws IOException {
+
         String user = username.getText();
         String pass = password.getText();
-       
-        //System.out.println(user +" " + pass);
-        
+
+        // System.out.println(user +" " + pass);
+
         User tmpUser = new User();
-        
-        
-        try{
-    
+
+        try {
+
             String userType = tmpUser.checkUser(user, pass);
-            // String userType = "lab_assistant";  
+            // String userType = "lab_assistant";
             System.out.println(userType);
-            
-            switch (userType)
-            {
+
+            switch (userType) {
                 case "doctor":
                     loadDoctor(user);
-                    ((Node)(username)).getScene().getWindow().hide();
+                    ((Node) (username)).getScene().getWindow().hide();
                     break;
 
-                case "lab_assistant": 
+                case "lab_assistant":
                     loadLabAssistant(user);
-                    ((Node)(username)).getScene().getWindow().hide();
+                    ((Node) (username)).getScene().getWindow().hide();
                     break;
 
                 case "pharmacist":
                     loadPharmacist(user);
-                    ((Node)(username)).getScene().getWindow().hide();
+                    ((Node) (username)).getScene().getWindow().hide();
                     break;
 
                 case "cashier":
                     loadCashier(user);
-                    ((Node)(username)).getScene().getWindow().hide();
+                    ((Node) (username)).getScene().getWindow().hide();
                     break;
                 case "receptionist":
                     loadReceptionist(user);
-                    ((Node)(username)).getScene().getWindow().hide();
+                    ((Node) (username)).getScene().getWindow().hide();
                     break;
                 case "admin":
                     loadAdmin(user);
-                    ((Node)(username)).getScene().getWindow().hide();
+                    ((Node) (username)).getScene().getWindow().hide();
                     break;
                 case "false":
                     showPopup("Incorrect Password", password);
-                    break;    
-            }    
-        }catch(Exception e) {
-        
-            // incorect username
+                    break;
+            }
+        } catch (Exception e) {
+
+            // incorrect username
             showPopup("Incorrect Username", username);
             e.printStackTrace();
-        
-        }    
-    
-    }       
-    
-    
-    public void loadDoctor(String username)
-    {
+
+        }
+
+    }
+
+    public void loadDoctor(String username) {
         Stage stage = new Stage();
         DoctorController doctor = new DoctorController(username);
-        
+
         doctor.fillAreaChart();
         doctor.setAppointments();
-        doctor.loadProfileData(); 
+        doctor.loadProfileData();
         doctor.MakeAvailabilityTable();
         doctor.loadDrugList();
         doctor.loadTestList();
         doctor.setPaceholders();
         doctor.addFocusListener();
         doctor.loadNameList();
-        
+
         stage.setScene(new Scene(doctor));
-        
+
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
+        // set Stage boundaries to visible bounds of the main screen
         stage.setX(primaryScreenBounds.getMinX());
         stage.setY(primaryScreenBounds.getMinY());
         stage.setWidth(primaryScreenBounds.getWidth());
@@ -128,24 +122,23 @@ public class LoginController extends AnchorPane {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
-    
-    public void loadPharmacist(String username)
-    {
+
+    public void loadPharmacist(String username) {
         Stage stage = new Stage();
         PharmacistController pharmacist = new PharmacistController(username);
-        
-        pharmacist.loadProfileData(); 
+
+        pharmacist.loadProfileData();
         pharmacist.makeStockTable();
         pharmacist.fillBarChart();
         pharmacist.fillPieChart();
         pharmacist.setPaceholders();
         pharmacist.loadNameList();
         pharmacist.addFocusListener();
-        
+
         stage.setScene(new Scene(pharmacist));
-        
+
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
+        // set Stage boundaries to visible bounds of the main screen
         stage.setX(primaryScreenBounds.getMinX());
         stage.setY(primaryScreenBounds.getMinY());
         stage.setWidth(primaryScreenBounds.getWidth());
@@ -153,22 +146,21 @@ public class LoginController extends AnchorPane {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
-     
-    public void loadReceptionist(String username)
-    {
+
+    public void loadReceptionist(String username) {
         Stage stage = new Stage();
         ReceptionistController receptionist = new ReceptionistController(username);
-        
-        receptionist.loadProfileData(); 
+
+        receptionist.loadProfileData();
         receptionist.makeSummaryTable();
         receptionist.fillLineChart();
         receptionist.fillCurrentDoctors();
-        //receptionist.fillConsultationAreas();
+        // receptionist.fillConsultationAreas();
         receptionist.setPaceholders();
         stage.setScene(new Scene(receptionist));
-        
+
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
+        // set Stage boundaries to visible bounds of the main screen
         stage.setX(primaryScreenBounds.getMinX());
         stage.setY(primaryScreenBounds.getMinY());
         stage.setWidth(primaryScreenBounds.getWidth());
@@ -176,24 +168,23 @@ public class LoginController extends AnchorPane {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
-    
-    public void loadCashier(String username)
-    {
+
+    public void loadCashier(String username) {
         Stage stage = new Stage();
         CashierController cashier = new CashierController(username);
-        
-        cashier.loadProfileData(); 
+
+        cashier.loadProfileData();
         cashier.makeHistoryTable();
         cashier.fillLineChart();
         cashier.setPaceholders();
         cashier.loadNameList();
         cashier.addFocusListener();
         cashier.loadRefunds();
-        
+
         stage.setScene(new Scene(cashier));
-        
+
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
+        // set Stage boundaries to visible bounds of the main screen
         stage.setX(primaryScreenBounds.getMinX());
         stage.setY(primaryScreenBounds.getMinY());
         stage.setWidth(primaryScreenBounds.getWidth());
@@ -201,27 +192,23 @@ public class LoginController extends AnchorPane {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
-    
-    public void loadAdmin(String username)
-    {
+
+    public void loadAdmin(String username) {
         Stage stage = new Stage();
         AdminController admin = new AdminController(username);
-        
-        admin.loadProfileData(); 
-        
-        //admin.loadTheme();
-        //admin.filldatabaseStorageChart();
-        //admin.fillLineChart();
+
+        admin.loadProfileData();
+
         admin.filldatabaseStorageChart("u");
         admin.addFocusListener();
         admin.loadDatabaseInfo();
         admin.fillAccountCounts();
         admin.setPaceholders();
-        
+
         stage.setScene(new Scene(admin));
-        
+
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
+        // set Stage boundaries to visible bounds of the main screen
         stage.setX(primaryScreenBounds.getMinX());
         stage.setY(primaryScreenBounds.getMinY());
         stage.setWidth(primaryScreenBounds.getWidth());
@@ -229,38 +216,35 @@ public class LoginController extends AnchorPane {
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
     }
-    
-    public void loadLabAssistant(String username)
-    {
+
+    public void loadLabAssistant(String username) {
         Stage stage = new Stage();
         LabAssistantController lab = new LabAssistantController(username);
-        lab.loadProfileData(); 
+        lab.loadProfileData();
         lab.fillPieChart();
         lab.setAppointments();
         lab.fillLabAppiontments();
         lab.addFocusListener();
         lab.setPaceholders();
         lab.fillTodayAppointments();
-        
+
         stage.setScene(new Scene(lab));
-        
+
         Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-        //set Stage boundaries to visible bounds of the main screen
+        // set Stage boundaries to visible bounds of the main screen
         stage.setX(primaryScreenBounds.getMinX());
         stage.setY(primaryScreenBounds.getMinY());
         stage.setWidth(primaryScreenBounds.getWidth());
         stage.setHeight(primaryScreenBounds.getHeight());
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
-    }        
-    
-    PopOver popOver = new PopOver();
-    
-    private void showPopup(String message, TextField text)
-    { 
+    }
 
-        if (popOver == null) 
-        {
+    PopOver popOver = new PopOver();
+
+    private void showPopup(String message, TextField text) {
+
+        if (popOver == null) {
             popOver = new PopOver();
         }
         ErrorController popup = new ErrorController();
@@ -274,9 +258,5 @@ public class LoginController extends AnchorPane {
         popOver.setDetachable(false);
         popOver.show(text);
     }
-    
-    
+
 }
-
-
-

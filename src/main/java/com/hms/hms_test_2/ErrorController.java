@@ -1,9 +1,3 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.hms.hms_test_2;
 
 import java.io.IOException;
@@ -22,21 +16,19 @@ public class ErrorController extends AnchorPane {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Error.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        
+
         try {
-            fxmlLoader.load();            
+            fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
-    
 
-    @FXML Label formatLabel;
+    @FXML
+    Label formatLabel;
+
     public void addMessage(String message) {
-        
         formatLabel.setText(message);
-
     }
-    
-}
 
+}

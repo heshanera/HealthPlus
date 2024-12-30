@@ -1,7 +1,6 @@
 
 .tab-pane 
 {
--fx-skin: "com.sun.javafx.scene.control.skin.TabPaneSkin";
 -fx-tab-min-width: 100px; /* 55 */
 -fx-tab-max-width: 100px; /* 55 */
 -fx-tab-min-height: 35px; /* 24 */
@@ -15,7 +14,6 @@
 }
 .tab .tab-label 
 {
--fx-skin: "com.sun.javafx.scene.control.skin.LabelSkin";
 -fx-background-color: transparent;    
 -fx-alignment: CENTER;
 -fx-text-fill: #ffffff;

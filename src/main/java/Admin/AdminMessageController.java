@@ -13,30 +13,26 @@ import javafx.scene.layout.AnchorPane;
  */
 public class AdminMessageController extends AnchorPane {
 
-
-    public AdminMessageController() 
-    {
+    public AdminMessageController() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/adminMessage.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
-        
         try {
-            fxmlLoader.load();            
+            fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
-    
-    @FXML TextField receiver;
-    @FXML TextArea message;
-    
-    
-    public void setPaceholders()
-    {
+
+    @FXML
+    TextField receiver;
+    @FXML
+    TextArea message;
+
+    public void setPaceholders() {
         receiver.setPromptText("Receiver");
         message.setPromptText("Type Message Here");
-    } 
-    
+    }
 
 }

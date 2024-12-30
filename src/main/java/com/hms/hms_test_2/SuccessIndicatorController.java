@@ -1,6 +1,5 @@
 package com.hms.hms_test_2;
 
-
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,24 +14,22 @@ public class SuccessIndicatorController extends AnchorPane {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/ProgressIndicator.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        
 
         try {
-            fxmlLoader.load();            
+            fxmlLoader.load();
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
     }
-    
+
     @FXML
     public Button saveSuccess;
-    
+
     @FXML
     public void saveSuccessExit(ActionEvent event) {
- 
-    Stage stage; 
-        if(event.getSource()== saveSuccess)
-        {
+
+        Stage stage;
+        if (event.getSource() == saveSuccess) {
             stage = (Stage) saveSuccess.getScene().getWindow();
             stage.close();
         }
