@@ -29,6 +29,7 @@ HealthPlus is a management system designed to streamline operations within healt
 ### Set Up the Database
 - Create a new database `test_HMS2`
 - Import the dummy data from [`hms_db.sql`](https://github.com/heshanera/HealthPlus/blob/master/database/hms_db.sql)
+- Updated the [`config.properties`](https://github.com/heshanera/HealthPlus/blob/master/config.properties) with your database credentials
 
 
 ### Build the App
