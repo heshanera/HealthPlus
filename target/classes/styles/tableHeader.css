@@ -1,9 +1,0 @@
-.column-header-background { visibility: hidden; -fx-padding: -1em; }
-
-.table-row-cell {
-    -fx-cell-size: 55px;
-}
-
-#reportTable{
-     -fx-cell-size: 25px;
-}
