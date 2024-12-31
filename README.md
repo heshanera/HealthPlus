@@ -15,9 +15,9 @@ HealthPlus is a management system designed to streamline operations within healt
   - Billing in the pharmacy
   - Pharmacy stock controlling
 
-## High Level System Architecture
+## Workflow and Component Interactions
 
-<img src="https://github.com/heshanera/HealthPlus/blob/master/screenshots/componentInteractions.png" alt="componentInteractions" width="100%">
+<img src="https://github.com/heshanera/HealthPlus/blob/master/screenshots/componentInteractions2.png" alt="componentInteractions" width="100%">
 
 ## Setting Up the Application
 
@@ -29,7 +29,7 @@ HealthPlus is a management system designed to streamline operations within healt
 ### Set Up the Database
 - Set up a new database named `test_HMS2`
 - Import the dummy data from [`hms_db.sql`](https://github.com/heshanera/HealthPlus/blob/master/database/hms_db.sql) to new DB
-- Update the system configuration in [`config.properties`](https://github.com/heshanera/HealthPlus/blob/master/config.properties) with your database credentials
+- Update the system configuration in [`config.properties`](https://github.com/heshanera/HealthPlus/blob/master/config.properties) with the database credentials
 
 
 ### Build the App
