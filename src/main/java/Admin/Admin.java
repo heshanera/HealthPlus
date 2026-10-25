@@ -850,7 +850,9 @@ public class Admin extends User {
                 if (data != null) {
                         int tmpSize = data.size();
                         for (int i = 1; i < tmpSize; i++) {
-                                supplierNames.put(data.get(i).get(0), data.get(i).get(1));
+                                if (data.get(i) != null && data.get(i).size() >= 2) {
+                                    supplierNames.put(data.get(i).get(0), data.get(i).get(1));
+                                }
                         }
                 }
 

@@ -89,6 +89,19 @@ public class Pharmacist extends User {
 		return data;
 	}
 
+	public String getPatientIDByNIC(String nic) {
+		String sql = "SELECT patient.patient_id FROM person INNER JOIN patient ON person.person_id = patient.person_id WHERE person.nic = '" + nic + "';";
+		try {
+			ArrayList<ArrayList<String>> data = super.dbOperator.customSelection(sql);
+			if (data != null && data.size() > 1 && !data.get(1).isEmpty()) {
+				return data.get(1).get(0);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 	public ArrayList<ArrayList<String>> getPrescribedDoc(String patientID) {
 		String sql = "SELECT consultant_id FROM prescription WHERE patient_id = '" + patientID + "'" +
 				"AND date = (SELECT MAX(date) FROM prescription);";
@@ -516,7 +529,9 @@ public class Pharmacist extends User {
 		if (data != null) {
 			int tmpSize = data.size();
 			for (int i = 1; i < tmpSize; i++) {
-				supplierNames.put(data.get(i).get(0), data.get(i).get(1));
+				if (data.get(i) != null && data.get(i).size() >= 2) {
+				    supplierNames.put(data.get(i).get(0), data.get(i).get(1));
+				}
 			}
 		}
 

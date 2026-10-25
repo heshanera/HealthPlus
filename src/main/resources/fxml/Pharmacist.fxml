@@ -329,6 +329,11 @@
                                          <Glyph fontFamily="FontAwesome" fontSize="15.0" icon="ERASER" textFill="#eee" />
                                        </graphic>
                                     </Button>
+                                    <Button id="dark-blue" fx:id="gemmaAiPharmacistButton" maxHeight="30.0" maxWidth="115.0" minHeight="30.0" minWidth="115.0" mnemonicParsing="false" onAction="#openGemmaAiPharmacist" stylesheets="@../styles/buttons.css" text="💊 Gemma AI" GridPane.columnIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="255.0" />
+                                       </GridPane.margin>
+                                    </Button>
                                     <Button id="dark-blue" maxHeight="30.0" maxWidth="60.0" minHeight="30.0" minWidth="60.0" mnemonicParsing="false" onAction="#issueBill" stylesheets="@../styles/buttons.css" text="Issue" GridPane.columnIndex="1">
                                        <GridPane.margin>
                                           <Insets left="180.0" />

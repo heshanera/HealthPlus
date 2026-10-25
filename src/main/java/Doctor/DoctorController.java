@@ -1,5 +1,7 @@
 package Doctor;
 
+import com.hms.hms_test_2.ai.GemmaAICoPilotController;
+
 import LabAssistant.LabReport;
 import com.hms.hms_test_2.AllMessagesController;
 import com.hms.hms_test_2.CurrentUserSummaryController;
@@ -905,6 +907,50 @@ public class DoctorController extends AnchorPane {
 
     @FXML
     private TextArea diagnosisText;
+
+    @FXML
+    private Button gemmaAiButton;
+
+    @FXML
+    private void openGemmaAi(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GemmaAICoPilot.fxml"));
+            GemmaAICoPilotController controller = new GemmaAICoPilotController();
+            loader.setController(controller);
+            Parent root = loader.load();
+
+            String symptoms = diagnosisText != null ? diagnosisText.getText() : "";
+            String patientId = patientSearchValue != null ? patientSearchValue.getText() : "";
+            String allergies = "";
+            try {
+                if (doc != null && patientId != null && !patientId.trim().isEmpty()) {
+                    allergies = doc.getAllergies(patientId);
+                }
+            } catch (Exception ex) {
+            }
+
+            List<String> drugs = new ArrayList<>();
+            if (prescription != null && !prescription.getItems().isEmpty()) {
+                drugs.addAll(prescription.getItems());
+            }
+
+            controller.prefillPatientData(symptoms, "Patient ID: " + patientId, drugs, allergies);
+            controller.setDiagnosisApplyCallback(suggestedDiagnosis -> {
+                if (diagnosisText != null) {
+                    diagnosisText.setText(suggestedDiagnosis);
+                }
+            });
+
+            Stage stage = new Stage();
+            stage.setTitle("Gemma 4 Clinical AI Co-Pilot");
+            stage.initStyle(StageStyle.UNDECORATED);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private Button savePatientDiag;

@@ -573,13 +573,23 @@ public class ReportsController extends AnchorPane {
         HashMap<String, String> supplierNames = admin.getSupplierNames();
 
         ArrayList<ArrayList<String>> suppliers = admin.getSupplierSummary();
-        int noOfSuppliers = suppliers.get(0).size();
-
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-        for (int i = 0; i < noOfSuppliers; i++) {
-            String supplierID = suppliers.get(0).get(i);
-            int stocks = Integer.parseInt(suppliers.get(1).get(i));
-            pieChartData.add(new PieChart.Data(supplierNames.get(supplierID), stocks));
+
+        if (suppliers != null && !suppliers.isEmpty() && suppliers.get(0) != null) {
+            int noOfSuppliers = suppliers.get(0).size();
+            for (int i = 0; i < noOfSuppliers; i++) {
+                String supplierID = suppliers.get(0).get(i);
+                int stocks = 0;
+                try {
+                    if (suppliers.size() > 1 && suppliers.get(1) != null && suppliers.get(1).size() > i) {
+                        stocks = Integer.parseInt(suppliers.get(1).get(i));
+                    }
+                } catch (NumberFormatException e) {
+                    stocks = 0;
+                }
+                String name = (supplierNames != null && supplierNames.containsKey(supplierID)) ? supplierNames.get(supplierID) : supplierID;
+                pieChartData.add(new PieChart.Data(name != null ? name : supplierID, stocks));
+            }
         }
 
         pieChartData.forEach(data -> data.nameProperty().bind(

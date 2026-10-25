@@ -1,5 +1,7 @@
 package Pharmacist;
 
+import com.hms.hms_test_2.ai.GemmaAICoPilotController;
+
 import com.hms.hms_test_2.AllMessagesController;
 import com.hms.hms_test_2.CurrentUserSummaryController;
 import com.hms.hms_test_2.LogoutController;
@@ -93,23 +95,45 @@ public class PharmacistController extends AnchorPane {
                 patientSearchValue.setStyle("-fx-border-color: #999 #999 #999 #999;");
                 switch (selectedValue) {
                     case "Patient ID":
-                        prescriptionData = pharmacist.getPrescriptionInfo(searchValue);
+                        prescriptionData = pharmacist.getPrescriptionInfo(searchValue.trim());
                         break;
                     case "Name":
-                        // patientData = pharmacist.getPrescriptionInfo(searchValue);
+                        String resolvedId = null;
+                        String[] parts = searchValue.trim().split("\\s+");
+                        if (parts.length > 0 && parts[parts.length - 1].matches("hms\\d+pa")) {
+                            resolvedId = parts[parts.length - 1];
+                        } else {
+                            ArrayList<ArrayList<String>> names = pharmacist.getAllNames();
+                            if (names != null) {
+                                for (int i = 1; i < names.size(); i++) {
+                                    String fn = names.get(i).get(1);
+                                    String ln = names.get(i).get(2);
+                                    String fullName = (fn + " " + ln).toLowerCase();
+                                    if (fullName.contains(searchValue.trim().toLowerCase())) {
+                                        resolvedId = names.get(i).get(0);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        if (resolvedId != null) {
+                            prescriptionData = pharmacist.getPrescriptionInfo(resolvedId);
+                        }
                         break;
                     case "NIC":
-                        // patientData = pharmacist.getPrescriptionInfo(searchValue);
+                        String patientIdFromNIC = pharmacist.getPatientIDByNIC(searchValue.trim());
+                        if (patientIdFromNIC != null) {
+                            prescriptionData = pharmacist.getPrescriptionInfo(patientIdFromNIC);
+                        }
                         break;
                     default:
                         break;
                 }
 
-                if (prescriptionData.size() > 1) {
+                if (prescriptionData != null && prescriptionData.size() > 1) {
                     fillListSelection(prescriptionData);
-
                 } else {
-
+                    showPopup("No active prescription found for patient", patientSearchValue);
                 }
 
             } else {
@@ -118,7 +142,6 @@ public class PharmacistController extends AnchorPane {
         } else {
             searchTypePatientPharmacist.setStyle("-fx-border-color: red;");
         }
-
     }
 
     @FXML
@@ -152,11 +175,22 @@ public class PharmacistController extends AnchorPane {
 
     @FXML
     private void fillListSelection(ArrayList<ArrayList<String>> prescriptionData) {
-        String[] drugs = prescriptionData.get(1).get(0).split(Pattern.quote("|"));
+        if (prescriptionData == null || prescriptionData.size() <= 1 || prescriptionData.get(1) == null || prescriptionData.get(1).isEmpty()) {
+            return;
+        }
+        String drugString = prescriptionData.get(1).get(0);
+        if (drugString == null || drugString.trim().isEmpty()) {
+            return;
+        }
+        view.getSourceItems().clear();
+        view.getTargetItems().clear();
+        String[] drugs = drugString.split(Pattern.quote("|"));
 
         int tmpSize = drugs.length;
         for (int i = 0; i < tmpSize; i++) {
-            view.getSourceItems().add(drugs[i]);
+            if (!drugs[i].trim().isEmpty()) {
+                view.getSourceItems().add(drugs[i]);
+            }
         }
     }
 
@@ -319,6 +353,39 @@ public class PharmacistController extends AnchorPane {
     }
 
     @FXML
+    private Button gemmaAiPharmacistButton;
+
+    @FXML
+    private void openGemmaAiPharmacist(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/GemmaAICoPilot.fxml"));
+            GemmaAICoPilotController aiController = new GemmaAICoPilotController();
+            loader.setController(aiController);
+            Parent root = loader.load();
+
+            List<String> drugs = new ArrayList<>();
+            if (view != null && view.getTargetItems() != null) {
+                drugs.addAll(view.getTargetItems());
+            }
+            if (drugs.isEmpty() && view != null && view.getSourceItems() != null) {
+                drugs.addAll(view.getSourceItems());
+            }
+
+            aiController.prefillPatientData("", "Pharmacist Consultation", drugs, "");
+            aiController.selectTab(2);
+
+            Stage stage = new Stage();
+            stage.setTitle("Gemma 4 Pharmacy AI Co-Pilot");
+            stage.initStyle(StageStyle.UNDECORATED);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void issueBill() {
         String patient = patientSearchValue.getText();
         String billValue = billFee.getText();
@@ -463,13 +530,23 @@ public class PharmacistController extends AnchorPane {
         HashMap<String, String> supplierNames = pharmacist.getSupplierNames();
 
         ArrayList<ArrayList<String>> suppliers = pharmacist.getSupplierSummary();
-        int noOfSuppliers = suppliers.get(0).size();
-
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-        for (int i = 0; i < noOfSuppliers; i++) {
-            String supplierID = suppliers.get(0).get(i);
-            int stocks = Integer.parseInt(suppliers.get(1).get(i));
-            pieChartData.add(new PieChart.Data(supplierNames.get(supplierID), stocks));
+
+        if (suppliers != null && !suppliers.isEmpty() && suppliers.get(0) != null) {
+            int noOfSuppliers = suppliers.get(0).size();
+            for (int i = 0; i < noOfSuppliers; i++) {
+                String supplierID = suppliers.get(0).get(i);
+                int stocks = 0;
+                try {
+                    if (suppliers.size() > 1 && suppliers.get(1) != null && suppliers.get(1).size() > i) {
+                        stocks = Integer.parseInt(suppliers.get(1).get(i));
+                    }
+                } catch (NumberFormatException e) {
+                    stocks = 0;
+                }
+                String name = (supplierNames != null && supplierNames.containsKey(supplierID)) ? supplierNames.get(supplierID) : supplierID;
+                pieChartData.add(new PieChart.Data(name != null ? name : supplierID, stocks));
+            }
         }
 
         pieChartData.forEach(data1 -> data1.nameProperty().bind(
@@ -479,7 +556,6 @@ public class PharmacistController extends AnchorPane {
         piechart.setLegendSide(Side.BOTTOM);
         piechart.setLabelsVisible(true);
         piechart.setData(pieChartData);
-
     }
 
     @FXML
@@ -504,10 +580,7 @@ public class PharmacistController extends AnchorPane {
             Collections.sort(data, new Comparator<Drug>() {
                 @Override
                 public int compare(Drug drug1, Drug drug2) {
-                    if (drug1.getAmount() < drug2.getAmount())
-                        return drug2.getAmount();
-                    else
-                        return drug1.getAmount();
+                    return Integer.compare(drug2.getAmount(), drug1.getAmount());
                 }
             });
 

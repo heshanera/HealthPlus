@@ -36,6 +36,19 @@ public class SystemConfiguration {
         return properties.getProperty(key);
     }
 
+    public synchronized String getConfig(String key, String defaultValue) {
+        String val = properties.getProperty(key);
+        if (val == null || val.trim().isEmpty()) {
+            String envKey = key.toUpperCase().replace('.', '_');
+            String envVal = System.getenv(envKey);
+            if (envVal != null && !envVal.trim().isEmpty()) {
+                return envVal;
+            }
+            return defaultValue;
+        }
+        return val;
+    }
+
     public synchronized void updateConfig(String key, String value) {
         properties.setProperty(key, value);
     }

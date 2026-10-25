@@ -278,6 +278,11 @@
                                           <Insets left="10.0" right="10.0" top="40.0" />
                                        </GridPane.margin>
                                     </TextArea>
+                                    <Button id="dark-blue" fx:id="gemmaAiButton" contentDisplay="CENTER" maxHeight="30.0" maxWidth="110.0" minHeight="30.0" minWidth="110.0" mnemonicParsing="false" onAction="#openGemmaAi" stylesheets="@../styles/buttons.css" text="🧠 Gemma AI" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" />
+                                       </GridPane.margin>
+                                    </Button>
                                     <Button id="dark-blue" fx:id="savePatientDiag" contentDisplay="CENTER" maxHeight="30.0" maxWidth="70.0" minHeight="30.0" minWidth="70.0" mnemonicParsing="false" onAction="#savePatientDiagnosis" stylesheets="@../styles/buttons.css" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                        <GridPane.margin>
                                           <Insets left="90.0" />

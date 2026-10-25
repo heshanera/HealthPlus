@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="850.0" style="-fx-background-color: #f4f6f9; -fx-border-color: #34495e; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <!-- Header Banner -->
+      <VBox layoutX="2.0" layoutY="2.0" prefHeight="75.0" prefWidth="846.0" style="-fx-background-color: #1a5276;" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+               <children>
+                  <Label text="HealthPlus" textFill="#5dade2">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label text="| Gemma 4 Clinical &amp; Pharmacy AI Co-Pilot" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="modelBadge" style="-fx-background-color: #27ae60; -fx-background-radius: 12; -fx-padding: 4 10 4 10;" text="Gemma 4 (26B-A4B-IT)" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="11.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="closeButton" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 16; -fx-cursor: hand;" text="✕">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <Label text="Open-Weight Clinical Intelligence with Multi-Step Thinking Reasoning · MLH Build with Gemma" textFill="#d4e6f1">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" top="4.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+
+      <!-- Main Tabs -->
+      <TabPane fx:id="tabPane" layoutX="14.0" layoutY="85.0" prefHeight="550.0" prefWidth="822.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="85.0">
+        <tabs>
+
+          <!-- Tab 1: Diagnostic Copilot -->
+          <Tab text="  🩺 Diagnostic Copilot  ">
+            <content>
+              <VBox spacing="10.0">
+                 <children>
+                    <HBox spacing="15.0">
+                       <children>
+                          <VBox prefWidth="380.0" spacing="5.0">
+                             <children>
+                                <Label text="Presenting Symptoms &amp; Clinical Signs:" textFill="#2c3e50">
+                                   <font>
+                                      <Font name="System Bold" size="12.0" />
+                                   </font>
+                                </Label>
+                                <TextArea fx:id="symptomsInput" prefHeight="95.0" prefWidth="380.0" promptText="e.g. Sharp chest pain radiating to left shoulder, shortness of breath, diaphoresis for 40 mins..." wrapText="true" />
+                             </children>
+                          </VBox>
+                          <VBox prefWidth="380.0" spacing="5.0">
+                             <children>
+                                <Label text="Patient Context (Age, Gender, Allergies, History):" textFill="#2c3e50">
+                                   <font>
+                                      <Font name="System Bold" size="12.0" />
+                                   </font>
+                                </Label>
+                                <TextArea fx:id="patientContextInput" prefHeight="95.0" prefWidth="380.0" promptText="e.g. 54M, Hypertensive on medication, Penicillin allergy..." wrapText="true" />
+                             </children>
+                          </VBox>
+                       </children>
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12.0">
+                       <children>
+                          <Button fx:id="analyzeSymptomsButton" mnemonicParsing="false" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 4; -fx-padding: 8 16 8 16; -fx-cursor: hand;" text="🧠 Analyze with Gemma 4 (Thinking Mode)" />
+                          <Button fx:id="applyDiagnosisButton" mnemonicParsing="false" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 4; -fx-padding: 8 14 8 14; -fx-cursor: hand;" text="📋 Apply to Doctor Diagnosis" />
+                          <ProgressIndicator fx:id="diagnosticProgress" prefHeight="26.0" prefWidth="26.0" visible="false" />
+                       </children>
+                    </HBox>
+
+                    <!-- Gemma Thinking Process (Accordion) -->
+                    <TitledPane fx:id="thinkingAccordion" expanded="false" text="🔍 Gemma 4 Clinical Thinking Process (Click to Inspect Reasoning)">
+                       <content>
+                          <TextArea fx:id="thinkingOutput" editable="false" prefHeight="80.0" style="-fx-font-family: monospace; -fx-font-size: 11; -fx-text-fill: #555;" wrapText="true" />
+                       </content>
+                    </TitledPane>
+
+                    <!-- Clinical Findings -->
+                    <Label text="Clinical Differential &amp; Recommended Diagnostic Lab Tests:" textFill="#2c3e50">
+                       <font>
+                          <Font name="System Bold" size="12.0" />
+                       </font>
+                    </Label>
+                    <TextArea fx:id="diagnosticOutput" editable="false" prefHeight="170.0" style="-fx-font-size: 12;" wrapText="true" VBox.vgrow="ALWAYS" />
+                 </children>
+                 <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+              </VBox>
+            </content>
+          </Tab>
+
+          <!-- Tab 2: Prescription Safety & Interaction Check -->
+          <Tab text="  🛡️ Prescription Safety &amp; Allergies  ">
+            <content>
+              <VBox spacing="10.0">
+                 <children>
+                    <HBox spacing="15.0">
+                       <children>
+                          <VBox prefWidth="380.0" spacing="5.0">
+                             <children>
+                                <Label text="Prescribed Medications to Evaluate:" textFill="#2c3e50">
+                                   <font>
+                                      <Font name="System Bold" size="12.0" />
+                                   </font>
+                                </Label>
+                                <TextArea fx:id="prescribedDrugsInput" prefHeight="95.0" prefWidth="380.0" promptText="e.g. Amoxicillin 500mg, Ibuprofen 400mg, Atorvastatin 20mg..." wrapText="true" />
+                             </children>
+                          </VBox>
+                          <VBox prefWidth="380.0" spacing="5.0">
+                             <children>
+                                <Label text="Documented Patient Allergies &amp; Existing Conditions:" textFill="#2c3e50">
+                                   <font>
+                                      <Font name="System Bold" size="12.0" />
+                                   </font>
+                                </Label>
+                                <TextArea fx:id="safetyAllergiesInput" prefHeight="95.0" prefWidth="380.0" promptText="e.g. Known penicillin allergy, history of peptic ulcer disease..." wrapText="true" />
+                             </children>
+                          </VBox>
+                       </children>
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12.0">
+                       <children>
+                          <Button fx:id="checkSafetyButton" mnemonicParsing="false" style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 4; -fx-padding: 8 16 8 16; -fx-cursor: hand;" text="⚡ Run Gemma Safety &amp; Allergy Check" />
+                          <ProgressIndicator fx:id="safetyProgress" prefHeight="26.0" prefWidth="26.0" visible="false" />
+                       </children>
+                    </HBox>
+
+                    <Label text="Safety Evaluation, Allergy Warnings &amp; Drug-Drug Interactions:" textFill="#2c3e50">
+                       <font>
+                          <Font name="System Bold" size="12.0" />
+                       </font>
+                    </Label>
+                    <TextArea fx:id="safetyOutput" editable="false" prefHeight="260.0" style="-fx-font-size: 12;" wrapText="true" VBox.vgrow="ALWAYS" />
+                 </children>
+                 <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+              </VBox>
+            </content>
+          </Tab>
+
+          <!-- Tab 3: Pharmacy Substitution & Counseling -->
+          <Tab text="  💊 Pharmacy Assistant  ">
+            <content>
+              <VBox spacing="10.0">
+                 <children>
+                    <HBox alignment="CENTER_LEFT" spacing="15.0">
+                       <children>
+                          <Label text="Out of Stock / Inquired Drug:" textFill="#2c3e50">
+                             <font>
+                                <Font name="System Bold" size="12.0" />
+                             </font>
+                          </Label>
+                          <TextField fx:id="pharmacyDrugInput" prefHeight="30.0" prefWidth="300.0" promptText="e.g. Augmentin 625mg or Paracetamol" />
+                          <Button fx:id="findSubstituteButton" mnemonicParsing="false" style="-fx-background-color: #8e44ad; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 4; -fx-padding: 6 14 6 14; -fx-cursor: hand;" text="🔄 Find Generic Substitutes" />
+                          <Button fx:id="counselingButton" mnemonicParsing="false" style="-fx-background-color: #16a085; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 4; -fx-padding: 6 14 6 14; -fx-cursor: hand;" text="🗣️ Patient Counseling Guide" />
+                          <ProgressIndicator fx:id="pharmacyProgress" prefHeight="26.0" prefWidth="26.0" visible="false" />
+                       </children>
+                    </HBox>
+
+                    <Label text="Pharmacy Guidance &amp; Therapeutic Equivalents:" textFill="#2c3e50">
+                       <font>
+                          <Font name="System Bold" size="12.0" />
+                       </font>
+                    </Label>
+                    <TextArea fx:id="pharmacyOutput" editable="false" prefHeight="350.0" style="-fx-font-size: 12;" wrapText="true" VBox.vgrow="ALWAYS" />
+                 </children>
+                 <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+              </VBox>
+            </content>
+          </Tab>
+
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
